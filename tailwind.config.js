@@ -27,7 +27,7 @@ module.exports = {
       'gray': {
         100: '#f7f8fe',
         200: '#b7b7b7',
-        300: '#dbdbdb',
+        300: '#dddddd',
         900: '#323133'
       },
       'orange': {
@@ -88,7 +88,8 @@ module.exports = {
         '0-auto': '0 auto',
       },
       gridTemplateColumns:{
-        'custom': '2fr 1fr 1fr',
+        'custom211': '2fr 1fr 1fr',
+        'custom13': '1fr 3fr',
       }
     }
 

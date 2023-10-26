@@ -14,7 +14,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-custom gap-4">
+      <div class="grid grid-cols-custom211 gap-4">
         <div class="bg-white h-48">
           hola
         </div>

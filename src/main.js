@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import './assets/css/tailwind.css'
 import 'primeicons/primeicons.css';
+import "primevue/resources/themes/lara-light-blue/theme.css";
 import PrimeVue from 'primevue/config'
 import App from './App.vue'
 import router from './router'

@@ -19,6 +19,11 @@ const router = createRouter({
       name: 'executive-summary',
       component: ()=> import('../views/executive-summary.vue'),
     },
+    {
+      path: '/panel',
+      name: 'panel',
+      component: ()=> import('../views/panel.vue'),
+    },
     
   ]
 })

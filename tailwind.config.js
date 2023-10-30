@@ -2,7 +2,8 @@
 module.exports = {
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}"
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./node_modules/primevue/**/*.{vue,js,ts,jsx,tsx}"
   ],
   theme: {
     screens: {
@@ -28,6 +29,7 @@ module.exports = {
         100: '#f7f8fe',
         200: '#b7b7b7',
         300: '#dddddd',
+        800: '#8d8e93',
         900: '#323133'
       },
       'orange': {
@@ -37,7 +39,7 @@ module.exports = {
         900: '#ff8e12'
       },
       'green': {
-        100: '#e4fbf3',
+        100: '#e7f9f3',
         900: '#00c48b',
       },
       'pink': {
@@ -50,18 +52,24 @@ module.exports = {
       'black': '#000000',
       'red': {
         100: '#ffe6e9',
-        900: '#fa4e59'
+        800: '#fa4e59',
+        900: '#ef4444',
       }
     },
     fontFamily: {
       'inter': ['"Inter"', 'cursive'],
     },
     fontSize: {
+      xs: '10px',
+      '2xs': '12px',
       sm: '14px',
-      md: '16px',
+      md: '18px',
       lg: '24px',
       'xl': '36px',
       '2xl': '42px'
+    },
+    borderWidth: {
+      '3': '3px',
     },
     extend: {
       gradientColorStopPositions: {
@@ -80,6 +88,9 @@ module.exports = {
         '35': '35px',
         '50': '50px',
         '60': '60px',
+        '65vh': '65vh',
+        '85vh': '85vh',
+        '90vh': '90vh',
       },
       maxWidth: {
         'medium': '90%',
@@ -90,7 +101,9 @@ module.exports = {
       gridTemplateColumns:{
         'custom211': '2fr 1fr 1fr',
         'custom13': '1fr 3fr',
-      }
+        'custom-filter': '0.5fr 1fr 1fr 1fr 0.8fr',
+      },
+     
     }
 
   },

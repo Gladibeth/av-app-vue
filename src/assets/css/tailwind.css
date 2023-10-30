@@ -1,3 +1,55 @@
+/* @import 'primevue/resources/primevue.min.css';
+@import 'primeicons/primeicons.css'; */
+/* @import 'primevue/resources/themes/saga-blue/theme.css'; */
+/* @import 'primevue/resources/themes/mdc-light-indigo/theme.css'; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+body{
+  overflow: hidden;
+}
+
+.p-password-input{
+  @apply bg-gray-100 p-4 w-full rounded-none  outline-none;
+}
+.p-card{
+  box-shadow: none;
+}
+.p-card-body{
+  @apply p-4 pt-2;
+}
+.p-card-content{
+  @apply p-0;
+}
+
+.p-calendar .p-inputtext {
+  @apply !bg-gray-100 !outline-none;
+}
+.p-button-outlined {
+  @apply !bg-white
+}
+.p-button .p-button-label{
+@apply font-normal;
+}
+.p-progressbar-label{
+  @apply hidden;
+}
+.sidebar-info .p-sidebar-header{
+  @apply p-6 pt-10 bg-gray-200 flex justify-between;
+}
+.sidebar-info .p-sidebar-content{
+  @apply p-0;
+}
+
+.column-red .p-progressbar-value{
+  background: #ef4444;
+}
+.column-orange .p-progressbar-value{
+  background: #f59c0a;
+}
+.column-green .p-progressbar-value{
+  background: #00c48b;
+}

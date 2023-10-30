@@ -1,5 +1,5 @@
 <template>
-  <Navbar/>
+  <Navbar :name="'Dashboard'"/>
   <div class="bg-gray-100  h-screen">
     <div class="max-w-medium w-1920 m-0-auto ">
       <div class="grid grid-cols-3 gap-4 mb-4 py-10">

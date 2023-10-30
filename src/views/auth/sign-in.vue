@@ -9,7 +9,7 @@
           <label for="email" class="font-inter">Correo*</label>
           <span class="relative ">
             <i class="pi pi-envelope  absolute right-4 top-5 text-primary-900" style="font-size: 1.2rem" />
-            <InputText id="email" aria-required="required" class="bg-gray-100 p-4 w-full outline-none"  aria-describedby="email-help" />
+            <InputText id="email" aria-required="required" class="bg-gray-100 p-4 w-full outline-none rounded-none"  aria-describedby="email-help" />
           </span>
           
         </div>
@@ -17,12 +17,12 @@
           <label for="email" class="font-inter">Contraseña*</label>
           <span class="relative ">
             <i class="pi pi-lock  absolute right-4 top-5 text-primary-900" style="font-size: 1.2rem" />
-            <InputText id="password" aria-required="required" class="bg-gray-100 p-4 w-full outline-none"  aria-describedby="email-help" />
+            <Password :feedback="false" class="bg-gray-100 w-full rounded-none  outline-none" />
           </span>
           
         </div>
         <div class="flex flex-col text-center">
-          <Button class="bg-orange-900 border-r-0 py-3 px-20 mb-4 text-lg  text-white" label="Ingresar" />
+          <Button class="bg-orange-900 rounded-none outline-none py-3 px-20 mb-4 text-lg  text-white font-normal" label="Ingresar" />
 
           <span class="font-medium text-sm">¿Haz olvidado tu contraseña? <a class="text-primary-900 ">Haz click aquí</a></span>
         </div>
@@ -38,12 +38,13 @@
 <script>
 import InputText from 'primevue/inputtext'
 import Button from 'primevue/button'
+import Password from 'primevue/password';
+
 export default{
  components:{
-  InputText, Button
+  InputText, 
+  Button,
+  Password 
  }
 }
 </script>
-<style scoped>
- 
-</style>

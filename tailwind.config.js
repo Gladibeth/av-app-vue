@@ -45,6 +45,9 @@ module.exports = {
       'pink': {
         200: '#f2b7ee',
       },
+      'yellow':{
+        400: '#eec036'
+      },
       'regal-blue': {
         100: '#243c5a'
       },
@@ -99,9 +102,10 @@ module.exports = {
         '0-auto': '0 auto',
       },
       gridTemplateColumns:{
-        'custom211': '2fr 1fr 1fr',
+        'custom211': '1.5fr 1fr 1fr',
         'custom13': '1fr 3fr',
         'custom-filter': '0.5fr 1fr 1fr 1fr 0.8fr',
+        'custom21': '2fr 1fr',
       },
      
     }

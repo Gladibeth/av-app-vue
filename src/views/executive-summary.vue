@@ -8,7 +8,7 @@
             <span class="text-gray-900 text-sm font-semibold font-inter">Emisión de Documentos con tienda cerrada</span>
             <i class="pi pi-external-link bg-gray-900 px-3 py-2 text-sm h-fit text-white"></i>
           </div>
-          <div class="h-85vh overflow-scroll bg-white px-4 pt-4 ">
+          <div class="h-90vh overflow-scroll bg-white px-4 pt-4 ">
             <!-- card -->
             <Card class="bg-gray-100 h-fit rounded-lg mb-4">
                 <template #title>
@@ -81,7 +81,7 @@
             </Card>
           </div>
         </div>
-        <div class="h-48 py-10">
+        <div class="h-85vh overflow-scroll py-10">
           <div class="grid grid-cols-2 gap-4 mb-4 ">
             <div class="bg-white px-4 py-8">
               <div class="grid grid-cols-2 mb-8">
@@ -89,8 +89,8 @@
                   Evolution por documento
                 </span>
                 <div class="flex justify-end">
-                  <Button icon="pi pi-external-link" class="bg-white w-full border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
-                  <Button icon="pi pi-file-pdf"  class="bg-white w-full border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
+                  <Button icon="pi pi-external-link" class="bg-white w-fit border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
+                  <Button icon="pi pi-file-pdf"  class="bg-white w-fit border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
                 </div>
               </div>
               <div class="chart-container ">
@@ -102,22 +102,46 @@
             <div class="bg-white px-4 py-8">
               <div class="grid grid-cols-2 mb-8">
                 <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-                  Evolution por documento
+                  Mes actual por zonales por mm$
                 </span>
                 <div class="flex justify-end">
-                  <Button icon="pi pi-external-link" class="bg-white w-full border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
-                  <Button icon="pi pi-file-pdf"  class="bg-white w-full border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
+                  <Button icon="pi pi-external-link" class="bg-white w-fit border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
+                  <Button icon="pi pi-file-pdf"  class="bg-white w-fit border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
                 </div>
               </div>
               <div class="chart-container ">
-                <Chart type="doughnut" :data="chartData1" :options="chartOptions1" class="h-30rem" /> 
+                <Chart type="doughnut" :data="chartData1" :options="chartOptions1" class="custom-doughnut-chart" /> 
               </div>
             </div>
-            <div class="bg-white h-48">
-              hola
+            <div class="bg-white px-4 py-8">
+              <div class="grid grid-cols-2 mb-8">
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
+                  Mes actual por tipo doc en mm$
+                </span>
+                <div class="flex justify-end">
+                  <Button icon="pi pi-external-link" class="bg-white w-fit border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
+                  <Button icon="pi pi-file-pdf"  class="bg-white w-fit border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
+                </div>
+              </div>
+              <div class="chart-container ">
+                <Chart type="doughnut" :data="chartData2" :options="chartOptions2" class="custom-doughnut-chart" /> 
+              </div>
             </div>
-            <div class="bg-white h-48">
-              hola
+            <div class="bg-white px-4 py-8">
+              <div class="grid grid-cols-2 mb-8">
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
+                  Evolution por documento
+                </span>
+                <div class="flex justify-end">
+                  <Button icon="pi pi-external-link" class="bg-white w-fit border-2 border-gray-800 rounded-none py-1 px-3 text-md w-fit mr-2 text-gray-800" :style="{border: '2px solid #8d8e93'}"  />
+                  <Button icon="pi pi-file-pdf"  class="bg-white w-fit border-2 border-gray-800 rounded-none  py-1 px-3 w-fit  text-2xs  text-gray-800" :style="{border: '2px solid #8d8e93'}"  iconPos="right" label="Descargar" />
+                </div>
+              </div>
+              <div class="chart-container ">
+                <Chart type="bar" :data="chartData3" :options="chartOptions3" class="h-50rem"  />
+              </div>
+              
+              
             </div>
           </div>
         </div>
@@ -148,6 +172,12 @@ export default{
 
         chartData1.value = setChartData1();
         chartOptions1.value = setChartOptions1();
+
+        chartData2.value = setChartData2();
+        chartOptions2.value = setChartOptions2();
+
+        chartData3.value = setChartData3();
+        chartOptions3.value = setChartOptions3();
     });
 
     const chartData = ref();
@@ -155,6 +185,12 @@ export default{
 
     const chartData1 = ref();
     const chartOptions1 = ref();
+
+    const chartData2 = ref();
+    const chartOptions2 = ref();
+
+    const chartData3 = ref();
+    const chartOptions3 = ref();
 
     const setChartData = () =>  {
         const documentStyle = getComputedStyle(document.documentElement);
@@ -165,19 +201,19 @@ export default{
                 {
                     type: 'bar',
                     label: 'Ventas de factura',
-                    backgroundColor: documentStyle.getPropertyValue('--blue-500'),
+                    backgroundColor: documentStyle.getPropertyValue('--green-500'),
                     data: [50, 25, 12, 48, 90, 76, 42]
                 },
                 {
                     type: 'bar',
                     label: 'Venta Bol. Personal',
-                    backgroundColor: documentStyle.getPropertyValue('--green-500'),
+                    backgroundColor: documentStyle.getPropertyValue('--yellow-400'),
                     data: [21, 84, 24, 75, 37, 65, 34]
                 },
                 {
                     type: 'bar',
                     label: 'Venta Bol. Normal',
-                    backgroundColor: documentStyle.getPropertyValue('--yellow-500'),
+                    backgroundColor: documentStyle.getPropertyValue('--blue-700'),
                     data: [41, 52, 24, 74, 23, 21, 32]
                 }
             ]
@@ -193,12 +229,13 @@ export default{
             maintainAspectRatio: false,
             aspectRatio: 0.8,
             plugins: {
+                
                 tooltips: {
                     mode: 'index',
                     intersect: false
                 },
                 legend: {
-                  position: 'right',
+                    position: 'right',
                     labels: {
                         color: textColor,
                         boxWidth: 10
@@ -218,17 +255,18 @@ export default{
                 y: {
                     stacked: true,
                     grid: {
-                        display: false // Oculta la cuadrícula del eje Y
+                        display: false 
                       },
                       ticks: {
-                        display: false // Oculta los números del eje Y
+                        display: false 
                       }
                 }
-            }
+            },
+            categoryPercentage: 0.2
         };
     }
 
-
+    // 1
     const setChartData1 = () => {
         const documentStyle = getComputedStyle(document.body);
 
@@ -237,8 +275,8 @@ export default{
             datasets: [
                 {
                     data: [540, 325, 702],
-                    backgroundColor: [documentStyle.getPropertyValue('--blue-500'), documentStyle.getPropertyValue('--yellow-500'), documentStyle.getPropertyValue('--green-500')],
-                    hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-400'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--green-400')]
+                    backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--cyan-200')],
+                    hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-800'), documentStyle.getPropertyValue('--yellow-600'), documentStyle.getPropertyValue('--cyan-400')]
                 }
             ]
         };
@@ -249,11 +287,11 @@ export default{
         const textColor = documentStyle.getPropertyValue('--text-color');
 
         return {
+            cutout: '65%',
             plugins: {
                 legend: {
                   position: 'right',
                   labels: {
-                      cutout: '60%',
                       color: textColor,
                       boxWidth: 10
                   }
@@ -262,20 +300,124 @@ export default{
         };
     };
 
+    // 2
+    const setChartData2 = () => {
+        const documentStyle = getComputedStyle(document.body);
+
+        return {
+            labels: ['A', 'B', 'C'],
+            datasets: [
+                {
+                    data: [540, 325, 702],
+                    backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--cyan-200')],
+                    hoverBackgroundColor: [documentStyle.getPropertyValue('--green-600'), documentStyle.getPropertyValue('--yellow-600'), documentStyle.getPropertyValue('--cyan-400')]
+                }
+            ]
+        };
+    };
+    
+    const setChartOptions2 = () => {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+
+        return {
+            cutout: '65%',
+            plugins: {
+                legend: {
+                  position: 'right',
+                  labels: {
+                      
+                      color: textColor,
+                      boxWidth: 10
+                  }
+                }
+            }
+        };
+    };
+
+
+    // 3
+    const setChartData3 = () => {
+        const documentStyle = getComputedStyle(document.documentElement);
+
+        return {
+            labels: ['ENE', 'FEB', 'MAR', 'ABR', ],
+            datasets: [
+                {
+                    label: 'My First dataset',
+                    backgroundColor: documentStyle.getPropertyValue('--blue-700'),
+                    borderColor: documentStyle.getPropertyValue('--blue-700'),
+                    data: [65, 59, 80, 81, 56, 55, 40]
+                },
+                {
+                    label: 'My Second dataset',
+                    backgroundColor: documentStyle.getPropertyValue('--cyan-200'),
+                    borderColor: documentStyle.getPropertyValue('--blue-100'),
+                    data: [28, 48, 40, 19, 86, 27, 90]
+                }
+            ]
+        };
+    };
+
+    const setChartOptions3 = () => {
+        const documentStyle = getComputedStyle(document.documentElement);
+        const textColor = documentStyle.getPropertyValue('--text-color');
+        const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
+        const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
+
+        return {
+            indexAxis: 'y',
+            // maintainAspectRatio: false,
+            aspectRatio: 2,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: textColor
+                    }
+                }
+            },
+            scales: {
+                x: {
+                    beginAtZero: true,
+                                      position: 'right',
+                    ticks: {
+                        color: textColorSecondary,
+                        font: {
+                            weight: 500
+                        }
+                    },
+                    grid: {
+                        display: false,
+                        drawBorder: false
+                    }
+                },
+                y: {
+                  barThickness: 20,
+                    ticks: {
+                        color: textColorSecondary,
+                        align: 'start'
+                    },
+                    grid: {
+                        color: surfaceBorder,
+                        drawBorder: false
+                    }
+                }
+            },
+            // categoryPercentage: 1
+        };
+    }
+
     
     return{
       chartData,
       chartOptions,
       chartData1,
-      chartOptions1
+      chartOptions1,
+      chartData2,
+      chartOptions2,
+      chartData3,
+      chartOptions3
     }
   }
 }
 </script>
-<style>
-.chart-container {
-  width: 400px; 
-  height: 300px; 
-}
-
-</style>

@@ -53,3 +53,58 @@ body{
 .column-green .p-progressbar-value{
   background: #00c48b;
 }
+.custom-doughnut-chart {
+  width: 200px;
+  height: 200px;
+}
+
+.custom-table thead th,
+.custom-table tbody td {
+  @apply bg-white text-sm p-1 ;
+}
+.custom-table tbody td{
+ @apply text-gray-200;
+}
+.custom-table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* table blue */
+.custom-table-blue thead th {
+  @apply bg-primary-900 text-white font-semibold text-sm p-1;
+}
+.custom-table-blue tbody td{
+ @apply bg-white text-gray-200 p-1 text-sm;
+}
+.custom-table-blue tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* table yellow */
+.custom-table-yellow thead th {
+  @apply bg-yellow-400 text-black font-semibold text-sm p-1;
+}
+.custom-table-yellow tbody td{
+ @apply bg-white text-gray-200 p-1 text-sm;
+}
+.custom-table-yellow tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #dddddd;
+}
+
+/* table variable */
+.custom-table-variable thead th:nth-child(1) {
+  @apply !bg-white !text-black font-semibold text-sm p-1;
+}
+.custom-table-variable thead th:nth-child(even) {
+  @apply bg-yellow-400 text-black font-semibold text-sm p-1;
+}
+.custom-table-variable thead th:nth-child(odd) {
+  @apply bg-primary-900 text-white font-semibold text-sm p-1;
+}
+
+.custom-table-variable tbody td{
+ @apply bg-white text-gray-200 p-1 text-sm;
+}
+.custom-table-variable tbody tr:not(:last-child) td {
+  border-bottom: 1px solid #dddddd;
+}

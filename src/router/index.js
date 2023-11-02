@@ -28,4 +28,13 @@ const router = createRouter({
   ]
 })
 
+router.beforeEach((to, from, next) => {
+  const user = localStorage.getItem('isLogin');
+  if (!user) {
+    next('/sign-in');
+  } else {
+    next(); 
+  }
+});
+
 export default router

@@ -13,12 +13,21 @@
       <div>
         <h2 class="text-white text-xl font-inter">{{ name }}</h2>
       </div>
-      <a class="flex items-center flex-col py-2  text-sm text-white transition duration-200" href="#">
-        <div class="flex justify-center px-2 py-2  rounded-full w-35 h-35 bg-white hover:bg-gray-100">
-          <i class="pi pi-user text-primary-900" style="font-size: 1.5rem"></i>
-        </div>
-        <span>Usuario</span>
-      </a>
+			<div class="relative">
+				<a @click="onToggleActive" class="flex items-center flex-col py-2  text-sm text-white transition duration-200" href="#">
+					<div class="flex justify-center px-2 py-2  rounded-full w-35 h-35 bg-white hover:bg-gray-100">
+						<i class="pi pi-user text-primary-900" style="font-size: 1.5rem"></i>
+					</div>
+					<span>Usuario</span>
+				</a>
+
+				<div v-if="toggleActive" class="absolute top-20 right-0 w-36 shadow-lg shadow-indigo-500/40 flex justify-center px-5 py-2 bg-white" >
+					<a @click="logout" class="text-sm cursor-pointer" href="" >
+						Cerrar sesion
+					</a>
+				</div>
+			</div>
+			
     </nav>
 	
 		<Sidebar v-model:visible="visibleLeft">
@@ -39,20 +48,40 @@
 </template>
 
 <script>
+import { useRouter } from 'vue-router';
 import { ref } from 'vue'
 import Sidebar from 'primevue/sidebar'
+import Dropdown from 'primevue/dropdown';
+
  export default{
 	components:{
-		Sidebar
+		Sidebar,
+		Dropdown
 	},
 	props: {
 		name: {type: String, required: true}
 	},
 	setup(){
 		const visibleLeft = ref(false);
+		const toggleActive = ref(false);
 
+		const router = useRouter();
+
+		const onToggleActive = (()=>{
+			toggleActive.value = !toggleActive.value;
+		})
+
+
+		const logout = (event) => {
+			event.preventDefault(); 
+			localStorage.setItem('isLogin', false); 
+      router.push('/sign-in'); 
+    };
 		return{
-			visibleLeft
+			visibleLeft,
+			onToggleActive,
+			toggleActive,
+			logout
 		}
 	}
  }

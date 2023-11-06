@@ -54,21 +54,11 @@
             <span class="rounded-full p-2 text-2xs text-gray-800">Concepto</span>
           </div>
 
-      <div class="grid grid-cols-3 gap-4">
-        <!-- columns -->
-        <div class="bg-red-100 p-4 h-65vh overflow-scroll column-red">
-          <!-- Cards -->
-          <div  v-for="(item, index) in 4" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-100">
-            <router-link :to="{ name: 'zonas' }">
-            <p class="flex justify-between items-center mb-4">
-              <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
-              <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ventas con margenes negativos</span>
-              <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
-            </p>
-            <div class="flex justify-between items-center">
-              <div class="w-10/12">
-                <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                
+          <!-- CHECKBOXS -->
+          <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-scroll ">
+              <div v-for="category of categories" :key="category.key" class="flex">
+                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
+                  <label :for="category.key">{{ category.name }}</label>
               </div>
           </div>
           <!-- CHECKBOXS -->
@@ -89,37 +79,43 @@
               <Slider v-model="value" range class="custom-slider" />
              
             </div>
-            <div class="grid grid-cols-2 mt-2">
-              <dl>
-                <dt class="font-medium text-sm">Mes anterior:</dt>
-                <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-              </dl>
-              <dl>
-                <dt class="font-medium text-sm">Mes actual:</dt>
-                <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-              </dl>
+            <div class="flex justify-between mt-2">
+              <div class="text-gray-800 text-medium text-sm">Bajo</div>
+              <div class="text-gray-800 text-medium text-sm">Medio</div>
+              <div class="text-gray-800 text-medium text-sm">Alto</div>
             </div>
-          </router-link>
           </div>
 
 
         </div>
-        <!-- columns -->
-        <div class="bg-orange-100 p-4  h-65vh overflow-scroll  column-orange">
-          <!-- Cards -->
-          <div v-for="(item, index) in 4" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
-            <p class="flex justify-between items-center mb-4">
-              <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
-              <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Variación inusual de costos</span>
-              <!-- no content -->
-              <div></div>
-            </p>
-            <div class="flex justify-between items-center">
-              <div class="w-10/12">
-                <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                
+        <div class="grid grid-cols-3 gap-4">
+          <!-- columns -->
+          <div class="bg-red-100 p-4 h-65vh overflow-scroll column-red">
+            <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-100">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ventas con margenes negativos</span>
+                <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-red-900 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
               </div>
             </div>
             <!-- Cards -->
@@ -177,37 +173,180 @@
               </div>
             </div>
           </div>
-        </div>
-        <!-- columns -->
-        <div class="bg-green-100 p-4  h-65vh overflow-scroll  column-green">
-          <!-- Cards -->
-          <div v-for="(item, index) in 4" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-300">
-            <p class="flex justify-between items-center mb-4">
-              <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
-              <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ajustes de inventario</span>
-              <!-- no content -->
-              <span></span>
-            </p>
-            <div class="flex justify-between items-center">
-              <div class="w-10/12">
-                <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                
+          <!-- columns -->
+          <div class="bg-orange-100 p-4  h-65vh overflow-scroll  column-orange">
+            <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Variación inusual de costos</span>
+                <!-- no content -->
+                <div></div>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
               </div>
             </div>
-            <div class="grid grid-cols-2 mt-2">
-              <dl>
-                <dt class="font-medium text-sm text-green-900">Mes anterior:</dt>
-                <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-              </dl>
-              <dl>
-                <dt class="font-medium text-sm  text-green-900">Mes actual:</dt>
-                <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-              </dl>
+            <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Variación elevada de precios</span>
+                <!-- no content -->
+                <div></div>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+              </div>
+            </div>
+             <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-pink-200">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Notas de creditos manuales</span>
+                <!-- no content -->
+                <div></div>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+              </div>
             </div>
           </div>
-          <!-- Cards -->
+          <!-- columns -->
+          <div class="bg-green-100 p-4  h-65vh overflow-scroll  column-green">
+            <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-300">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ajustes de inventario</span>
+                <!-- no content -->
+                <span></span>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-green-900 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm text-green-900">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm  text-green-900">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+              </div>
+            </div>
+            <!-- Cards -->
+            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-pink-200">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Notas de crédito sin venta original</span>
+                <!-- no content -->
+                <span></span>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-green-900 font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm text-green-900">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm text-green-900">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+              </div>
+            </div>
+             <!-- Cards -->
+             <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-300">
+              <p class="flex justify-between items-center mb-4">
+                <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ventas con modificación de precio</span>
+                <!-- no content -->
+                <span></span>
+              </p>
+              <div class="flex justify-between items-center">
+                <div class="w-10/12">
+                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  
+                </div>
+                <div class="text-center text-green-900  font-semibold">{{ progressValue }}%</div>
+              </div>
+              <div class="grid grid-cols-2 mt-2">
+                <dl>
+                  <dt class="font-medium text-sm text-green-900 ">Mes anterior:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+                <dl>
+                  <dt class="font-medium text-sm text-green-900 ">Mes actual:</dt>
+                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                </dl>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -361,6 +500,8 @@ export default{
         { name: 'Istanbul', code: 'IST' },
         { name: 'Paris', code: 'PRS' }
     ]);
+    const date = ref(null);
+    const date2 = ref(null);
     const visibleRight = ref(false);
     const progressValue = ref(50);
     
@@ -388,8 +529,8 @@ export default{
       categories,
       selectedCategories,
       value,
-
-  
+      date,
+      date2,
     }
   }
 }
@@ -397,5 +538,3 @@ export default{
 <style>
 
 </style>
-
-

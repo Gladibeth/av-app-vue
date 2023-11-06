@@ -7,7 +7,7 @@ const router = createRouter({
     {
       path: '/',
       name: 'dashboard',
-      component: ()=> import('../views/dashboard.vue'),
+      component: ()=> import('../views/Dashboard.vue'),
     },
     {
       path: '/sign-in',
@@ -23,6 +23,38 @@ const router = createRouter({
       path: '/panel',
       name: 'panel',
       component: ()=> import('../views/panel.vue'),
+    },
+    {
+      path: '/detalles',
+      name: 'detalles',
+      component: ()=> import('../views/detail.vue'),
+      props: true,
+      children: [
+        {
+          path: 'zonas',
+          name: 'zonas',
+          component: ()=> import('../views/detail.vue'),
+          props: true,
+        },
+        {
+          path: 'zonas/:id/almacenes',
+          name: 'almacenes',
+          component: ()=> import('../views/detail.vue'),
+          props: true,
+        },
+        {
+          path: 'zonas/:id/almacenes/:id/ordenes',
+          name: 'ordenes',
+          component: ()=> import('../views/detail.vue'),
+          props: true,
+        },
+        {
+          path: 'zonas/:id/almacenes/:id/ordenes/:id/factura',
+          name: 'factura',
+          component: ()=> import('../views/detail.vue'),
+          props: true,
+        },
+      ],
     },
     
   ]

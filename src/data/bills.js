@@ -1,0 +1,36 @@
+export const bills = {
+    header: {
+        docNum: 'Nro Documento',
+        dateCreated: 'Fecha Documento',
+        docType: 'Tipo de Documento',
+        docTime: 'Hora transacción',
+        numTerminal: 'Nro Terminal',
+        cashier: 'Cajero',
+        qtyProduct: 'Cantidad de productos',
+        cost: 'Costo',
+        amountPaid: 'Valor Pagado',
+        amount: 'Monto',
+        margin: 'Margen',
+    },
+    value: [
+        {
+            id: 1,
+            order_id: 1,
+            docNum: '10101536',
+            docType: 'Boleta',
+            docTime: '21:25:00',
+            numTerminal: '151.516',
+            cashier: '10.520.106-9 Lorena Campos',
+            sku: '32131654498',
+            qtyProduct: '1',
+            cost: '6.565.465',
+            amountPaid: '2.626.186',
+            amount: '-3.939.279',
+            margin: '-60%',
+            status: 'active',
+            dateCreated: '23/10/2023',
+            dateModified: '23/10/2023',
+        },
+    ],
+    children: null
+ }

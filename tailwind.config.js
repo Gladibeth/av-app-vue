@@ -18,6 +18,8 @@ module.exports = {
         100: '#82dbff',
         200: '#0b6fe5',
         300: '#507fae',
+        400: '#ebf4fb',
+        500: '#bacfed',
         900: '#022597'
       },
       'secundary': {
@@ -91,6 +93,7 @@ module.exports = {
         '35': '35px',
         '50': '50px',
         '60': '60px',
+        '20vh': '20vh',
         '65vh': '65vh',
         '85vh': '85vh',
         '90vh': '90vh',
@@ -102,6 +105,7 @@ module.exports = {
         '0-auto': '0 auto',
       },
       gridTemplateColumns:{
+        'custom052': '0.5fr 2fr',
         'custom211': '1.5fr 1fr 1fr',
         'custom13': '1fr 3fr',
         'custom-filter': '0.5fr 1fr 1fr 1fr 0.8fr',

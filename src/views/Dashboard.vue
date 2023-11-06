@@ -175,15 +175,20 @@
       </div>
     </div>
   </div>
+  <Toast ref="dashboardToast" />
 </template>
  
  
 <script>
 import {defineAsyncComponent, onMounted, ref } from 'vue'
+import { useRoute } from 'vue-router';
 import Chart from 'primevue/chart'
 import Button from 'primevue/button'
 import DataTable from 'primevue/datatable'
 import Column from 'primevue/column'
+import Toast from 'primevue/toast';
+import { useToast } from "primevue/usetoast";
+
 
 export default{
   components: {
@@ -191,11 +196,20 @@ export default{
       Chart,
       Button,
       DataTable,
-      Column
+      Column,
+      Toast
   },
   setup(){
+    const route = useRoute();
+    const dashboardToast = ref(null);
+    const toast = useToast();
+    const hasShownMessage = ref(false); 
 
     onMounted(() => {
+        if (!hasShownMessage.value) { 
+          showDashboardMessage();
+          hasShownMessage.value = true; 
+        }
         chartData.value = setChartData();
         chartOptions.value = setChartOptions();
 
@@ -213,6 +227,7 @@ export default{
 
         chartData6.value = setChartData6();
         chartOptions6.value = setChartOptions6();
+
     });
 
     const chartData = ref();
@@ -272,6 +287,17 @@ export default{
       { type: 'Facturas', description: '60', percentage: '27%' },
       { type: 'Guías', description: '120', percentage: '55%' },
     ]);
+
+    const showDashboardMessage = () => {
+      const fromSignIn = route.query.fromSignIn;
+      if (fromSignIn) {
+        toast.add({
+          severity: 'success',
+          summary: 'Inicio con éxito',
+          life: 1000 
+        });
+      }
+    };
 
 
     const setChartData = () => {
@@ -589,6 +615,7 @@ export default{
       data3,
       data4,
       data5,
+      dashboardToast,
     }
   }
 }

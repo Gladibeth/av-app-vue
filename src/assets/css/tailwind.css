@@ -108,3 +108,43 @@ body{
 .custom-table-variable tbody tr:not(:last-child) td {
   border-bottom: 1px solid #dddddd;
 }
+
+.p-invalid{
+  border-color: #e24c4c !important;
+  border-width: 1px !important;
+}
+.custom-checkbox .p-checkbox-box {
+  border: 2px solid #8d8e93; 
+  background: white; 
+}
+.custom-checkbox .p-checkbox-box.p-highlight{
+  background: #3B82F6;
+  border: 2px solid  #3B82F6;
+}
+.custom-checkbox .p-checkbox-icon {
+  color: white; 
+ 
+}
+
+
+.custom-slider {
+  background: linear-gradient(to right, green 0%, red 100%);
+}
+
+.custom-slider .p-slider-range {
+  background-color: #ff8e12;
+}
+.custom-slider .p-slider-handle {
+  background-color: white;
+  border: 2px solid #8d8e93;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  position: relative;
+}
+
+
+.slider-value {
+  flex: 1;
+  text-align: center;
+}

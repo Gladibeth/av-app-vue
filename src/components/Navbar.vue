@@ -14,14 +14,13 @@
         <h2 class="text-white text-xl font-inter">{{ name }}</h2>
       </div>
 			<div class="relative">
-				<a @click="onToggleActive" class="flex items-center flex-col py-2  text-sm text-white transition duration-200" href="#">
-					<div class="flex justify-center px-2 py-2  rounded-full w-35 h-35 bg-white hover:bg-gray-100">
-						<i class="pi pi-user text-primary-900" style="font-size: 1.5rem"></i>
+				<a @click="onToggleActive" class="cursor-pointer flex items-center flex-col py-2  text-sm text-white transition duration-200" href="#">
+					<div class="flex justify-center px-2 py-2  rounded-full w-35 h-35">
+						<i class="pi pi-user text-white" style="font-size: 1.5rem"></i>
 					</div>
-					<span>Usuario</span>
 				</a>
 
-				<div v-if="toggleActive" class="absolute top-20 right-0 w-36 shadow-lg shadow-indigo-500/40 flex justify-center px-5 py-2 bg-white" >
+				<div v-if="toggleActive" class="absolute top-14 right-0 w-36 shadow-lg shadow-indigo-500/40 flex justify-center px-5 py-2 bg-white" >
 					<a @click="logout" class="text-sm cursor-pointer" href="" >
 						Cerrar sesion
 					</a>
@@ -33,13 +32,12 @@
 		<Sidebar v-model:visible="visibleLeft">
 			<div>
 				<ul>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Lorem</a>
+					<li v-for="{name, title, icon} in links" class="mb-5">
+						<RouterLink :to="{name}">
+							<i :class="['pi mr-3 text-primary-200 hover:text-primary-200', icon]"></i>
+							{{ title }}
+						</RouterLink>
 					</li>
-					<li class="mb-1">
-						<a class="block p-4 text-sm font-semibold text-gray-400 hover:bg-blue-50 hover:text-blue-600 rounded" href="#">Lorem</a>
-					</li>
-					
 				</ul>
 			</div>
 		</Sidebar>
@@ -67,21 +65,39 @@ import Dropdown from 'primevue/dropdown';
 
 		const router = useRouter();
 
+		const links = [
+			{
+				name: 'dashboard',
+				title: 'Dashboard',
+				icon: 'pi-chart-pie'
+			},
+			{
+				name: 'panel',
+				title: 'Panel de control',
+				icon: 'pi-table'
+			},
+			{
+				name: 'executive-summary',
+				title: 'Panel ejecutivo',
+				icon: 'pi-chart-bar'
+			}
+		]
+
 		const onToggleActive = (()=>{
 			toggleActive.value = !toggleActive.value;
 		})
 
-
 		const logout = (event) => {
 			event.preventDefault(); 
 			localStorage.setItem('isLogin', false); 
-      router.push('/sign-in'); 
+      router.push({name: 'sign-in'}); 
     };
 		return{
 			visibleLeft,
 			onToggleActive,
 			toggleActive,
-			logout
+			logout,
+			links
 		}
 	}
  }

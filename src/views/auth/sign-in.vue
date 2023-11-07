@@ -120,10 +120,11 @@ name: 'Sign-in',
 
       if (user) {
         localStorage.setItem('isLogin', true);
+        console.log(localStorage.getItem('isLogin'));
         showSuccess();
 
         setTimeout(() => {
-          router.push({ name: "dashboard", query: { fromSignIn: true }  });
+          router.push({ name: "dashboard" });
         }, 500);
 
       } else {

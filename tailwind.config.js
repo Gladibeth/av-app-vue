@@ -18,7 +18,7 @@ module.exports = {
         100: '#82dbff',
         200: '#0b6fe5',
         300: '#507fae',
-        400: '#ebf4fb',
+        400: '#ecf3fb',
         500: '#bacfed',
         900: '#022597'
       },
@@ -35,13 +35,13 @@ module.exports = {
         900: '#323133'
       },
       'orange': {
-        100: '#fff4e7',
+        100: '#ffeec3',
         200: '#e68e7c',
         300: '#f59c0a',
         900: '#ff8e12'
       },
       'green': {
-        100: '#e7f9f3',
+        100: '#daffd1',
         900: '#00c48b',
       },
       'pink': {
@@ -56,7 +56,7 @@ module.exports = {
       'white': '#FFFFFF',
       'black': '#000000',
       'red': {
-        100: '#ffe6e9',
+        100: '#ffdada',
         800: '#fa4e59',
         900: '#ef4444',
       }

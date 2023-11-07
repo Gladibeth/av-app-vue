@@ -7,15 +7,15 @@ const router = createRouter({
     {
       path: '/',
       name: 'dashboard',
-      component: ()=> import('../views/Dashboard.vue'),
+      component: ()=> import('../views/dashboard.vue'),
     },
     {
-      path: '/sign-in',
+      path: '/login',
       name: 'sign-in',
       component: ()=> import('../views/auth/sign-in.vue'),
     },
     {
-      path: '/executive-summary',
+      path: '/resumen-ejecutivo',
       name: 'executive-summary',
       component: ()=> import('../views/executive-summary.vue'),
     },
@@ -62,9 +62,10 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   const user = localStorage.getItem('isLogin');
+  // const protectedPaths = ['/', '/executive-summary', '/panel'];
   if (!user) {
     next('/sign-in');
-  } else {
+  } else{
     next(); 
   }
 });

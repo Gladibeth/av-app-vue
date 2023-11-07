@@ -56,17 +56,17 @@
 
           <!-- CHECKBOXS -->
           <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-scroll ">
-              <div v-for="category of categories" :key="category.key" class="flex">
-                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
-                  <label :for="category.key">{{ category.name }}</label>
+              <div v-for="group of uniqueGroups" :key="group" class="flex">
+                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                  <label :for="group.key">{{ group.name }}</label>
               </div>
           </div>
           <!-- CHECKBOXS -->
           <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
           <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-scroll ">
-              <div v-for="category of categories" :key="category.key" class="flex">
-                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedCategories" :inputId="category.key" name="category" :value="category.name" />
-                  <label :for="category.key">{{ category.name }}</label>
+              <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
+                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+                  <label :for="indicator.key">{{ indicator.name }}</label>
               </div>
           </div>
 
@@ -85,266 +85,105 @@
               <div class="text-gray-800 text-medium text-sm">Alto</div>
             </div>
           </div>
-
-
         </div>
         <div class="grid grid-cols-3 gap-4">
           <!-- columns -->
           <div class="bg-red-100 p-4 h-65vh overflow-scroll column-red">
             <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-100">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ventas con margenes negativos</span>
-                <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
+            <div v-for="item in dataEmergency" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-100">
+              <router-link :to="{ name: 'zonas'}">
+                <p class="flex justify-between items-center mb-4">
+                  <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
+                  <span class="text-gray-900 font-semibold font-inter text-sm uppercase">{{ item.name }}</span>
+                  <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
+                </p>
+                <div class="flex justify-between items-center">
+                  <div class="w-10/12">
+                    <ProgressBar  class="rounded-none h-1" :value="item.average"></ProgressBar>
+                    
+                  </div>
+                  <div class="text-center text-red-900 font-semibold">{{ item.average }}%</div>
                 </div>
-                <div class="text-center text-red-900 font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
-            </div>
-            <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-pink-200">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Notas de crédito reiteradas en sucrsales</span>
-                <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
+                <div class="grid grid-cols-2 mt-2">
+                  <dl>
+                    <dt class="font-medium text-sm">Mes anterior:</dt>
+                    <dd class="text-2xs text-gray-200">Monto: {{item.monthOld.amount}}</dd>
+                    <dd class="text-2xs text-gray-200">Cantidad: {{item.monthOld.qty }}.</dd>
+                  </dl>
+                  <dl>
+                    <dt class="font-medium text-sm">Mes actual:</dt>
+                    <dd class="text-2xs text-gray-200">Monto: {{item.monthNew.amount}}</dd>
+                    <dd class="text-2xs text-gray-200">Cantidad: {{item.monthNew.qty }}.</dd>
+                  </dl>
                 </div>
-                <div class="text-center text-red-900 font-semibold">{{ progressValue }}%</div>
+              </router-link>
               </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
-            </div>
-             <!-- Cards -->
-             <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-red-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Mercaderías  en tránsito por tiempo excesivo</span>
-                <Tag class="font-normal uppercase text-xs rounded-none" value="urgente" severity="danger"></Tag>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
-                </div>
-                <div class="text-center text-red-900 font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
-            </div>
           </div>
           <!-- columns -->
           <div class="bg-orange-100 p-4  h-65vh overflow-scroll  column-orange">
             <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
+            <div  v-for="item in dataWarning" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
+              <router-link :to="{ name: 'zonas'}">
               <p class="flex justify-between items-center mb-4">
                 <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Variación inusual de costos</span>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">{{ item.name }}</span>
                 <!-- no content -->
                 <div></div>
               </p>
               <div class="flex justify-between items-center">
                 <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  <ProgressBar  class="rounded-none h-1" :value="item.average"></ProgressBar>
                   
                 </div>
-                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
+                <div class="text-center text-orange-300 font-semibold">{{ item.average }}%</div>
               </div>
               <div class="grid grid-cols-2 mt-2">
                 <dl>
                   <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                  <dd class="text-2xs text-gray-200">Monto: {{item.monthOld.amount}}</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: {{item.monthOld.qty }}.</dd>
                 </dl>
                 <dl>
                   <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                  <dd class="text-2xs text-gray-200">Monto: {{item.monthNew.amount}}</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: {{item.monthNew.qty }}.</dd>
                 </dl>
               </div>
-            </div>
-            <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-200">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Variación elevada de precios</span>
-                <!-- no content -->
-                <div></div>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
-                </div>
-                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
-            </div>
-             <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-pink-200">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-orange-300 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Notas de creditos manuales</span>
-                <!-- no content -->
-                <div></div>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
-                </div>
-                <div class="text-center text-orange-300 font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
+            </router-link>
             </div>
           </div>
           <!-- columns -->
           <div class="bg-green-100 p-4  h-65vh overflow-scroll  column-green">
             <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-300">
+            <div v-for="item in dataInfo" class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-orange-300">
+              <router-link :to="{ name: 'zonas'}">
               <p class="flex justify-between items-center mb-4">
                 <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ajustes de inventario</span>
+                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">{{ item.name }}</span>
                 <!-- no content -->
                 <span></span>
               </p>
               <div class="flex justify-between items-center">
                 <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
+                  <ProgressBar  class="rounded-none h-1" :value="item.average"></ProgressBar>
                   
                 </div>
-                <div class="text-center text-green-900 font-semibold">{{ progressValue }}%</div>
+                <div class="text-center text-green-900 font-semibold">{{ item.average }}%</div>
               </div>
               <div class="grid grid-cols-2 mt-2">
                 <dl>
                   <dt class="font-medium text-sm text-green-900">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                  <dd class="text-2xs text-gray-200">Monto: {{item.monthOld.amount}}</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: {{item.monthOld.qty }}.</dd>
                 </dl>
                 <dl>
                   <dt class="font-medium text-sm  text-green-900">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
+                  <dd class="text-2xs text-gray-200">Monto: {{item.monthNew.amount}}</dd>
+                  <dd class="text-2xs text-gray-200">Cantidad: {{item.monthNew.qty }}.</dd>
                 </dl>
               </div>
-            </div>
-            <!-- Cards -->
-            <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-pink-200">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Notas de crédito sin venta original</span>
-                <!-- no content -->
-                <span></span>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
-                </div>
-                <div class="text-center text-green-900 font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm text-green-900">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm text-green-900">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
-            </div>
-             <!-- Cards -->
-             <div class="bg-gray-100 p-4 h-fit  mb-4 border-t-3 border-primary-300">
-              <p class="flex justify-between items-center mb-4">
-                <i class="pi pi-exclamation-triangle   h-fit text-green-900 mr-2" style="font-size: 1.2rem;"></i>
-                <span class="text-gray-900 font-semibold font-inter text-sm uppercase">Ventas con modificación de precio</span>
-                <!-- no content -->
-                <span></span>
-              </p>
-              <div class="flex justify-between items-center">
-                <div class="w-10/12">
-                  <ProgressBar  class="rounded-none h-1" :value="progressValue"></ProgressBar>
-                  
-                </div>
-                <div class="text-center text-green-900  font-semibold">{{ progressValue }}%</div>
-              </div>
-              <div class="grid grid-cols-2 mt-2">
-                <dl>
-                  <dt class="font-medium text-sm text-green-900 ">Mes anterior:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-                <dl>
-                  <dt class="font-medium text-sm text-green-900 ">Mes actual:</dt>
-                  <dd class="text-2xs text-gray-200">Monto: $100.00</dd>
-                  <dd class="text-2xs text-gray-200">Cantidad: 100 unid.</dd>
-                </dl>
-              </div>
+            </router-link>
+
             </div>
           </div>
         </div>
@@ -467,7 +306,7 @@
  
  
 <script>
-import {defineAsyncComponent,ref  } from 'vue'
+import {defineAsyncComponent,ref, watch  } from 'vue'
 import Button from 'primevue/button'
 import Calendar from 'primevue/calendar'
 import Dropdown from 'primevue/dropdown'
@@ -477,6 +316,7 @@ import Sidebar from 'primevue/sidebar'
 import Card from 'primevue/card'
 import Checkbox from 'primevue/checkbox'
 import Slider from 'primevue/slider';
+import { indicators } from '../data/indicators.js'
 
 export default{
   components: {
@@ -504,21 +344,88 @@ export default{
     const date2 = ref(null);
     const visibleRight = ref(false);
     const progressValue = ref(50);
+    const allData = ref(indicators.value)
+    const data = ref(indicators.value)
+    const dataEmergency = ref( data.value.filter(item => item.groupBy === 'emergency'))
+    const dataWarning = ref( data.value.filter(item => item.groupBy === 'warning'))
+    const dataInfo = ref( data.value.filter(item => item.groupBy === 'info'))
     
-    const categories = ref([
-        {name: "Accounting", key: "A"},
-        {name: "Marketing", key: "M"},
-        {name: "Production", key: "P"},
-        {name: "Research", key: "R"},
-        {name: "Production", key: "P"},
-        {name: "Research", key: "R"},
-        {name: "Production", key: "P"},
-        {name: "Research", key: "R"}
-    ]);
-    const selectedCategories = ref(['Marketing']);
+    const loadGroup = () => {
+      return data.value.reduce((acc, indicator) => {
+        const sanitizedGroupName = indicator.type.charAt(0).toUpperCase() + indicator.type.slice(1);
+        const sanitizedGroupKey = sanitizedGroupName.replace(/\s+/g, '-');
+        const existingGroup = acc.find(item => item.key === sanitizedGroupKey);
+        if (!existingGroup) {
+            acc.push({ name: sanitizedGroupName, key: sanitizedGroupKey });
+        }
 
+        return acc;
+      }, [])
+    }
 
+    const loadIndicator = () => {
+      return data.value.reduce((acc, indicator) => {
+        const sanitizedGroupName = indicator.name.charAt(0).toUpperCase() + indicator.name.slice(1).toLowerCase();
+        const sanitizedGroupKey = sanitizedGroupName.replace(/\s+/g, '-');
+        const existingGroup = acc.find(item => item.key === sanitizedGroupKey);
+        if (!existingGroup) {
+          acc.push({ name: sanitizedGroupName, key: sanitizedGroupKey });
+        }
+        
+        return acc;
+      }, [])
+    }
+    const uniqueGroups = ref(loadGroup());
+    const uniqueIndicators = ref(loadIndicator());
+    const selectedGroup = ref([]);
+    const selectedIndicator = ref([]);
     const value = ref([20, 80]);
+
+
+    watch(
+      () => selectedGroup.value,
+      (value) => {
+    
+        if(value.length > 0){
+          data.value = allData.value.filter(item => {
+            let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
+            return Object.values(value).includes(name)
+          })
+        }else{
+          data.value = allData.value
+        }
+
+        dataEmergency.value = data.value.filter(item => item.groupBy === 'emergency')
+        dataWarning.value = data.value.filter(item => item.groupBy === 'warning')
+        dataInfo.value = data.value.filter(item => item.groupBy === 'info')
+        uniqueIndicators.value = loadIndicator();
+      }
+    )
+
+    watch(
+      () => selectedIndicator.value,
+      (value) => {
+
+        if(value.length > 0){
+          data.value = allData.value.filter(item => {
+            let name = item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase();
+            return Object.values(value).includes(name)
+          })
+        }else{
+          if(Object.values(selectedGroup.value).length == 0){
+            data.value = allData.value
+          }else{
+            data.value = allData.value.filter(item => {
+            let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
+            return Object.values(selectedGroup.value).includes(name)
+          })
+          }
+        }
+        dataEmergency.value = data.value.filter(item => item.groupBy === 'emergency')
+        dataWarning.value = data.value.filter(item => item.groupBy === 'warning')
+        dataInfo.value = data.value.filter(item => item.groupBy === 'info')
+      }
+    )
 
 
     return{
@@ -526,11 +433,16 @@ export default{
       cities,
       visibleRight,
       progressValue,
-      categories,
-      selectedCategories,
+      selectedGroup,
+      selectedIndicator,
       value,
       date,
       date2,
+      dataEmergency,
+      dataWarning,
+      dataInfo,
+      uniqueGroups,
+      uniqueIndicators
     }
   }
 }

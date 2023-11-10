@@ -2,7 +2,10 @@
   <div class="grid grid-cols-2">
     <div class="flex justify-center">
       <div class="flex flex-col items-center justify-center w-9/12">
-        <i class="pi pi-user text-primary-900 mb-5" style="font-size: 3rem"></i>
+        <svg class="mb-6" xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
+          <path d="M50.0007 41.6666C59.2054 41.6666 66.6673 34.2047 66.6673 25C66.6673 15.7952 59.2054 8.33331 50.0007 8.33331C40.7959 8.33331 33.334 15.7952 33.334 25C33.334 34.2047 40.7959 41.6666 50.0007 41.6666Z" stroke="#02299B" stroke-width="5"/>
+          <path d="M83.3337 72.9166C83.3337 83.2708 83.3337 91.6666 50.0003 91.6666C16.667 91.6666 16.667 83.2708 16.667 72.9166C16.667 62.5625 31.592 54.1666 50.0003 54.1666C68.4087 54.1666 83.3337 62.5625 83.3337 72.9166Z" stroke="#02299B" stroke-width="5"/>
+        </svg>
         <h2 class="text-lg text-gray-900 mb-2 font-medium font-inter">Bienvenido a auditor virtual</h2>
         <p class="text-md text-gray-900 mb-8 font-medium font-inter text-center">
           Ingresa para ver todas las estadísticas financieras de tu negocio.
@@ -11,9 +14,9 @@
           @submit="onSubmitLogin"
           class="w-full">
           <div class="flex flex-col gap-2 w-full mb-5">
-            <label for="email" class="font-inter">Correo*</label>
+            <label for="email" class="font-inter text-gray-900">Correo*</label>
             <span class="relative">
-              <i class="pi pi-envelope absolute right-4 top-5 text-primary-900" style="font-size: 1.2rem" />
+              <i class="pi pi-envelope absolute right-4 top-5 text-gray-900" style="font-size: 1.2rem" />
               <input
               id="email"
               type="email"
@@ -26,9 +29,9 @@
             </span>
           </div>
           <div class="flex flex-col gap-2 w-full mb-10">
-            <label for="password" class="font-inter">Contraseña*</label>
+            <label for="password" class="font-inter text-gray-900">Contraseña*</label>
             <span class="relative">
-              <i class="pi pi-lock absolute right-4 top-5 text-primary-900" style="font-size: 1.2rem" />
+              <i class="pi pi-eye absolute right-4 top-5 text-gray-900" style="font-size: 1.2rem" />
               <input
               type="password"
               id="password"
@@ -42,13 +45,13 @@
               <span class="p-error">{{ errors.password }}</span>
             </span>
           </div>
-          <div class="flex flex-col text-center">
+          <div class="flex flex-col items-center text-center">
             <Button
               type="submit"
-              class="bg-orange-900 rounded-none outline-none py-3 px-20 mb-4 text-lg text-white font-normal"
+              class="bg-orange-900 w-fit rounded-none outline-none py-3 px-20 mb-4 text-lg text-white font-normal"
               label="Ingresar"
             />
-            <span class="font-medium text-sm">¿Has olvidado tu contraseña? <a class="text-primary-900">Haz clic aquí</a></span>
+            <span class="font-medium text-gray-900 text-sm">¿Has olvidado tu contraseña? <a class="text-primary-900">Haz clic aquí</a></span>
           </div>
         </Form>
       </div>

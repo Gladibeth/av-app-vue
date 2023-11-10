@@ -29,15 +29,17 @@ module.exports = {
       },
       'gray': {
         100: '#f7f8fe',
-        200: '#b7b7b7',
+        200: '#646464',
         300: '#dddddd',
+        400: '#E9E9E9',
         800: '#8d8e93',
-        900: '#323133'
+        900: '#535353'
       },
       'orange': {
         100: '#ffeec3',
         200: '#e68e7c',
         300: '#f59c0a',
+        400: '#FDB954',
         900: '#ff8e12'
       },
       'green': {
@@ -58,7 +60,7 @@ module.exports = {
       'red': {
         100: '#ffdada',
         800: '#fa4e59',
-        900: '#ef4444',
+        900: '#FF4C4C',
       }
     },
     fontFamily: {
@@ -99,7 +101,7 @@ module.exports = {
         '90vh': '90vh',
       },
       maxWidth: {
-        'medium': '90%',
+        'medium': '95%',
       },
       margin: {
         '0-auto': '0 auto',
@@ -111,6 +113,9 @@ module.exports = {
         'custom-filter': '0.5fr 1fr 1fr 1fr 0.8fr',
         'custom21': '2fr 1fr',
       },
+      boxShadow: {
+        '3xl': '0px 4px 8px 0px rgba(160, 160, 160, 0.50)',
+      }
      
     }
 

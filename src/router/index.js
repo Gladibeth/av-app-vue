@@ -60,14 +60,14 @@ const router = createRouter({
   ]
 })
 
-router.beforeEach((to, from, next) => {
-  const user = localStorage.getItem('isLogin');
-  // const protectedPaths = ['/', '/executive-summary', '/panel'];
-  if (!user) {
-    next('/sign-in');
-  } else{
-    next(); 
-  }
-});
+// router.beforeEach((to, from, next) => {
+//   const user = localStorage.getItem('isLogin');
+//   // const protectedPaths = ['/', '/executive-summary', '/panel'];
+//   if (!user) {
+//     next('/sign-in');
+//   } else{
+//     next(); 
+//   }
+// });
 
 export default router

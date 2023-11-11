@@ -88,7 +88,7 @@ import Dropdown from 'primevue/dropdown';
 			},
 			{
 				name: 'executive-summary',
-				title: 'Panel ejecutivo',
+				title: 'Resumen ejecutivo',
 				icon: 'pi-chart-bar'
 			}
 		]

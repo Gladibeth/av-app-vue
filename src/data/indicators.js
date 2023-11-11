@@ -15,8 +15,8 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
-            dateModified: '23/10/2023',
+            dateCreated: '11/10/2023',
+            dateModified: '11/10/2023',
         },
         {
             id: 2,
@@ -33,8 +33,8 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
-            dateModified: '23/10/2023',
+            dateCreated: '11/01/2023',
+            dateModified: '10/10/2023',
         },
         {
             id: 3,
@@ -51,7 +51,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '12/20/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -69,7 +69,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '12/10/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -87,7 +87,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '11/20/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -105,7 +105,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '12/12/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -123,7 +123,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '11/30/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -141,7 +141,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '12/31/2023',
             dateModified: '23/10/2023',
         },
         {
@@ -159,7 +159,7 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '23/10/2023',
+            dateCreated: '11/28/2023',
             dateModified: '23/10/2023',
         },
     ],

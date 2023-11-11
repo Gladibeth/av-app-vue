@@ -123,7 +123,7 @@ name: 'Sign-in',
 
       if (user) {
         localStorage.setItem('isLogin', true);
-        console.log(localStorage.getItem('isLogin'));
+
         showSuccess();
 
         setTimeout(() => {

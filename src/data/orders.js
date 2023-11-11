@@ -167,5 +167,9 @@ export const orders = {
             dateModified: '23/10/2023',
         },
     ],
-    children: 'factura'
- }
+    children: 'factura',
+    document: {
+        url:  'https://demo.auditorvirtual.cl/export/los-almendros.xlsx',
+        name: 'los-almendros.xlsx'
+    }
+    }

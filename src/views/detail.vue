@@ -7,7 +7,7 @@
                     <div>
                         <i class="pi pi-arrow-left pr-5 text-gray-800 text-lg mt-5" @click="goBack"></i>
                     </div>
-                    <div class="flex mt-5 p-3 card-detail items-center">
+                    <div class="flex mt-5 p-3 card-detail items-center flex-wrap">
                         <div class="p-3 pb-0">
                             <div class="flex">
                                 <span class="custom-icon-quare mr-3 bg-red-900"></span>
@@ -38,13 +38,37 @@
                             </div>
                         </div>
                         <div>
-                            <button class="btn btn-bg-primary mr-3 p-2 px-5 bg-primary flex"> 
+                            <button @click="downloadDocument" class="btn btn-bg-primary mr-3 p-2 px-5 bg-primary flex"> 
                                 <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="23" height="23" viewBox="0 0 23 23" fill="none">
                                     <path d="M3.83301 7.18752V2.87502C3.83301 2.62085 3.93397 2.3771 4.1137 2.19738C4.29342 2.01765 4.53718 1.91669 4.79134 1.91669H18.208C18.4622 1.91669 18.7059 2.01765 18.8857 2.19738C19.0654 2.3771 19.1663 2.62085 19.1663 2.87502V20.125C19.1663 20.3792 19.0654 20.6229 18.8857 20.8027C18.7059 20.9824 18.4622 21.0834 18.208 21.0834H4.79134C4.53718 21.0834 4.29342 20.9824 4.1137 20.8027C3.93397 20.6229 3.83301 20.3792 3.83301 20.125V15.8125" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     <path d="M14.854 7.1875H16.2915M13.4165 11.0208H16.2915M13.4165 14.8542H16.2915" stroke="white" stroke-width="2" stroke-linecap="round"/>
                                     <path d="M4.7915 10.0625L7.6665 12.9375M7.6665 10.0625L4.7915 12.9375M1.9165 7.1875H10.5415V15.8125H1.9165V7.1875Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                                     </svg>
                                 Exportar</button>
+                        </div>
+                        <div v-if="headOrder" class="py-4 pl-3" style="width: 100%;">
+                            <table>
+                                <thead>
+                                    <tr style="border-bottom: none !important;">
+                                        <td class="text-gray-800 font-bold" style="width: 130px;">Fecha</td>
+                                        <td class="text-gray-800 font-bold" style="width: 130px;">N documento</td>
+                                        <td class="text-gray-800 font-bold" style="width: 130px;">Tipo</td>
+                                        <td class="text-gray-800 font-bold" style="width: 130px;">Hora</td>
+                                        <td class="text-gray-800 font-bold" style="width: 130px;">N terminal</td>
+                                        <td class="text-gray-800 font-bold" style="width: 200px;">Cajero</td>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: none !important;">
+                                        <td class="text-gray-800 text-sm">{{ headOrder.dateCreated }}</td>
+                                        <td class="text-gray-800 text-sm">{{ headOrder.docNum }}</td>
+                                        <td class="text-gray-800 text-sm">{{ headOrder.docType }}</td>
+                                        <td class="text-gray-800 text-sm">{{ headOrder.docTime }}</td>
+                                        <td class="text-gray-800 text-sm">{{ headOrder.numTerminal }}</td>
+                                        <td class="text-gray-800 text-sm">{{ headOrder.cashier }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
@@ -70,10 +94,10 @@
                 <div class="mt-10 flex mt-5 p-5 card-detail items-center">
                     <Chart class="custom-chart-full" type="line" :data="chartData" :options="chartOptions"  />
                 </div>
-                <div class="mt-10 flex mt-5 p-5 card-detail items-center">
+                <!-- <div class="mt-10 flex mt-5 p-5 card-detail items-center">
                     <Chart class="custom-chart-medium" type="bar" :data="chartData3" :options="chartOptions3"  />
-                    <!-- <Chart type="bar" :data="chartData3" :options="chartOptions3" class="h-50rem"  /> -->
-                </div>
+                    <Chart type="bar" :data="chartData3" :options="chartOptions3" class="h-50rem"  />
+                </div> -->
             </div>
         </div>
     </div>
@@ -112,6 +136,15 @@ export default{
         const chartOptions = ref();
         const chartData3 = ref();
         const chartOptions3 = ref();
+        const documentExport = ref('');
+        const headOrder = ref(null);
+
+        const downloadDocument = () => {
+            const link = document.createElement('a');
+            link.href = documentExport.value.url;
+            link.download = documentExport.value.name;
+            link.click();
+        };
 
         const goBack = () => {
             if (previousRoute.value) {
@@ -134,12 +167,12 @@ export default{
         }
 
         const sliceArray = (arrayOriginal, tamanoSubarray) => {
-        const resultado = [];
-        for (let i = 0; i < arrayOriginal.length; i += tamanoSubarray) {
-            const subarray = arrayOriginal.slice(i, i + tamanoSubarray);
-            resultado.push(subarray);
-        }
-        return resultado;
+            const resultado = [];
+            for (let i = 0; i < arrayOriginal.length; i += tamanoSubarray) {
+                const subarray = arrayOriginal.slice(i, i + tamanoSubarray);
+                resultado.push(subarray);
+            }
+            return resultado;
         }
 
         const getLabel = (segment) =>{
@@ -157,13 +190,14 @@ export default{
                 default:
                     return 'Detalle';
             }
-            return route.params.id;
         }
 
         const loadData = (params) => {
-            items.value = []
-            const routeSegments = route.path.split('/').filter(segment => segment !== '');
 
+            headOrder.value = null
+            items.value = []
+
+            const routeSegments = route.path.split('/').filter(segment => segment !== '');
             const itemsSegments = sliceArray(routeSegments, 2);
 
             for (let i = 0; i < itemsSegments.length; i++) {
@@ -178,39 +212,30 @@ export default{
                 });
             }
 
-            const segment = routeSegments.pop();
-
-            switch (segment) {
+            switch (routeSegments.pop()) {
             case 'almacenes':
-                dataTable.value = stores.value.filter((store) => store.zone_id == params.id);
-                header.value = stores.header;
-                children.value = stores.children;
+                getData(stores,  params.id);
                 break;
-
             case 'ordenes':
-                dataTable.value = orders.value.filter((order) => order.store_id == params.id);
-                header.value = orders.header;
-                children.value = orders.children;
+                getData(orders, params.id);
                 break;
-
             case 'factura':
-                dataTable.value = bills.value.filter((bill) => bill.order_id == params.id);
-                header.value = bills.header;
-                children.value = bills.children;
+                getData(bills,  params.id);
+                headOrder.value = orders.value.find((order) => order.id == params.id);
                 break;
-
             case 'zonas':
-                dataTable.value = zones.value;
-                header.value = zones.header;
-                children.value = zones.children;
-                break;
-
-            default:
-
+                getData(zones);
                 break;
             }
 
         };
+
+        const getData = (object, id = null) => {
+            dataTable.value = !id ? object.value.filter((order) => order.store_id == id) : object.value;
+            header.value = object.header;
+            children.value = object.children;
+            documentExport.value = object.document;
+        }
 
         onMounted(() => {
             loadData(route.params);
@@ -222,7 +247,7 @@ export default{
 
         watch(
             () => route.params,
-            (to, from) => {
+            (to) => {
                 loadData(to);
             }
         );
@@ -354,7 +379,9 @@ export default{
             chartData,
             chartOptions,
             chartData3,
-            chartOptions3
+            chartOptions3,
+            headOrder,
+            downloadDocument
         }
     },
 }

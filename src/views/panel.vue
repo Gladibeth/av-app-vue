@@ -57,7 +57,7 @@
           <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Seleccionar Sucursal" class="w-full bg-gray-400 rounded " />
         </div>
         <div class="flex items-end justify-center text-center">
-          <Button icon="pi pi-search" class="bg-orange-900 w-full rounded-none py-3 px-5 text-md  text-white" label="Buscar" />
+          <Button :disabled="disableButtom" @click="filter" icon="pi pi-search" class="bg-orange-900 w-full rounded-none py-3 px-5 text-md  text-white" label="Buscar" />
 
         </div>
       </div>
@@ -66,42 +66,112 @@
       <div class="grid grid-cols-custom052 gap-4">
         <div class="bg-primary-400 p-4 h-65vh overflow-y-scroll main-scrollbar column-red">
           <div class="flex justify-between items-center mb-4">
-            <span class="bg-primary-500 font-medium text-primary-900 rounded-full p-2 text-2xs">Comercial</span>
-            <span class="rounded-full p-2 text-2xs text-gray-800" >Proceso</span>
-            <span class="rounded-full p-2 text-2xs text-gray-800">Concepto</span>
+            <Button @click="active = 0" rounded label="Comercial" :outlined="active !== 0" class="bg-primary-500 font-medium text-primary-900  rounded-full p-2 text-2xs"/>
+            <Button @click="active = 1" rounded label="Proceso" :outlined="active !== 1" class=" mx-1 bg-primary-500 font-medium text-primary-900 rounded-full p-2 text-2xs text-gray-800 " />
+            <Button @click="active = 2" rounded label="Concepto" :outlined="active !== 2" class="bg-primary-500 font-medium text-primary-900 rounded-full p-2 text-2xs text-gray-800"/>
           </div>
 
-          <!-- CHECKBOXS -->
-          <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-              <div v-for="group of uniqueGroups" :key="group" class="flex">
-                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
-                  <label :for="group.key">{{ group.name }}</label>
-              </div>
-          </div>
-          <!-- CHECKBOXS -->
-          <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
-          <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-              <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
-                  <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
-                  <label :for="indicator.key">{{ indicator.name }}</label>
-              </div>
-          </div>
+          <TabView v-model:activeIndex="active">
+            <TabPanel>
+              <!-- CHECKBOXS -->
+   <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+       <div v-for="group of uniqueGroups" :key="group" class="flex">
+           <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+           <label :for="group.key">{{ group.name }}</label>
+       </div>
+   </div>
+   <!-- CHECKBOXS -->
+   <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
+   <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+       <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
+           <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+           <label :for="indicator.key">{{ indicator.name }}</label>
+       </div>
+   </div>
 
-          <div>
-            <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
-            <div class="mb-2 flex justify-center">
-                <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
+   <div>
+     <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
+     <div class="mb-2 flex justify-center">
+         <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
+       </div>
+     <div class="slider-container">
+       <Slider v-model="value" range class="custom-slider" />
+     
+     </div>
+     <div class="flex justify-between mt-2">
+       <div class="text-gray-800 text-medium text-sm">Bajo</div>
+       <div class="text-gray-800 text-medium text-sm">Medio</div>
+       <div class="text-gray-800 text-medium text-sm">Alto</div>
+     </div>
+   </div>
+            </TabPanel>
+            <TabPanel>
+                          <!-- CHECKBOXS -->
+              <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                  <div v-for="group of uniqueGroups" :key="group" class="flex">
+                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                      <label :for="group.key">{{ group.name }}</label>
+                  </div>
               </div>
-            <div class="slider-container">
-              <Slider v-model="value" range class="custom-slider" />
-             
-            </div>
-            <div class="flex justify-between mt-2">
-              <div class="text-gray-800 text-medium text-sm">Bajo</div>
-              <div class="text-gray-800 text-medium text-sm">Medio</div>
-              <div class="text-gray-800 text-medium text-sm">Alto</div>
-            </div>
-          </div>
+              <!-- CHECKBOXS -->
+              <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
+              <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                  <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
+                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+                      <label :for="indicator.key">{{ indicator.name }}</label>
+                  </div>
+              </div>
+
+              <div>
+                <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
+                <div class="mb-2 flex justify-center">
+                    <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
+                  </div>
+                <div class="slider-container">
+                  <Slider v-model="value" range class="custom-slider" />
+                
+                </div>
+                <div class="flex justify-between mt-2">
+                  <div class="text-gray-800 text-medium text-sm">Bajo</div>
+                  <div class="text-gray-800 text-medium text-sm">Medio</div>
+                  <div class="text-gray-800 text-medium text-sm">Alto</div>
+                </div>
+              </div>
+            </TabPanel>
+            <TabPanel>
+                          <!-- CHECKBOXS -->
+              <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                  <div v-for="group of uniqueGroups" :key="group" class="flex">
+                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                      <label :for="group.key">{{ group.name }}</label>
+                  </div>
+              </div>
+              <!-- CHECKBOXS -->
+              <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
+              <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                  <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
+                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+                      <label :for="indicator.key">{{ indicator.name }}</label>
+                  </div>
+              </div>
+
+              <div>
+                <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
+                <div class="mb-2 flex justify-center">
+                    <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
+                  </div>
+                <div class="slider-container">
+                  <Slider v-model="value" range class="custom-slider" />
+                
+                </div>
+                <div class="flex justify-between mt-2">
+                  <div class="text-gray-800 text-medium text-sm">Bajo</div>
+                  <div class="text-gray-800 text-medium text-sm">Medio</div>
+                  <div class="text-gray-800 text-medium text-sm">Alto</div>
+                </div>
+              </div>
+            </TabPanel>
+        </TabView>
         </div>
         <div class="grid grid-cols-3 gap-4">
           <!-- columns -->
@@ -336,7 +406,10 @@ import Sidebar from 'primevue/sidebar'
 import Card from 'primevue/card'
 import Checkbox from 'primevue/checkbox'
 import Slider from 'primevue/slider';
+import TabView from 'primevue/tabview';
+import TabPanel from 'primevue/tabpanel';
 import { indicators } from '../data/indicators.js'
+import { isWithinInterval } from 'date-fns';
 
 export default{
   components: {
@@ -349,7 +422,9 @@ export default{
       Sidebar,
       Card,
       Checkbox,
-      Slider
+      Slider,
+      TabView,
+      TabPanel
   },
   setup(){
     const selectedCity = ref();
@@ -369,7 +444,8 @@ export default{
     const dataEmergency = ref( data.value.filter(item => item.groupBy === 'emergency'))
     const dataWarning = ref( data.value.filter(item => item.groupBy === 'warning'))
     const dataInfo = ref( data.value.filter(item => item.groupBy === 'info'))
-    
+    const active = ref(0);
+
     const loadGroup = () => {
       return data.value.reduce((acc, indicator) => {
         const sanitizedGroupName = indicator.type.charAt(0).toUpperCase() + indicator.type.slice(1);
@@ -400,7 +476,52 @@ export default{
     const selectedGroup = ref([]);
     const selectedIndicator = ref([]);
     const value = ref([20, 80]);
+    const disableButtom = ref(true);
 
+    const filter = () => {
+      filterOrders(date.value, date2.value);
+    };
+   
+
+  function filterOrders(date, date2) {
+    let result = filterOrdersByDateRange([date, date2], allData.value)
+    
+    if(result.length > 0){
+      data.value = result
+    }else{
+      data.value = allData.value
+    }
+  }
+
+  function filterOrdersByDateRange(dates, data) {
+    return data.filter(item => {
+      const orderDate = new Date(item.dateCreated);
+      const start = new Date(dates[0]);
+      const end = new Date(dates[1]);
+      
+      orderDate.setUTCHours(0, 0, 0, 0);
+      start.setUTCHours(0, 0, 0, 0);
+      end.setUTCHours(0, 0, 0, 0);
+
+      return isWithinInterval(orderDate, { start, end });
+    });
+  }
+    watch(
+      () => [date.value, date2.value],
+      () => {
+        const isDatesValid = date.value !== null && date2.value !== null;
+        disableButtom.value = !isDatesValid;
+      }
+    )
+
+    watch(
+      () => data.value,
+      (value) => {
+        dataEmergency.value = value.filter(item => item.groupBy === 'emergency')
+        dataWarning.value = value.filter(item => item.groupBy === 'warning')
+        dataInfo.value = value.filter(item => item.groupBy === 'info')
+      }
+    )
 
     watch(
       () => selectedGroup.value,
@@ -414,10 +535,6 @@ export default{
         }else{
           data.value = allData.value
         }
-
-        dataEmergency.value = data.value.filter(item => item.groupBy === 'emergency')
-        dataWarning.value = data.value.filter(item => item.groupBy === 'warning')
-        dataInfo.value = data.value.filter(item => item.groupBy === 'info')
         uniqueIndicators.value = loadIndicator();
       }
     )
@@ -441,9 +558,6 @@ export default{
           })
           }
         }
-        dataEmergency.value = data.value.filter(item => item.groupBy === 'emergency')
-        dataWarning.value = data.value.filter(item => item.groupBy === 'warning')
-        dataInfo.value = data.value.filter(item => item.groupBy === 'info')
       }
     )
 
@@ -462,11 +576,20 @@ export default{
       dataWarning,
       dataInfo,
       uniqueGroups,
-      uniqueIndicators
+      uniqueIndicators,
+      disableButtom,
+      filter,
+      active
     }
   }
 }
 </script>
-<style>
-
+<style scope>
+  .p-tabview-nav{
+    display: none;
+  }
+  .p-tabview-panels{
+    @apply !bg-primary-400;
+    @apply !p-0;
+  }
 </style>

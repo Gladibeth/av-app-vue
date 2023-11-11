@@ -1,11 +1,7 @@
 export const bills = {
     header: {
-        docNum: 'Nro Documento',
-        dateCreated: 'Fecha Documento',
-        docType: 'Tipo de Documento',
-        docTime: 'Hora transacción',
-        numTerminal: 'Nro Terminal',
-        cashier: 'Cajero',
+        name: 'Nombre',
+        sku: 'SKU',
         qtyProduct: 'Cantidad de productos',
         cost: 'Costo',
         amountPaid: 'Valor Pagado',
@@ -21,6 +17,7 @@ export const bills = {
             docTime: '21:25:00',
             numTerminal: '151.516',
             cashier: '10.520.106-9 Lorena Campos',
+            name: 'Product 1',
             sku: '32131654498',
             qtyProduct: '1',
             cost: '6.565.465',
@@ -32,5 +29,10 @@ export const bills = {
             dateModified: '23/10/2023',
         },
     ],
-    children: null
+    children: null,
+    document: {
+        url: 'https://demo.auditorvirtual.cl/export/boleta-10101536.xlsx',
+        name: 'boleta-10101536.xlsx'
+        },
+
  }

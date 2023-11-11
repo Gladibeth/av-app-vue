@@ -57,5 +57,9 @@ export const zones = {
             dateModified: '2021-01-01',
         }, 
     ],
-    children: 'almacenes'
+    children: 'almacenes',
+    document: {
+        url: 'https://demo.auditorvirtual.cl/export/zonas.xlsx',
+        name: 'zonas.xlsx'
+    },
  }

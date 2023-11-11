@@ -32,7 +32,7 @@
             </svg>
             <label>Fecha desde:</label>
           </div>
-          <Calendar class="bg-gray-400  rounded p-3 outline-none w-full" v-model="date" dateFormat="dd/mm/yy" showButtonBar />
+          <Calendar class="bg-gray-400  rounded p-3 outline-none w-full" v-model="dateTo" dateFormat="dd/mm/yy" showButtonBar />
         </div>
         <div>
           <div class="flex mb-3">
@@ -42,7 +42,7 @@
             </svg>
             <label>Fecha hasta:</label>
           </div>
-          <Calendar class="bg-gray-400  rounded p-3 outline-none w-full"  v-model="date2" dateFormat="dd/mm/yy" showButtonBar />
+          <Calendar class="bg-gray-400  rounded p-3 outline-none w-full"  v-model="dateFrom" dateFormat="dd/mm/yy" showButtonBar />
         </div>
         <div class="card flex flex-col justify-content-center">
           <div class="flex mb-3">
@@ -54,7 +54,7 @@
             </svg>
             <label>Surcusal</label>
           </div>
-          <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Seleccionar Sucursal" class="w-full bg-gray-400 rounded " />
+          <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Todas las sucursales" class="w-full bg-gray-400 rounded " />
         </div>
         <div class="flex items-end justify-center text-center">
           <Button :disabled="disableButtom" @click="filter" icon="pi pi-search" class="bg-orange-900 w-full rounded-none py-3 px-5 text-md  text-white" label="Buscar" />
@@ -396,7 +396,7 @@
  
  
 <script>
-import {defineAsyncComponent,ref, watch  } from 'vue'
+import {defineAsyncComponent,onBeforeMount,ref, watch  } from 'vue'
 import Button from 'primevue/button'
 import Calendar from 'primevue/calendar'
 import Dropdown from 'primevue/dropdown'
@@ -408,6 +408,7 @@ import Checkbox from 'primevue/checkbox'
 import Slider from 'primevue/slider';
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
+import { zones } from '../data/zones.js'
 import { indicators } from '../data/indicators.js'
 import { isWithinInterval } from 'date-fns';
 
@@ -428,18 +429,13 @@ export default{
   },
   setup(){
     const selectedCity = ref();
-    const cities = ref([
-        { name: 'New York', code: 'NY' },
-        { name: 'Rome', code: 'RM' },
-        { name: 'London', code: 'LDN' },
-        { name: 'Istanbul', code: 'IST' },
-        { name: 'Paris', code: 'PRS' }
-    ]);
-    const date = ref(null);
-    const date2 = ref(null);
+    const cities = ref(zones.value);
+    const dateTo = ref('01/11/2023');
+    const dateFrom = ref('30/11/2023');
     const visibleRight = ref(false);
     const progressValue = ref(50);
     const allData = ref(indicators.value)
+    const allDataFilterByDate = ref([])
     const data = ref(indicators.value)
     const dataEmergency = ref( data.value.filter(item => item.groupBy === 'emergency'))
     const dataWarning = ref( data.value.filter(item => item.groupBy === 'warning'))
@@ -476,40 +472,63 @@ export default{
     const selectedGroup = ref([]);
     const selectedIndicator = ref([]);
     const value = ref([20, 80]);
-    const disableButtom = ref(true);
+    const disableButtom = ref(false);
+
+    onBeforeMount(() => {
+      const dateToStorage = localStorage.getItem('dateTo')
+      const dateFromStorage = localStorage.getItem('dateFrom')
+      if(dateToStorage && dateFromStorage){
+        dateTo.value = formatDate(dateToStorage);
+        dateFrom.value = formatDate(dateFromStorage);
+        filterOrders(dateToStorage, dateFromStorage);
+      }else{
+        localStorage.setItem('dateTo', dateTo.value)
+        localStorage.setItem('dateFrom', dateFrom.value)
+      }
+    })
+
+    const formatDate = (dateString) => {
+          const date = new Date(dateString);
+          const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+          return new Intl.DateTimeFormat('en-GB', options).format(date);
+      };
 
     const filter = () => {
-      filterOrders(date.value, date2.value);
+      localStorage.setItem('dateTo', dateTo.value)
+      localStorage.setItem('dateFrom', dateFrom.value)
+      filterOrders(dateTo.value, dateFrom.value);
     };
    
-
-  function filterOrders(date, date2) {
-    let result = filterOrdersByDateRange([date, date2], allData.value)
-    
-    if(result.length > 0){
-      data.value = result
-    }else{
-      data.value = allData.value
-    }
-  }
-
-  function filterOrdersByDateRange(dates, data) {
-    return data.filter(item => {
-      const orderDate = new Date(item.dateCreated);
-      const start = new Date(dates[0]);
-      const end = new Date(dates[1]);
+    function filterOrders(dateTo, dateFrom) {
+      let result = filterOrdersByDateRange([dateTo, dateFrom], allData.value)
       
-      orderDate.setUTCHours(0, 0, 0, 0);
-      start.setUTCHours(0, 0, 0, 0);
-      end.setUTCHours(0, 0, 0, 0);
+      if(result.length > 0){
+        data.value = result
+      }else{
+        data.value = allData.value
+      }
+      allDataFilterByDate.value = data.value
+      uniqueIndicators.value = loadIndicator();
+    }
 
-      return isWithinInterval(orderDate, { start, end });
-    });
-  }
+    function filterOrdersByDateRange(dates, data) {
+      return data.filter(item => {
+        const orderDate = new Date(item.dateCreated);
+        const start = new Date(dates[0]);
+        const end = new Date(dates[1]);
+        
+        orderDate.setUTCHours(0, 0, 0, 0);
+        start.setUTCHours(0, 0, 0, 0);
+        end.setUTCHours(0, 0, 0, 0);
+
+        return isWithinInterval(orderDate, { start, end });
+      });
+    }
+
     watch(
-      () => [date.value, date2.value],
+      () => [dateTo.value, dateFrom.value],
       () => {
-        const isDatesValid = date.value !== null && date2.value !== null;
+        const isDatesValid = dateTo.value !== null && dateFrom.value !== null;
         disableButtom.value = !isDatesValid;
       }
     )
@@ -520,6 +539,7 @@ export default{
         dataEmergency.value = value.filter(item => item.groupBy === 'emergency')
         dataWarning.value = value.filter(item => item.groupBy === 'warning')
         dataInfo.value = value.filter(item => item.groupBy === 'info')
+        // uniqueIndicators.value = loadIndicator();
       }
     )
 
@@ -528,12 +548,12 @@ export default{
       (value) => {
     
         if(value.length > 0){
-          data.value = allData.value.filter(item => {
+          data.value = allDataFilterByDate.value.filter(item => {
             let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
             return Object.values(value).includes(name)
           })
         }else{
-          data.value = allData.value
+          data.value = allDataFilterByDate.value
         }
         uniqueIndicators.value = loadIndicator();
       }
@@ -544,15 +564,15 @@ export default{
       (value) => {
 
         if(value.length > 0){
-          data.value = allData.value.filter(item => {
+          data.value = allDataFilterByDate.value.filter(item => {
             let name = item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase();
             return Object.values(value).includes(name)
           })
         }else{
           if(Object.values(selectedGroup.value).length == 0){
-            data.value = allData.value
+            data.value = allDataFilterByDate.value
           }else{
-            data.value = allData.value.filter(item => {
+            data.value = allDataFilterByDate.value.filter(item => {
             let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
             return Object.values(selectedGroup.value).includes(name)
           })
@@ -560,7 +580,6 @@ export default{
         }
       }
     )
-
 
     return{
       selectedCity,
@@ -570,8 +589,8 @@ export default{
       selectedGroup,
       selectedIndicator,
       value,
-      date,
-      date2,
+      dateTo,
+      dateFrom,
       dataEmergency,
       dataWarning,
       dataInfo,

@@ -24,7 +24,7 @@
                                         </svg>
                                     Fecha desde
                                 </p>
-                                <p class="pl-5 text-gray-800 text-sm">01-01-2023</p>
+                                <p class="pl-5 text-gray-800 text-sm">{{ dateTo }}</p>
                             </div>
                             <div>
                                 <p class="text-gray-800 text-sm flex"> 
@@ -34,7 +34,7 @@
                                         </svg>
                                     Fecha desde
                                 </p>
-                                <p class="pl-5 text-gray-800 text-sm">01-01-2023</p>
+                                <p class="pl-5 text-gray-800 text-sm">{{ dateFrom }}</p>
                             </div>
                         </div>
                         <div>
@@ -139,6 +139,16 @@ export default{
         const documentExport = ref('');
         const headOrder = ref(null);
 
+        
+        const formatDate = (dateString) => {
+            const date = new Date(dateString);
+            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
+            return new Intl.DateTimeFormat('en-GB', options).format(date);
+        };
+        
+        const dateTo = ref(formatDate(localStorage.getItem('dateTo')));
+        const dateFrom = ref(formatDate(localStorage.getItem('dateFrom')));
+        
         const downloadDocument = () => {
             const link = document.createElement('a');
             link.href = documentExport.value.url;
@@ -381,7 +391,9 @@ export default{
             chartData3,
             chartOptions3,
             headOrder,
-            downloadDocument
+            downloadDocument,
+            dateTo,
+            dateFrom,
         }
     },
 }

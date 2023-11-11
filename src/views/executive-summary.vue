@@ -10,8 +10,8 @@
           </div>
 
           <div class=" flex p-3 mt-3">
-              <MultiSelect v-model="selectedDocument" :options="listDocuments" optionLabel="name" placeholder="Emisión de documentos con tienda..." display="chip" class="w-full bg-white rounded ">
-              </MultiSelect>
+              <Dropdown v-model="selectedDocument" :options="listDocuments" optionLabel="name" placeholder="Emisión de documentos con tienda..." display="chip" class="w-full bg-white rounded ">
+              </Dropdown>
           </div>
           <div class="h-90vh overflow-y-scroll main-scrollbar bg-secundary-300 px-4 pt-4 ">
             <!-- card -->
@@ -32,7 +32,10 @@
           
           </div>
         </div>
-        <div class="h-85vh overflow-y-scroll main-scrollbar mt-10 py-10">
+        <div class="h-85vh overflow-y-scroll main-scrollbar py-10">
+          <div>
+            <p class="font-bold mb-5 ml-4 text-gray-900 text-lg">{{ selectedDocument.name }}</p>
+          </div>
           <div class="grid grid-cols-2 gap-4 mb-4 ">
             <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
               <div class="grid grid-cols-2 mb-3">
@@ -143,6 +146,8 @@ import Chart from 'primevue/chart'
 import Button from 'primevue/button'
 import Dropdown from 'primevue/dropdown'
 import MultiSelect from 'primevue/multiselect'
+import { indicators } from '../data/indicators.js'
+
 export default{
   components: {
       Navbar: defineAsyncComponent( () => import('../components/Navbar.vue')),
@@ -178,25 +183,24 @@ export default{
 
     const chartData3 = ref();
     const chartOptions3 = ref();
-    const selectedDocument = ref([]);
+    
+    
+    const listDocuments = ref(indicators.value)
+    
+    const selectedIndicator = ref(listDocuments.value[0])
+    
+    const selectedDocument = ref(selectedIndicator.value);
 
+    const searchDocument = ref(selectedIndicator.value.tags)
 
-    const listDocuments = ref([
-        { name: 'Descripción', description: 'Transacciones facturadas fuera del horario de atensión a público', icon: 'pi-list' },
-        { name: 'Riesgo', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat', icon: 'pi-exclamation-triangle' },
-        { name: 'Análisis de situación identificada', description: 'Transacciones facturadas fuera del horario de atensión a público', icon: 'pi-sitemap' },
-        { name: 'Recomendaciones', description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', icon: 'pi-flag' },
-    ])
-
-    const searchDocument = ref(listDocuments.value)
 
     const hideActive = ref(true)
 
 
     watch(() => selectedDocument.value,
           (value)=>{
-          if(value.length){
-            searchDocument.value = value
+          if(Object.keys(value).length){
+            searchDocument.value = value.tags
           }else{
             searchDocument.value = listDocuments.value
           }

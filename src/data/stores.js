@@ -110,5 +110,27 @@ export const stores = {
     document: {
         url: 'https://demo.auditorvirtual.cl/export/zona-norte.xlsx',
         name: 'zona-norte.xlsx'
+    },
+    chart: {
+        type: 'line',
+        labels: ['Los Almendros', 'Las Carmelitas', 'Los Perales', 'Zarmiento', 'Zapallar', 'San Pedro', 'Calama', 'La Paz', 'Piñones'],
+        datasets: [
+            {
+                label: 'Cantidad de caos',
+                data: [17, 11, 8, 7, 5, 4, 4, 3, 1],
+                fill: true,
+                borderColor: '#022597',
+                tension: 0.4,
+                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+            },
+            {
+                label: 'Monto',
+                data: [22281480, 13711680, 11997720, 8569800, 7712820, 5998860, 6855840, 5141880, 3427920],
+                fill: true,
+                borderColor: '#fdb954',
+                tension: 0.4,
+                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+            }
+        ]
     }
  }

@@ -74,51 +74,18 @@
           <TabView v-model:activeIndex="active">
             <TabPanel>
               <!-- CHECKBOXS -->
-   <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-       <div v-for="group of uniqueGroups" :key="group" class="flex">
-           <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
-           <label :for="group.key">{{ group.name }}</label>
-       </div>
-   </div>
-   <!-- CHECKBOXS -->
-   <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
-   <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-       <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
-           <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
-           <label :for="indicator.key">{{ indicator.name }}</label>
-       </div>
-   </div>
-
-   <div>
-     <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
-     <div class="mb-2 flex justify-center">
-         <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
-       </div>
-     <div class="slider-container">
-       <Slider v-model="value" range class="custom-slider" />
-     
-     </div>
-     <div class="flex justify-between mt-2">
-       <div class="text-gray-800 text-medium text-sm">Bajo</div>
-       <div class="text-gray-800 text-medium text-sm">Medio</div>
-       <div class="text-gray-800 text-medium text-sm">Alto</div>
-     </div>
-   </div>
-            </TabPanel>
-            <TabPanel>
-                          <!-- CHECKBOXS -->
               <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-                  <div v-for="group of uniqueGroups" :key="group" class="flex">
+                  <div v-for="group of uniqueGroups" :key="group" class="flex items-center">
                       <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
-                      <label :for="group.key">{{ group.name }}</label>
+                      <label class="pb-3 text-sm" :for="group.key">{{ group.name }}</label>
                   </div>
               </div>
               <!-- CHECKBOXS -->
               <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
               <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-                  <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
+                  <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex items-center">
                       <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
-                      <label :for="indicator.key">{{ indicator.name }}</label>
+                      <label class="pb-3 text-sm" :for="indicator.key">{{ indicator.name }}</label>
                   </div>
               </div>
 
@@ -139,37 +106,70 @@
               </div>
             </TabPanel>
             <TabPanel>
-                          <!-- CHECKBOXS -->
-              <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-                  <div v-for="group of uniqueGroups" :key="group" class="flex">
-                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
-                      <label :for="group.key">{{ group.name }}</label>
-                  </div>
-              </div>
               <!-- CHECKBOXS -->
-              <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
-              <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
-                  <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex">
-                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
-                      <label :for="indicator.key">{{ indicator.name }}</label>
-                  </div>
-              </div>
+              <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                <div v-for="group of uniqueGroups" :key="group" class="flex items-center">
+                    <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                    <label class="pb-3 text-sm" :for="group.key">{{ group.name }}</label>
+                </div>
+            </div>
+            <!-- CHECKBOXS -->
+            <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
+            <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex items-center">
+                    <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+                    <label class="pb-3 text-sm" :for="indicator.key">{{ indicator.name }}</label>
+                </div>
+            </div>
 
-              <div>
-                <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
-                <div class="mb-2 flex justify-center">
-                    <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
-                  </div>
-                <div class="slider-container">
-                  <Slider v-model="value" range class="custom-slider" />
-                
+            <div>
+              <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
+              <div class="mb-2 flex justify-center">
+                  <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
                 </div>
-                <div class="flex justify-between mt-2">
-                  <div class="text-gray-800 text-medium text-sm">Bajo</div>
-                  <div class="text-gray-800 text-medium text-sm">Medio</div>
-                  <div class="text-gray-800 text-medium text-sm">Alto</div>
-                </div>
+              <div class="slider-container">
+                <Slider v-model="value" range class="custom-slider" />
+              
               </div>
+              <div class="flex justify-between mt-2">
+                <div class="text-gray-800 text-medium text-sm">Bajo</div>
+                <div class="text-gray-800 text-medium text-sm">Medio</div>
+                <div class="text-gray-800 text-medium text-sm">Alto</div>
+              </div>
+            </div>
+            </TabPanel>
+            <TabPanel>
+            <!-- CHECKBOXS -->
+              <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                <div v-for="group of uniqueGroups" :key="group" class="flex items-center">
+                    <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                    <label class="pb-3 text-sm" :for="group.key">{{ group.name }}</label>
+                </div>
+            </div>
+            <!-- CHECKBOXS -->
+            <p class="text-gray-900 mb-3 font-medium text-sm">Indicadores</p>
+            <div class="bg-white mb-4 p-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
+                <div v-for="indicator of uniqueIndicators" :key="indicator.key" class="flex items-center">
+                    <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedIndicator" :inputId="indicator.key" name="indicator" :value="indicator.name" />
+                    <label class="pb-3 text-sm" :for="indicator.key">{{ indicator.name }}</label>
+                </div>
+            </div>
+
+            <div>
+              <p class="text-gray-900 mb-3 font-medium text-sm">Niveles de urgencia</p>
+              <div class="mb-2 flex justify-center">
+                  <span class="text-gray-800 text-medium text-sm">{{ value[0] }} - {{ value[1] }}</span>
+                </div>
+              <div class="slider-container">
+                <Slider v-model="value" range class="custom-slider" />
+              
+              </div>
+              <div class="flex justify-between mt-2">
+                <div class="text-gray-800 text-medium text-sm">Bajo</div>
+                <div class="text-gray-800 text-medium text-sm">Medio</div>
+                <div class="text-gray-800 text-medium text-sm">Alto</div>
+              </div>
+            </div>
             </TabPanel>
         </TabView>
         </div>
@@ -290,105 +290,20 @@
     <div>
       <div class="bg-white h-90vh overflow-y-scroll main-scrollbar px-6 py-3">
         <!-- card -->
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
+        <Card v-for="guide in guideInform" class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
           <template #title>
             <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-primary-100 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
+              <span :class="['h-4 w-4 rounded-full flex mr-2', guide.color ]"></span>
+              <span class="text-gray-900 font-semibold font-inter text-sm">{{ guide.name }}</span>
             </p>
           </template>
           <template #content>
             <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
+              {{ guide.description }}
             </p>
           </template>
         </Card>
-
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-pink-200 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-orange-300 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-orange-300 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-pink-200 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-       
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-orange-300 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-
-        <Card class="bg-white pt-2 pb-5 h-fit rounded-lg mb-4 shadow-3xl">
-          <template #title>
-            <p class="flex items-center mb-2">
-              <span class="h-4 w-4 bg-orange-300 rounded-full flex mr-2"></span>
-              <span class="text-gray-900 font-semibold font-inter text-sm">Descripción:</span>
-            </p>
-          </template>
-          <template #content>
-            <p class="text-gray-200 text-sm ">
-              Transacciones facturadas fuera del horario de atensión a público
-            </p>
-          </template>
-        </Card>
-  
-     
+        <!-- card -->
       </div>
     </div>
   </Sidebar>
@@ -409,8 +324,10 @@ import Slider from 'primevue/slider';
 import TabView from 'primevue/tabview';
 import TabPanel from 'primevue/tabpanel';
 import { zones } from '../data/zones.js'
+import { guide } from '../data/guide-informative.js'
 import { indicators } from '../data/indicators.js'
-import { isWithinInterval } from 'date-fns';
+import { isWithinInterval, parse, format } from 'date-fns';
+import { es } from 'date-fns/locale';
 
 export default{
   components: {
@@ -441,6 +358,7 @@ export default{
     const dataWarning = ref( data.value.filter(item => item.groupBy === 'warning'))
     const dataInfo = ref( data.value.filter(item => item.groupBy === 'info'))
     const active = ref(0);
+    const guideInform = ref(guide.value)
 
     const loadGroup = () => {
       return data.value.reduce((acc, indicator) => {
@@ -474,29 +392,59 @@ export default{
     const value = ref([20, 80]);
     const disableButtom = ref(false);
 
-    onBeforeMount(() => {
-      const dateToStorage = localStorage.getItem('dateTo')
-      const dateFromStorage = localStorage.getItem('dateFrom')
-      if(dateToStorage && dateFromStorage){
-        dateTo.value = formatDate(dateToStorage);
-        dateFrom.value = formatDate(dateFromStorage);
-        filterOrders(dateToStorage, dateFromStorage);
-      }else{
-        localStorage.setItem('dateTo', dateTo.value)
-        localStorage.setItem('dateFrom', dateFrom.value)
-      }
-    })
+    const formatAndSetLocalStorage = (date, key) => {
+      const formattedDate = formatDateFilter(date.value);
+      localStorage.setItem(key, formatDate(formattedDate));
+      return formattedDate;
+    };
 
-    const formatDate = (dateString) => {
-          const date = new Date(dateString);
-          const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-          return new Intl.DateTimeFormat('en-GB', options).format(date);
-      };
+    onBeforeMount(() => {
+      
+      const dateTo = ref(localStorage.getItem('dateTo') ?? '01/11/2023');
+      const dateFrom = ref(localStorage.getItem('dateFrom') ?? '30/11/2023');
+
+      dateTo.value = formatAndSetLocalStorage(dateTo, 'dateTo');
+      dateFrom.value = formatAndSetLocalStorage(dateFrom, 'dateFrom');
+
+      filterOrders(dateTo.value, dateFrom.value);
+    });
+
+    const formatDateFilter = (fechaString) => {
+      return parse(fechaString, 'dd/MM/yyyy', new Date());
+    };
+
+    // Método para formatear un objeto de fecha en el formato deseado
+    const formatDate = (fecha) => {
+      return format(fecha, 'dd/MM/yyyy', { locale: es });
+    };
+
+    const formatLongDate = (dateString) => {
+      // Intentar parsear la fecha
+      const date = parse(dateString, 'dd/MM/yyyy', new Date());
+
+      console.log(date)
+
+      // Verificar si la date ya está en formato largo
+      const isLongDate = date.toString() !== 'Invalid Date';
+
+      // Si es date larga, devolver la date original
+      if (!isLongDate) {
+        return dateString;
+      }
+
+      // Si no es date larga, formatearla en formato largo
+      return date;
+    };
+
 
     const filter = () => {
-      localStorage.setItem('dateTo', dateTo.value)
-      localStorage.setItem('dateFrom', dateFrom.value)
-      filterOrders(dateTo.value, dateFrom.value);
+      const formattedDateTo = formatLongDate(dateTo.value);
+      const formattedDateFrom = formatLongDate(dateFrom.value);
+
+      localStorage.setItem('dateTo', formatDate(formattedDateTo))
+      localStorage.setItem('dateFrom', formatDate(formattedDateFrom))
+
+      filterOrders(formattedDateTo, formattedDateFrom);
     };
    
     function filterOrders(dateTo, dateFrom) {
@@ -598,7 +546,8 @@ export default{
       uniqueIndicators,
       disableButtom,
       filter,
-      active
+      active,
+      guideInform
     }
   }
 }

@@ -62,4 +62,26 @@ export const zones = {
         url: 'https://demo.auditorvirtual.cl/export/zonas.xlsx',
         name: 'zonas.xlsx'
     },
+    chart: {
+        type: 'line',
+        labels: ['Zona Norte', 'Zona Central', 'Zona Metropolitana', 'Zona Sur', 'Zona Austral'],
+        datasets: [
+            {
+                label: 'Cantidad de caos',
+                data: [60, 72, 90, 48, 36],
+                fill: true,
+                borderColor: '#022597',
+                tension: 0.4,
+                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+            },
+            {
+                label: 'Monto',
+                data: [85698000, 77968256, 64256897, 16896457, 6987258],
+                fill: true,
+                borderColor: '#fdb954',
+                tension: 0.4,
+                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+            }
+        ]
+    }
  }

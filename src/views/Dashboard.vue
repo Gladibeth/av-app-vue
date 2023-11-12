@@ -66,7 +66,6 @@
             <Column field="mar" header="MAR"></Column>
           </DataTable>
         </div>
-
         <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
           <div class="grid grid-cols-2 mb-8">
             <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
@@ -95,8 +94,6 @@
             <Column field="mar" header="MAR"></Column>
           </DataTable>
         </div>
-     
-      
       </div>
       <div class="grid grid-cols-custom211 gap-4">
         <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">

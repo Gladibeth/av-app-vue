@@ -31,9 +31,11 @@
           <div class="flex flex-col gap-2 w-full mb-10">
             <label for="password" class="font-inter text-gray-900">Contraseña*</label>
             <span class="relative">
-              <i class="pi pi-eye absolute right-4 top-5 text-gray-900" style="font-size: 1.2rem" />
+              <button type="button" @click="togglePasswordVisibility" class="absolute right-4 top-5">
+                  <i style="font-size: 1.2rem" :class="['pi text-gray-900', passwordVisible ? ' pi-eye-slash' : 'pi-eye']"></i>
+              </button>
               <input
-              type="password"
+              :type="passwordVisible ? 'text' : 'password'"
               id="password"
               name="password" 
               class="bg-gray-100 p-4 w-full outline-none rounded-none"
@@ -41,6 +43,7 @@
               v-bind="password"
               v-model="formData.password"
               >
+              
 
               <span class="p-error">{{ errors.password }}</span>
             </span>
@@ -48,7 +51,7 @@
           <div class="flex flex-col items-center text-center">
             <Button
               type="submit"
-              class="bg-orange-900 w-fit rounded-none outline-none py-3 px-20 mb-4 text-lg text-white font-normal"
+              class="bg-orange-900 hover:bg-orange-800 w-fit rounded-none outline-none py-3 px-20 mb-4 text-lg text-white font-normal"
               label="Ingresar"
             />
             <span class="font-medium text-gray-900 text-sm">¿Has olvidado tu contraseña? <a class="text-primary-900">Haz clic aquí</a></span>
@@ -64,6 +67,7 @@
 </template>
 
 <script>
+import {ref} from 'vue'
 import { useRouter } from 'vue-router'
 import {useForm, Form, Field, ErrorMessage} from 'vee-validate'
 import { useToast } from "primevue/usetoast"
@@ -90,6 +94,8 @@ name: 'Sign-in',
       mail: null,
       password: null,
     };
+    const passwordVisible = ref(false);
+   
 
     const router = useRouter();
 
@@ -134,13 +140,18 @@ name: 'Sign-in',
         showError();
       }
     };
+    const togglePasswordVisibility = () => {
+      passwordVisible.value = !passwordVisible.value;
+    };
 
     return {
       formData,
       onSubmitLogin,
       errors,
       email,
-      password
+      password,
+      passwordVisible,
+      togglePasswordVisibility
     };
 
  }

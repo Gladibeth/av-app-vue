@@ -171,5 +171,21 @@ export const orders = {
     document: {
         url:  'https://demo.auditorvirtual.cl/export/los-almendros.xlsx',
         name: 'los-almendros.xlsx'
+    },
+    chart: {
+        type: 'bar',
+        labels: ['Ordenes'],
+        datasets: [
+            {
+                label: 'Boleta',
+                backgroundColor: '#022597',
+                data: [4],
+            },
+            {
+                label: 'Factura',
+                backgroundColor: '#fdb954',
+                data: [6],
+            }
+        ]
     }
-    }
+}

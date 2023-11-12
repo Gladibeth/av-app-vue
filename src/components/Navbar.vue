@@ -30,7 +30,7 @@
 					</div>
 				</a>
 
-				<div v-if="toggleActive" class="absolute top-22 right-0 w-36 shadow-lg shadow-indigo-500/40 flex justify-center px-5 py-2 bg-white hover:bg-gray-800	 hover:text-white" >
+				<div v-if="toggleActive" class="absolute top-22 right-0 w-36 shadow-lg shadow-indigo-500/40 flex justify-center px-5 py-2 bg-white hover:bg-gray-800	 hover:text-white z-10" >
 					<a @click="logout" class="text-sm cursor-pointer " href="" >
 						Cerrar sesion
 					</a>

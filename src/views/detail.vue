@@ -92,12 +92,9 @@
                 </DataTable>
 
                 <div class="mt-10 flex mt-5 p-5 card-detail items-center">
-                    <Chart class="custom-chart-full" type="line" :data="chartData" :options="chartOptions"  />
+                    <Chart class="custom-chart-full" :type="chart?.type" :data="chartData" :options="chartOptions"  />
                 </div>
-                <!-- <div class="mt-10 flex mt-5 p-5 card-detail items-center">
-                    <Chart class="custom-chart-medium" type="bar" :data="chartData3" :options="chartOptions3"  />
-                    <Chart type="bar" :data="chartData3" :options="chartOptions3" class="h-50rem"  />
-                </div> -->
+
             </div>
         </div>
     </div>
@@ -131,23 +128,15 @@ export default{
         const header = ref([])
         const children = ref([])
         const previousRoute = ref(null);
+        const chart = ref();
         const items = ref([]);
         const chartData = ref();
         const chartOptions = ref();
-        const chartData3 = ref();
-        const chartOptions3 = ref();
         const documentExport = ref('');
         const headOrder = ref(null);
-
         
-        const formatDate = (dateString) => {
-            const date = new Date(dateString);
-            const options = { day: '2-digit', month: '2-digit', year: 'numeric' };
-            return new Intl.DateTimeFormat('en-GB', options).format(date);
-        };
-        
-        const dateTo = ref(formatDate(localStorage.getItem('dateTo')));
-        const dateFrom = ref(formatDate(localStorage.getItem('dateFrom')));
+        const dateTo = ref(localStorage.getItem('dateTo'));
+        const dateFrom = ref(localStorage.getItem('dateFrom'));
         
         const downloadDocument = () => {
             const link = document.createElement('a');
@@ -245,14 +234,13 @@ export default{
             header.value = object.header;
             children.value = object.children;
             documentExport.value = object.document;
+            chart.value = object.chart;
+            chartData.value = setChartData();
+            chartOptions.value = setChartOptions();
         }
 
         onMounted(() => {
             loadData(route.params);
-            chartData.value = setChartData();
-            chartOptions.value = setChartOptions();
-            chartData3.value = setChartData3();
-            chartOptions3.value = setChartOptions3();
         });
 
         watch(
@@ -263,22 +251,9 @@ export default{
         );
 
         const setChartData = () => {
-            const documentStyle = getComputedStyle(document.documentElement);
-
             return {
-                labels: ['Zona norte', 'Zona central', 'Zona metropolina', 'Zona sur',
-            'Zona austral'],
-                datasets: [
-
-                    {
-                        label: 'Cantidad de caos',
-                        data: [12, 51, 62, 33, 21, 62, 45, 80, 95],
-                        fill: true,
-                        borderColor: documentStyle.getPropertyValue('--blue-700'),
-                        tension: 0.4,
-                        backgroundColor: 'rgba(7, 75, 185, 0.3)'
-                    }
-                ]
+                labels: chart.value.labels,
+                datasets: chart.value.datasets
             };
         };
         const setChartOptions = () => {
@@ -299,66 +274,11 @@ export default{
                 },
                 scales: {
                     x: {
-                        ticks: {
-                            color: textColorSecondary
-                        },
-                        grid: {
-                            color: surfaceBorder
-                        }
-                    },
-                    y: {
-                        ticks: {
-                            color: textColorSecondary
-                        },
-                        grid: {
-                            color: surfaceBorder
-                        }
-                    }
-                }
-            };
-        }
-
-         // 3
-         const setChartData3 = () =>  {
-            const documentStyle = getComputedStyle(document.documentElement);
-
-            return {
-                labels: [' '],
-                datasets: [
-                    {
-                        type: 'bar',
-                        label: 'Boletas',
-                        backgroundColor: documentStyle.getPropertyValue('--blue-700'),
-                        data: [5, 20, 12, 15, 25, ]
-                    },
-                    
-                ]
-            };
-        };
-        const setChartOptions3 = () =>  {
-            const documentStyle = getComputedStyle(document.documentElement);
-            const textColor = documentStyle.getPropertyValue('--text-color');
-            const textColorSecondary = documentStyle.getPropertyValue('--text-color-secondary');
-            const surfaceBorder = documentStyle.getPropertyValue('--surface-border');
-
-            return {
-                maintainAspectRatio: false,
-                aspectRatio: 0.8,
-                plugins: {
-                    tooltips: {
-                        mode: 'index',
-                        intersect: false
-                    },
-                    legend: {
-                        labels: {
-                            color: textColor
-                        }
-                    }
-                },
-                scales: {
-                    x: {
                         stacked: true,
                         ticks: {
+                            maxRotation: 90,
+                            minRotation: 90,
+                            autoSkip: false,
                             color: textColorSecondary
                         },
                         grid: {
@@ -377,6 +297,7 @@ export default{
                 }
             };
         }
+
         return {
             items,
             dataTable,
@@ -388,12 +309,11 @@ export default{
             goBack,
             chartData,
             chartOptions,
-            chartData3,
-            chartOptions3,
             headOrder,
             downloadDocument,
             dateTo,
             dateFrom,
+            chart
         }
     },
 }
@@ -422,7 +342,7 @@ tbody tr {
 }
 
 tbody tr:nth-child(even) {
-    background-color: #f0f0f0; /* Color para filas pares */
+    background-color: #f9f9f9; /* Color para filas pares */
 }
   
 tbody tr:nth-child(odd) {

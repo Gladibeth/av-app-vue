@@ -400,8 +400,12 @@ export default{
 
     onBeforeMount(() => {
       
-      const dateTo = ref(localStorage.getItem('dateTo') ?? '01/11/2023');
-      const dateFrom = ref(localStorage.getItem('dateFrom') ?? '30/11/2023');
+      console.log(localStorage.getItem('dateTo'), dateTo.value)
+
+      dateTo.value = localStorage.getItem('dateTo') ?? dateTo.value;
+      dateFrom.value = localStorage.getItem('dateFrom') ?? dateFrom.value;
+
+
 
       dateTo.value = formatAndSetLocalStorage(dateTo, 'dateTo');
       dateFrom.value = formatAndSetLocalStorage(dateFrom, 'dateFrom');

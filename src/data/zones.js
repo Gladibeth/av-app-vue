@@ -67,7 +67,7 @@ export const zones = {
         labels: ['Zona Norte', 'Zona Central', 'Zona Metropolitana', 'Zona Sur', 'Zona Austral'],
         datasets: [
             {
-                label: 'Cantidad de caos',
+                label: 'Cantidad de casos',
                 data: [60, 72, 90, 48, 36],
                 fill: true,
                 borderColor: '#022597',

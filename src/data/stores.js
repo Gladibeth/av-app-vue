@@ -116,7 +116,7 @@ export const stores = {
         labels: ['Los Almendros', 'Las Carmelitas', 'Los Perales', 'Zarmiento', 'Zapallar', 'San Pedro', 'Calama', 'La Paz', 'Piñones'],
         datasets: [
             {
-                label: 'Cantidad de caos',
+                label: 'Cantidad de casos',
                 data: [17, 11, 8, 7, 5, 4, 4, 3, 1],
                 fill: true,
                 borderColor: '#022597',

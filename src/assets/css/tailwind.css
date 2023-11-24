@@ -8,9 +8,9 @@
 @tailwind utilities;
 
 
-body{
+/* body{
   overflow: hidden;
-}
+} */
 
 .p-password-input{
   @apply bg-gray-100 p-4 w-full rounded-none  outline-none;

@@ -1,6 +1,6 @@
 <template>
   <Navbar :name="'Resumen ejecutivo Auditor Virtual'"/>
-  <div class="bg-gray-100  h-screen">
+  <div class="bg-gray-100">
     <div class="max-w-medium w-1920 m-0-auto ">
       <div class="grid  gap-4" :class="[hideActive ? 'grid-cols-custom13' : 'grid-cols-1']">
         <div class="bg-secundary-300 p-3 relative sidebar-general" :class="[hideActive ? 'active' : 'inactive']">
@@ -29,7 +29,7 @@
             </Card>
           </div>
         </div>
-        <div class="h-85vh overflow-y-scroll main-scrollbar py-10">
+        <div class="h-85vh main-scrollbar py-10">
           <div>
             <p class="font-bold mb-5 ml-4 text-gray-900 text-lg">{{ selectedDocument.name }}</p>
           </div>

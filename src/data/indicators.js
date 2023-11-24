@@ -47,7 +47,7 @@ export const indicators = {
         },
         {
             id: 2,
-            name: 'NOTAS DE CRÉDITO REITERADAS EN SUCRSALES',
+            name: 'PÉRDIDAS DE INVENTARIO',
             average: '50',
             type: 'contables',
             groupBy: 'emergency',
@@ -95,8 +95,8 @@ export const indicators = {
                 qty: '100 unid',
             },
             status: 'active',
-            dateCreated: '12/20/2023',
-            dateModified: '23/10/2023',
+            dateCreated: '11/01/2023',
+            dateModified: '10/10/2023',
             tags: [
                 {
                     icon: 'pi pi-list',

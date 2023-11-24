@@ -90,6 +90,11 @@ import Dropdown from 'primevue/dropdown';
 				name: 'executive-summary',
 				title: 'Resumen ejecutivo',
 				icon: 'pi-chart-bar'
+			},
+			{
+				name: 'mailing',
+				title: 'Correo Electronico',
+				icon: 'pi-envelope'
 			}
 		]
 

@@ -74,10 +74,10 @@
                 </div>
             </div>
             <div class="pt-10">
-                <DataTable :value="dataTable" sortField="price" :sortOrder="-1" resizableColumns columnResizeMode="fit" showGridlines tableStyle="min-width: 50rem">
+                <DataTable :value="dataTable" sortField="price"  paginator :rows="10" :rowsPerPageOptions="[10, 20, 50, 100, 200]" :sortOrder="-1" resizableColumns columnResizeMode="fit" showGridlines tableStyle="min-width: 50rem">
                     <Column v-if="children" :field="'icon'" style="width: 50px;">
                     <template #body="slotProps">
-                        <router-link :to="{ name: children, params: { id: slotProps.data.id } }">
+                        <router-link :to="getRouterLink(slotProps.data)">
                         <i class="pi pi-eye text-primary-900 font-normal" style="font-size: 1.3rem;"></i>
                         </router-link>
                     </template>
@@ -127,6 +127,7 @@ export default{
         const dataTable = ref([])
         const header = ref([])
         const children = ref([])
+        const params = ref([])
         const previousRoute = ref(null);
         const chart = ref();
         const items = ref([]);
@@ -153,6 +154,18 @@ export default{
             }
         };
 
+        const getRouterLink = (data) => {
+            const paramName = params.value;
+            const paramValue = data.id;
+            console.log(paramName);
+            return {
+                name: children.value,
+                params: {
+                    [paramName]: paramValue
+                }
+            }
+        }
+
         const formatCurrency = (value) => {
             return value.toLocaleString('en-US', { style: 'currency', currency: 'USD' });
         }
@@ -175,14 +188,15 @@ export default{
         }
 
         const getLabel = (segment) =>{
-
-            switch (segment[1]) {
+            console.log(segment);
+            switch (segment) {
                 case 'almacenes':
-                    return zones.value.find((item) => item.id == segment[0]).name;
+                    console.log(route.params)
+                    return zones.value.find((item) => item.id == route.params.zone_id).name;
                 case 'ordenes':
-                    return stores.value.find((item) => item.id == segment[0]).name;
+                    return stores.value.find((item) => item.id == route.params.store_id).name;
                 case 'factura':
-                    let result = bills.value.find((item) => item.id == segment[0]);
+                    let result = bills.value.find((item) => item.id == route.params.order_id);
                     return result.docType + ' > ' + result.docNum;
                 case 'zonas':
                     return 'Zonas';
@@ -192,40 +206,28 @@ export default{
         }
 
         const loadData = (params) => {
-
+            // console.log(params, route.path)
             headOrder.value = null
             items.value = []
 
             const routeSegments = route.path.split('/').filter(segment => segment !== '');
-            const itemsSegments = sliceArray(routeSegments, 2);
-
-            for (let i = 0; i < itemsSegments.length; i++) {
-                const currentSegment = itemsSegments[i];
-
-                // Construir la URL concatenando los segmentos específicos
-                const url = '/' + itemsSegments.slice(0, i + 1).flat().join('/');
-
-                items.value.push({
-                    label: getLabel(currentSegment),
-                    to: url
-                });
-            }
 
             switch (routeSegments.pop()) {
-            case 'almacenes':
-                getData(stores,  params.id);
-                break;
-            case 'ordenes':
-                getData(orders, params.id);
-                break;
-            case 'factura':
-                getData(bills,  params.id);
-                headOrder.value = orders.value.find((order) => order.id == params.id);
-                break;
-            case 'zonas':
-                getData(zones);
-                break;
+                case 'almacenes':
+                    getData(stores,  params.zone_id);
+                    break;
+                case 'ordenes':
+                    getData(orders, params.store_id);
+                    break;
+                case 'factura':
+                    getData(bills,  params.order_id);
+                    headOrder.value = orders.value.find((order) => order.id == params.id);
+                    break;
+                case 'zonas':
+                    getData(zones,  params.indicator_id);
+                    break;
             }
+
 
         };
 
@@ -233,10 +235,21 @@ export default{
             dataTable.value = !id ? object.value.filter((order) => order.store_id == id) : object.value;
             header.value = object.header;
             children.value = object.children;
+            params.value = object.params;
             documentExport.value = object.document;
             chart.value = object.chart;
             chartData.value = setChartData();
             chartOptions.value = setChartOptions();
+
+
+            //refactorizar  para que sea dinamico
+            const test = router.getRoutes().find((route) => route.name == 'indicator');
+            test.children.forEach((route) => {
+                items.value.push({
+                    label: route.name,
+                    to: route.path
+                });
+            });
         }
 
         onMounted(() => {
@@ -313,7 +326,8 @@ export default{
             downloadDocument,
             dateTo,
             dateFrom,
-            chart
+            chart,
+            getRouterLink
         }
     },
 }

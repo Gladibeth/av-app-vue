@@ -20,36 +20,41 @@ const router = createRouter({
       component: ()=> import('../views/executive-summary.vue'),
     },
     {
+      path: '/mailing',
+      name: 'mailing',
+      component: ()=> import('../views/mailing.vue'),
+    },
+    {
       path: '/panel',
       name: 'panel',
       component: ()=> import('../views/panel.vue'),
     },
     {
-      path: '/detalles',
-      name: 'detalles',
+      path: '/indicador',
+      name: 'indicator',
       component: ()=> import('../views/detail.vue'),
       props: true,
       children: [
         {
-          path: 'zonas',
+          path: ':indicator_id/zonas',
           name: 'zonas',
           component: ()=> import('../views/detail.vue'),
           props: true,
         },
         {
-          path: 'zonas/:id/almacenes',
+          path: ':indicator_id/zonas/:zone_id/almacenes',
           name: 'almacenes',
           component: ()=> import('../views/detail.vue'),
           props: true,
         },
         {
-          path: 'zonas/:id/almacenes/:id/ordenes',
+          path: ':indicator_id/zonas/:zone_id/almacenes/:store_id/ordenes',
           name: 'ordenes',
           component: ()=> import('../views/detail.vue'),
           props: true,
         },
         {
-          path: 'zonas/:id/almacenes/:id/ordenes/:id/factura',
+          path: ':indicator_id/zonas/:zone_id/almacenes/:store_id/ordenes/:order_id/factura',
           name: 'factura',
           component: ()=> import('../views/detail.vue'),
           props: true,

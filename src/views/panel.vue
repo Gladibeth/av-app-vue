@@ -1,6 +1,6 @@
 <template>
   <Navbar :name="'Panel de control Auditor Virtual'"/>
-  <div class="bg-gray-100  h-screen">
+  <div class="bg-gray-100">
     <div class="max-w-medium w-1920 m-0-auto py-5">
 
       <!-- Title -->
@@ -178,7 +178,7 @@
           <div class="bg-red-100 p-4 h-65vh overflow-y-scroll main-scrollbar column-red">
             <!-- Cards -->
             <div v-for="item in dataEmergency" class="bg-white rounded-md p-4 h-fit mb-4 ">
-              <router-link :to="{ name: 'zonas'}">
+              <router-link :to="{ name: 'zonas', params: { indicator_id: item.id }}">
                 <p class="flex justify-between items-center mb-4">
                   <span class="custom-icon-quare mr-3 bg-red-900">
                   </span>
@@ -211,7 +211,7 @@
           <div class="bg-orange-100 p-4  h-65vh overflow-y-scroll main-scrollbar  column-orange">
             <!-- Cards -->
             <div  v-for="item in dataWarning" class="bg-white rounded-md p-4 h-fit  mb-4">
-              <router-link :to="{ name: 'zonas'}">
+              <router-link :to="{ name: 'zonas', params: { indicator_id: item.id }}">
               <p class="flex justify-between items-center mb-4">
                 <span class="custom-icon-quare mr-3 bg-orange-400">
                 </span>
@@ -245,7 +245,7 @@
           <div class="bg-green-100 p-4  h-65vh overflow-y-scroll main-scrollbar  column-green">
             <!-- Cards -->
             <div v-for="item in dataInfo" class="bg-white rounded-md p-4 h-fit  mb-4">
-              <router-link :to="{ name: 'zonas'}">
+              <router-link :to="{ name: 'zonas', params: { indicator_id: item.id }}">
               <p class="flex justify-between items-center mb-4">
                 <span class="custom-icon-quare mr-3 bg-green-900">
                 </span>

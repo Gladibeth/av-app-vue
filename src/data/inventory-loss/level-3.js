@@ -33029,18 +33029,13 @@ export const orders_indicator_2 = {
     },
     chart: {
         type: 'bar',
-        labels: ['Ordenes'],
+        labels: ['SINIESTRO', 'ROBO', 'SIN EXPLICACION', 'DETERIORO'],
         datasets: [
             {
-                label: 'Boleta',
+                label: 'Tipologia',
                 backgroundColor: '#022597',
-                data: [4],
+                data: [141, 250, 795, 551],
             },
-            {
-                label: 'Factura',
-                backgroundColor: '#fdb954',
-                data: [6],
-            }
         ]
     }
 }

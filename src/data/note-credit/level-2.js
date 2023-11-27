@@ -134,24 +134,16 @@ export const stores_indicator_3 = {
         name: 'zona-norte.xlsx'
     },
     chart: {
-        type: 'line',
-        labels: ['Los Almendros', 'Las Carmelitas', 'Los Perales', 'Zarmiento', 'Zapallar', 'San Pedro', 'Calama', 'La Paz', 'Piñones'],
+        type: 'bar',
+        labels: ['Lo Barnechea', 'Las Condes', 'La Reina', 'Núñoa', 'Colina', 'Melipilla', 'Buin', 'Linderos', 'Paine'],
         datasets: [
             {
-                label: 'Cantidad de casos',
-                data: [17, 11, 8, 7, 5, 4, 4, 3, 1],
+                label: 'Pérdida Financiera',
+                data: [	-2955775, -2660198, -2394178, -2154760, -1939284, -1745356, -1570820, -1413738, -1272364],
                 fill: true,
                 borderColor: '#022597',
                 tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)'
-            },
-            {
-                label: 'Monto',
-                data: [22281480, 13711680, 11997720, 8569800, 7712820, 5998860, 6855840, 5141880, 3427920],
-                fill: true,
-                borderColor: '#fdb954',
-                tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+                backgroundColor: '#022597'
             }
         ]
     }

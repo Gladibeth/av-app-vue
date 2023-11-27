@@ -108,24 +108,24 @@ export const zones_indicator_2 = {
         name: 'zonas.xlsx'
     },
     chart: {
-        type: 'line',
+        type: 'bar',
         labels: ['Zona Norte', 'Zona Central', 'Zona Metropolitana', 'Zona Sur', 'Zona Austral'],
         datasets: [
             {
                 label: 'Cantidad de casos',
-                data: [60, 72, 90, 48, 36],
+                data: [74520, 70310, 71369, 79298, 67068],
                 fill: true,
                 borderColor: '#022597',
                 tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+                backgroundColor: '#022597'
             },
             {
                 label: 'Monto',
-                data: [85698000, 77968256, 64256897, 16896457, 6987258],
+                data: [425830864, 473145404, 525717116, 649033476, 584130129],
                 fill: true,
                 borderColor: '#fdb954',
                 tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)'
+                backgroundColor: '#fdb954'
             }
         ]
     }

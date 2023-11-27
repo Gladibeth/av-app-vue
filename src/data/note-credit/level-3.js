@@ -942,13 +942,9 @@ export const orders_indicator_3 = {
             {
                 label: 'Boleta',
                 backgroundColor: '#022597',
-                data: [4],
+                //total original value
+                data: [28970, 61154 ],
             },
-            {
-                label: 'Factura',
-                backgroundColor: '#fdb954',
-                data: [6],
-            }
         ]
     }
 }

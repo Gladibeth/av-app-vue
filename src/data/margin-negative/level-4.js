@@ -35,24 +35,24 @@ export const bills_indicator_1 = {
         name: 'boleta-10101536.xlsx'
     },
     chart: {
-        type: 'line',
-        labels: ['Product 1', 'Product 2'],
+        type: 'bar',
+        labels: ['Product 1'],
         datasets: [
             {
                 label: 'Cantidad de productos',
-                data: [1, 2],
+                data: [1],
                 fill: true,
                 borderColor: '#022597',
                 tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)',
+                backgroundColor: '#022597',
             },
             {
                 label: 'Monto',
-                data: [-3939279, -2939279],
+                data: [-151010],
                 fill: true,
                 borderColor: '#fdb954',
                 tension: 0.4,
-                backgroundColor: 'rgba(7, 75, 185, 0.3)',
+                backgroundColor: '#fdb954',
             }
         ]
     }

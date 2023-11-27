@@ -107,10 +107,23 @@ import DataTable from 'primevue/datatable'
 import Chart from 'primevue/chart';
 import Column from 'primevue/column'
 import Breadcrumb from 'primevue/breadcrumb';
-import { zones } from '../data/zones.js'
-import { stores } from '../data/stores.js'
-import { orders } from '../data/orders.js'
-import { bills } from '../data/bills.js'
+//indicador 1
+import { zones_indicator_1 } from '../data/margin-negative/level-1.js'
+import { stores_indicator_1 } from '../data/margin-negative/level-2.js'
+import { orders_indicator_1 } from '../data/margin-negative/level-3.js'
+import { bills_indicator_1 } from '../data/margin-negative/level-4.js'
+
+//indicador 2
+import { zones_indicator_2 } from '../data/inventory-loss/level-1.js'
+import { stores_indicator_2 } from '../data/inventory-loss/level-2.js'
+import { orders_indicator_2 } from '../data/inventory-loss/level-3.js'
+
+//indicador 3
+import { zones_indicator_3 } from '../data/note-credit/level-1.js'
+import { stores_indicator_3 } from '../data/note-credit/level-2.js'
+import { orders_indicator_3 } from '../data/note-credit/level-3.js'
+import { bills_indicator_3 } from '../data/note-credit/level-4.js'
+
 import { useRoute, useRouter } from 'vue-router';
 
 export default{
@@ -192,11 +205,11 @@ export default{
             switch (segment) {
                 case 'almacenes':
                     console.log(route.params)
-                    return zones.value.find((item) => item.id == route.params.zone_id).name;
+                    return zones_indicator_1.value.find((item) => item.id == route.params.zone_id).name;
                 case 'ordenes':
-                    return stores.value.find((item) => item.id == route.params.store_id).name;
+                    return stores_indicator_1.value.find((item) => item.id == route.params.store_id).name;
                 case 'factura':
-                    let result = bills.value.find((item) => item.id == route.params.order_id);
+                    let result = bills_indicator_1.value.find((item) => item.id == route.params.order_id);
                     return result.docType + ' > ' + result.docNum;
                 case 'zonas':
                     return 'Zonas';
@@ -210,8 +223,30 @@ export default{
             headOrder.value = null
             items.value = []
 
+            
             const routeSegments = route.path.split('/').filter(segment => segment !== '');
+            let zones, stores, orders, bills;
 
+            switch (params.indicator_id) {
+                case '1':
+                    zones  = zones_indicator_1;
+                    stores = stores_indicator_1;
+                    orders = orders_indicator_1;
+                    bills  = bills_indicator_1;
+                    break;
+                case '2':
+                    zones  = zones_indicator_2;
+                    stores = stores_indicator_2;
+                    orders = orders_indicator_2;
+                    break;
+                case '3':
+                    zones  = zones_indicator_3;
+                    stores = stores_indicator_3;
+                    orders = orders_indicator_3;
+                    bills  = bills_indicator_3;
+                    break;
+            }
+            
             switch (routeSegments.pop()) {
                 case 'almacenes':
                     getData(stores,  params.zone_id);

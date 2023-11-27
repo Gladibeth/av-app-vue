@@ -4,7 +4,8 @@ export const indicators = {
             id: 1,
             name: 'VENTAS CON MARGENES NEGATIVOS',
             average: '50',
-            type: 'contables',
+            type: 'venta',
+            tab: 'operacionales',
             groupBy: 'emergency',
             monthOld: {
                 amount: '$100.000',
@@ -38,18 +39,14 @@ export const indicators = {
                     name: 'Recomendaciones:',
                     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
                 },
-                {
-                    icon: 'pi pi-exclamation-triangle',
-                    name: 'Riesgo:',
-                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
-                },
             ]
         },
         {
             id: 2,
             name: 'PÉRDIDAS DE INVENTARIO',
             average: '50',
-            type: 'contables',
+            type: 'venta',
+            tab: 'operacionales',
             groupBy: 'emergency',
             monthOld: {
                 amount: '$100.000',
@@ -82,9 +79,10 @@ export const indicators = {
         },
         {
             id: 3,
-            name: 'MERCADERÍAS EN TRÁNSITO POR TIEMPO EXCESIVO',
+            name: 'NOTAS DE CREDITO MAYOR AL DOCUMENTO DE VENTA',
             average: '50',
-            type: 'contables',
+            type: 'lienas de credito',
+            tab: 'crediticios',
             groupBy: 'emergency',
             monthOld: {
                 amount: '$100.000',
@@ -127,9 +125,10 @@ export const indicators = {
         },
         {
             id: 4,
-            name: 'VARIACIÓN INUSUAL DE COSTOS',
+            name: 'CUENTAS CONTABLES CON SALDOS INVERSOS',
             average: '50',
-            type: 'contables',
+            type: 'Saldos',
+            tab: 'contables',
             groupBy: 'warning',
             monthOld: {
                 amount: '$100.000',
@@ -177,9 +176,10 @@ export const indicators = {
         },
         {
             id: 5,
-            name: 'VARIACIÓN ELEVADA DE PRECIOS',
+            name: 'Recepciones no encasilladas (WMS)',
             average: '50',
-            type: 'contables',
+            type: 'Recepcion nacional',
+            tab: 'logisticos',
             groupBy: 'warning',
             monthOld: {
                 amount: '$100.000',
@@ -222,9 +222,10 @@ export const indicators = {
         },
         {
             id: 6,
-            name: 'NOTAS DE CREDITOS MANUALES',
+            name: 'Importaciones en Tránsito sin recepción por tiempo excesivo',
             average: '50',
-            type: 'sociales',
+            type: 'Recepcion importaciones',
+            tab: 'logisticos',
             groupBy: 'warning',
             monthOld: {
                 amount: '$100.000',
@@ -267,9 +268,10 @@ export const indicators = {
         },
         {
             id: 7,
-            name: 'AJUSTES DE INVENTARIO',
+            name: 'Notas de Crédito Mayor a documento Venta',
             average: '50',
-            type: 'sociales',
+            type: 'Post venta',
+            tab: 'operacionales',
             groupBy: 'info',
             monthOld: {
                 amount: '$100.000',
@@ -312,9 +314,10 @@ export const indicators = {
         },
         {
             id: 8,
-            name: 'NOTAS DE CRÉDITO SIN VENTA ORIGINAL',
+            name: "SKU's en Staging por tiempo excesivo",
             average: '50',
-            type: 'sociales',
+            type: 'almacenamiento',
+            tab: 'logisticos',
             groupBy: 'info',
             monthOld: {
                 amount: '$100.000',
@@ -357,10 +360,62 @@ export const indicators = {
         },
         {
             id: 9,
-            name: 'VENTAS CON MODIFICACIÓN DE PRECIO',
+            name: 'Diarios Manuales posterior a fecha de cierre contable',
             average: '50',
-            type: 'sociales',
+            type: 'Ajustes',
+            tab: 'contables',
             groupBy: 'info',
+            monthOld: {
+                amount: '$100.000',
+                qty: '100 unid',
+            },
+            monthNew: {
+                amount: '$100.000',
+                qty: '100 unid',
+            },
+            status: 'active',
+            dateCreated: '11/28/2023',
+            dateModified: '23/10/2023',
+            tags: [
+                {
+                    icon: 'pi pi-list',
+                    name: 'Descripción:',
+                    description: 'Transacciones facturadas fuera del horario de atensión a público'
+                },
+                {
+                    icon: 'pi pi-exclamation-triangle',
+                    name: 'Riesgo:',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat'
+                },
+                {
+                    icon: 'pi pi-sitemap',
+                    name: 'Análisis de situación identificada:',
+                    description: 'Transacciones facturadas fuera del horario de atensión a público'
+                },
+                {
+                    icon: 'pi pi-sitemap',
+                    name: 'Análisis de situación identificada:',
+                    description: 'Transacciones facturadas fuera del horario de atensión a público'
+                },
+                {
+                    icon: 'pi pi-sitemap',
+                    name: 'Análisis de situación identificada:',
+                    description: 'Transacciones facturadas fuera del horario de atensión a público'
+                },
+                {
+                    icon: 'pi pi-flag',
+                    name: 'Recomendaciones:',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.'
+                }
+            ]
+        },
+        {
+            id: 10,
+            name: 'Sobre stock con compras',
+            average: '50',
+            type: 'Compras',
+            tab: 'operacionales',
+            groupBy: 'warning',
             monthOld: {
                 amount: '$100.000',
                 qty: '100 unid',

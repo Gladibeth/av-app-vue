@@ -1,4 +1,4 @@
-export const zones = {
+export const zones_indicator_1 = {
     header: {
         name: 'Nombre',
         qtyStores: 'Cantidad de Almacenes',

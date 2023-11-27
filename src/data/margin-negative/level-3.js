@@ -1,4 +1,4 @@
-export const orders = {
+export const orders_indicator_1 = {
     header: {
         dateCreated: 'Fecha Documento',
         docNum: 'Nro Documento',

@@ -1,4 +1,4 @@
-export const bills = {
+export const bills_indicator_3 = {
     header: {
         // name: 'Nombre',
         sku: 'SKU',

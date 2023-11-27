@@ -108,7 +108,7 @@ module.exports = {
         '0-auto': '0 auto',
       },
       gridTemplateColumns:{
-        'custom052': '0.5fr 2fr',
+        'custom052': '0.6fr 2fr',
         'custom211': '1.5fr 1fr 1fr',
         'custom13': '1fr 3fr',
         'custom-filter': '0.5fr 1fr 1fr 1fr 0.8fr',

@@ -6,7 +6,7 @@
         <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
           <div class="grid grid-cols-2 mb-8">
             <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-              Productos por hora
+              MARGEN NEGATIVO
             </span>
             <div class="flex justify-end">
               <Button class="mr-4"  >
@@ -26,21 +26,21 @@
           </div>
           <div class="grid grid-cols-2 gap-3">
             <DataTable tableClass="custom-table-blue" :value="data1Left">
-              <Column field="month" header=""></Column>
+              <Column field="month" header="Mes"></Column>
               <Column field="count" header="Cant."></Column>
               <Column field="amount" header="Monto"></Column>
             </DataTable>
             <DataTable tableClass="custom-table-yellow" :value="data1Right">
-              <Column field="month" header=""></Column>
-              <Column field="count" header="Cant."></Column>
-              <Column field="amount" header="Monto"></Column>
+              <Column field="month" header="Mes"></Column>
+              <Column field="count" header="Costo"></Column>
+              <Column field="amount" header="Margen"></Column>
             </DataTable>
           </div>
         </div>
         <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
           <div class="grid grid-cols-2 mb-8">
             <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-              Notas de créditos manuales
+              NOTAS DE CRÉDITOS MAYOR AL DOCUMENTO DE VENTA
             </span>
             <div class="flex justify-end">
               <Button class="mr-4"  >
@@ -60,16 +60,16 @@
 
           </div>
           <DataTable tableClass="custom-table-variable" :value="data2">
-            <Column field="reason" header="Motivo"></Column>
-            <Column field="jan" header="ENE"></Column>
-            <Column field="feb" header="FEB"></Column>
-            <Column field="mar" header="MAR"></Column>
+            <Column field="reason" header="Mes"></Column>
+            <Column field="jan" header="VENTA"></Column>
+            <Column field="feb" header="NOTAS DE CRÉDITO"></Column>
+            <Column field="mar" header="PÉRDIDA"></Column>
           </DataTable>
         </div>
         <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
           <div class="grid grid-cols-2 mb-8">
             <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-              Ajustes relevantes de existencia
+              PERDIDAS DE INVENTARIOS 
             </span>
             <div class="flex justify-end">
               <Button class="mr-4"  >
@@ -89,9 +89,9 @@
           </div>
           <DataTable tableClass="custom-table-variable" :value="data3">
             <Column field="type" header="Tipo ajuste"></Column>
-            <Column field="jan" header="ENE"></Column>
-            <Column field="feb" header="FEB"></Column>
-            <Column field="mar" header="MAR"></Column>
+            <Column field="ago" header="AGO"></Column>
+            <Column field="sep" header="SEP"></Column>
+            <Column field="oct" header="OCT"></Column>
           </DataTable>
         </div>
       </div>
@@ -296,30 +296,30 @@ export default{
     
 
     const data1Right = ref([
-      { month: 'ENE',count:250,amount: 'M $1.500'},
-      { month: 'FEB',count:200,amount: 'M $1.500'},
-      { month: 'MAR',count:180,amount: 'M $1.500'},
-      { month: 'ABR',count:200,amount: 'M $1.500'},
+      { month: 'JUL',count:'M $759.000',amount: 'M $219.000'},
+      { month: 'AGO',count:'M $696.000',amount: 'M $201.000'},
+      { month: 'SEP',count:'M $664.000',amount: 'M $192.000'},
+      { month: 'OCT',count:'M $632.860',amount: 'M $182.860'},
     ])
     const data1Left = ref([
-      { month: 'ENE',count:250,amount: 'M $1.500'},
-      { month: 'FEB',count:200,amount: 'M $1.500'},
-      { month: 'MAR',count:180,amount: 'M $1.500'},
-      { month: 'ABR',count:200,amount: 'M $1.500'},
+      { month: 'JUL',count:5682,amount: 'M $1.500'},
+      { month: 'AGO',count:5480,amount: 'M $1.500'},
+      { month: 'SEP',count:5390,amount: 'M $1.500'},
+      { month: 'OCT',count:5287,amount: 'M $1.500'},
     ])
 
     const data2 = ref([
-      { reason: 'Falla de producto',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { reason: 'Quiebre de stock',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { reason: 'Falla de producto',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { reason: 'Quiebre de stock',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
+      { reason: 'JUL',jan: 'M$ 120.000', feb: 'M$ 190.000',mar: 'M$ 70.000'},
+      { reason: 'AGO',jan: 'M$ 80.000', feb: 'M$ 100.000',mar: 'M$ 20.000'},
+      { reason: 'SEP',jan: 'M$ 180.000', feb: 'M$ 270.000',mar: 'M$ 90.000'},
+      { reason: 'OCT',jan: 'M$ 115.000', feb: 'M$190.000',mar: 'M$ 75.000'},
     ])
 
     const data3 = ref([
-      { type: 'Dif. inventario',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { type: 'Mermas',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { type: 'Dif. inventario',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
-      { type: 'Mermas',jan: 'M 10.000', feb: 'M 10.000',mar: 'M 10.000', amount: 'M $1.500'},
+      { type: 'Siniestros',ago: 'M$ 95.000', sep: 'M$ 55.000',oct: 'M$ 66.000'},
+      { type: 'Robos',ago: 'M$ 150.000', sep: 'M$ 100.000',oct: 'M$ 112.000'},
+      { type: 'Pérdida no explicada',ago: 'M$ 430.000', sep: 'M$ 290.000',oct: 'M$ 343.000'},
+      { type: 'Deterioros',ago: 'M$ 165.000', sep: 'M$ 150.000',oct: 'M$ 126.000'},
     ])
 
     const data4 = ref([
@@ -349,20 +349,27 @@ export default{
         const documentStyle = getComputedStyle(document.documentElement);
 
         return {
-            labels: ['ENE', 'FEB', 'MAR', 'ABR'],
+            labels: ['JUL', 'AGO', 'SEP', 'OCT'],
             datasets: [
                 {
-                    label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40],
+                    label: 'Ventas',
+                    data: [540000, 495000, 472000, 450000],
                     fill: false,
                     borderColor: documentStyle.getPropertyValue('--blue-700'),
                     tension: 0.4
                 },
                 {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90],
+                    label: 'Costo',
+                    data: [759000, 696000, 664000, 632860],
                     fill: false,
                     borderColor: documentStyle.getPropertyValue('--yellow-400'),
+                    tension: 0.4
+                },
+                {
+                    label: 'Margen',
+                    data: [219000, 201000, 192000, 182860],
+                    fill: false,
+                    borderColor: documentStyle.getPropertyValue('--red-400'),
                     tension: 0.4
                 }
             ]
@@ -410,22 +417,27 @@ export default{
         const documentStyle = getComputedStyle(document.documentElement);
 
         return {
-            labels: ['ENE', 'FEB', 'MAR',],
+            labels: ['JUL', 'AGO', 'SEP', 'OCT'],
             datasets: [
-             
                 {
                     type: 'bar',
-                    label: 'Dataset 2',
-                    backgroundColor: documentStyle.getPropertyValue('--yellow-400'),
-                    data: [21, 84, 24, 75, 37, 65, 34],
-                    borderColor: 'white',
-                    borderWidth: 2
+                    label: 'VENTA',
+                    backgroundColor: documentStyle.getPropertyValue('--red-700'),
+                    data: [120000, 80000, 180000, 115000]
                 },
                 {
                     type: 'bar',
-                    label: 'Dataset 3',
+                    label: 'NOTAS DE CRÉDITO',
                     backgroundColor: documentStyle.getPropertyValue('--blue-700'),
-                    data: [41, 52, 24, 74, 23, 21, 32]
+                    data: [190000, 100000, 270000, 190000]
+                },
+                {
+                    type: 'bar',
+                    label: 'PÉRDIDA',
+                    backgroundColor: documentStyle.getPropertyValue('--yellow-400'),
+                    data: [70000, 20000, 90000, 75000],
+                    borderColor: 'white',
+                    borderWidth: 2
                 }
             ]
         };
@@ -475,22 +487,35 @@ export default{
         const documentStyle = getComputedStyle(document.documentElement);
 
         return {
-            labels: ['ENE', 'FEB', 'MAR',],
+            labels: ['AGO', 'SEP', 'OCT'],
             datasets: [
-             
                 {
                     type: 'bar',
-                    label: 'Dataset 2',
-                    backgroundColor: documentStyle.getPropertyValue('--yellow-400'),
-                    data: [21, 84, 24, 75, 37, 65, 34],
+                    label: 'Siniestros',
+                    backgroundColor: documentStyle.getPropertyValue('--green-400'),
+                    data: [95000, 55000, 66000],
                     borderColor: 'white',
                     borderWidth: 2
                 },
                 {
                     type: 'bar',
-                    label: 'Dataset 3',
+                    label: 'Robos',
+                    backgroundColor: documentStyle.getPropertyValue('--red-700'),
+                    data: [150000, 100000, 112000]
+                },
+                {
+                    type: 'bar',
+                    label: 'Pérdida no explicada',
+                    backgroundColor: documentStyle.getPropertyValue('--yellow-400'),
+                    data: [430000, 290000, 343000],
+                    borderColor: 'white',
+                    borderWidth: 2
+                },
+                {
+                    type: 'bar',
+                    label: 'Deterioros',
                     backgroundColor: documentStyle.getPropertyValue('--blue-700'),
-                    data: [41, 52, 24, 74, 23, 21, 32]
+                    data: [165000, 150000, 126000]
                 }
             ]
         };

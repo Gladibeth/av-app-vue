@@ -11,7 +11,7 @@
                         <div class="p-3 pb-0">
                             <div class="flex">
                                 <span class="custom-icon-quare mr-3 bg-red-900"></span>
-                                <p class="text-gray-900">VENTAS CON MARGENES NEGATIVOS</p>
+                                <p class="text-gray-900">{{ title }}</p>
                             </div>
                             <Breadcrumb :model="items" class="pl-0 pt-2 text-sm text-gray-800" />
                         </div>
@@ -107,6 +107,9 @@ import DataTable from 'primevue/datatable'
 import Chart from 'primevue/chart';
 import Column from 'primevue/column'
 import Breadcrumb from 'primevue/breadcrumb';
+
+import { indicators } from '../data/indicators.js'
+
 //indicador 1
 import { zones_indicator_1 } from '../data/margin-negative/level-1.js'
 import { stores_indicator_1 } from '../data/margin-negative/level-2.js'
@@ -125,6 +128,7 @@ import { orders_indicator_3 } from '../data/note-credit/level-3.js'
 import { bills_indicator_3 } from '../data/note-credit/level-4.js'
 
 import { useRoute, useRouter } from 'vue-router';
+import { Title } from 'chart.js';
 
 export default{
     components: {
@@ -148,6 +152,7 @@ export default{
         const chartOptions = ref();
         const documentExport = ref('');
         const headOrder = ref(null);
+        const title = ref(null);
         
         const dateTo = ref(localStorage.getItem('dateTo'));
         const dateFrom = ref(localStorage.getItem('dateFrom'));
@@ -223,6 +228,8 @@ export default{
             headOrder.value = null
             items.value = []
 
+            title.value = indicators.value.find((item) => item.id == params.indicator_id).name;
+
             
             const routeSegments = route.path.split('/').filter(segment => segment !== '');
             let zones, stores, orders, bills;
@@ -233,6 +240,7 @@ export default{
                     stores = stores_indicator_1;
                     orders = orders_indicator_1;
                     bills  = bills_indicator_1;
+                    headOrder.value = orders_indicator_1.value.find((order) => order.id == params.order_id);
                     break;
                 case '2':
                     zones  = zones_indicator_2;
@@ -256,7 +264,6 @@ export default{
                     break;
                 case 'factura':
                     getData(bills,  params.order_id);
-                    headOrder.value = orders.value.find((order) => order.id == params.id);
                     break;
                 case 'zonas':
                     getData(zones,  params.indicator_id);
@@ -362,7 +369,8 @@ export default{
             dateTo,
             dateFrom,
             chart,
-            getRouterLink
+            getRouterLink,
+            title
         }
     },
 }

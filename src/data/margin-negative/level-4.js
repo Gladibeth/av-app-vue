@@ -11,7 +11,7 @@ export const bills_indicator_1 = {
     value: [
         {
             id: 1,
-            order_id: 1,
+            order_id: 2,
             docNum: '8081229',
             docType: 'Factura',
             docTime: '18:35:35',

@@ -6,15 +6,15 @@ export const orders_indicator_2 = {
         Nombre_Sucursal: 'Nombre Sucursal',
         Sku: 'SKU',
         Nombre_Sku: 'Nombre producto',
-        CodMayor: 'Cod. Mayor',
-        CodMenor: 'Cod. Menor',
-        amountPaid: 'Valor Pagado',
+        // CodMayor: 'Cod. Mayor',
+        // CodMenor: 'Cod. Menor',
+        // amountPaid: 'Valor Pagado',
         Nombre_Ajuste: 'Nombre Ajuste',
         Qty: 'Cantidad',
         Costo: 'Costo',
         Costo_Extendido: 'Costo Extendido',
-        Ref1: 'Ref 1',
-        Ref2: 'Ref 2',
+        // Ref1: 'Ref 1',
+        // Ref2: 'Ref 2',
     },
     value: [
       {
@@ -33028,12 +33028,12 @@ export const orders_indicator_2 = {
         name: 'los-almendros.xlsx'
     },
     chart: {
-        type: 'bar',
+        type: 'pie',
         labels: ['SINIESTRO', 'ROBO', 'SIN EXPLICACION', 'DETERIORO'],
         datasets: [
             {
                 label: 'Tipologia',
-                backgroundColor: '#022597',
+                backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0'],
                 data: [141, 250, 795, 551],
             },
         ]

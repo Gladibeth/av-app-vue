@@ -18,7 +18,7 @@
                 <template #title>
                   <p>
                     <i class="pi h-fit text-gray-900 mr-2" :class="item.icon"></i>
-                    <span class="text-gray-900 font-semibold font-inter text-sm">{{ item.name }}:</span>
+                    <span class="text-gray-900 font-semibold font-inter text-sm">{{ item.name  }}:</span>
                   </p>
                 </template>
                 <template #content>
@@ -64,7 +64,13 @@ export default{
       MultiSelect
   },
   setup(){
-    const listDocuments = ref(indicators.value)
+    const listDocuments = ref(indicators.value.map(x => {
+      return {
+        name: x.name.toUpperCase(),
+        id: x.id,
+        tags: x.tags,
+      }
+    }))
     const selectedIndicator = ref(listDocuments.value[0])
     const selectedDocument = ref(selectedIndicator.value);
     const searchDocument = ref(selectedIndicator.value.tags)

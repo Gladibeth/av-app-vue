@@ -2918,17 +2918,17 @@ export const orders_indicator_1 = {
     },
     chart: {
         type: 'bar',
-        labels: ['Ordenes'],
+        labels: ['9.520.850-9 Jorge Ramirez', '11.520.320-9 Marcela Hidalgo', '10.520.106-9 Lorena Campos', '27.520.850-9 Jonathan Josep'],
         datasets: [
             {
                 label: 'Boleta',
                 backgroundColor: '#022597',
-                data: [4],
+                data: [89, 79, 38, 184],
             },
             {
                 label: 'Factura',
                 backgroundColor: '#fdb954',
-                data: [6],
+                data: [-1675052, -1072821, -563849, -4183505],
             }
         ]
     }

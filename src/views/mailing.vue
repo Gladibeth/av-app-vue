@@ -17,18 +17,17 @@
             DE INDICADORES RELEVANTES
           </h1>
         </div>
-        <a href="#" class="button">Ver en sitio web</a>
+        <a href="https://demo.auditorvirtual.cl/" target="_blank" class="button">Ver en sitio web</a>
       </div>
     </div>
     <div class="mail-content">
       <p>Estimados:</p>
       <p>
-        A continuación le enviamos las alertas correspondientes al resumen diario con los indicaros más relevantes para su negocio.
-        Le recomendamos mantenerse informado de todos los indicadores.
+        A continuación le enviamos las alertas correspondientes al resumen diario con los indicaros más relevantes para su negocio. Le recomendamos mantenerse informado de todos los indicadores.
       </p>
       <p>
         <strong>
-          A continuación le mostramos un resumen de las alertas tempranas correspondientes al mes de enero 2023.
+          A continuación le mostramos un resumen de las alertas tempranas correspondientes al mes de Octubre  2023				
         </strong>
       </p>
 
@@ -36,7 +35,7 @@
         <div class="mail-card__header flex flex-between">
           <div class="flex">
             <span class="mail-card__icon"></span>
-            <h3>Proceso de venta</h3>
+            <h3> <strong>Proceso:  Operacional    >    Sub Proceso:   Ventas</strong></h3>
           </div>
           <span class="mail-card__tag">
             Urgencia
@@ -47,7 +46,7 @@
             <thead>
               <tr>
                 <th>Indicador</th>
-                <th>Monto de Ingreso en $</th>
+                <th>Monto en riesgo en M$</th>
                 <th>Cant. de Casos</th>
                 <th>Riesgos</th>
                 <th>Recomendación</th>
@@ -55,20 +54,12 @@
             </thead>
             <tbody>
               <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
+                <td>Venta con Margen Negativo</td>
+                <td>182.860</td>
+                <td>5.287 </td>
+                <td>Pérdidas financieras en el proceso de venta</td>
+                <td>Revisar procedimientos, controles en sistema de costeo y fijación de precios</td>
               </tr>
-              <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
-              </tr>
-       
             </tbody>
           </table>
         </div>
@@ -77,7 +68,7 @@
         <div class="mail-card__header flex flex-between">
           <div class="flex">
             <span class="mail-card__icon"></span>
-            <h3>Proceso de venta</h3>
+            <h3><strong>Proceso: Operacional    >    Sub Proceso:   Post Ventas</strong></h3>
           </div>
           <span class="mail-card__tag">
             Urgencia
@@ -88,7 +79,7 @@
             <thead>
               <tr>
                 <th>Indicador</th>
-                <th>Monto de Ingreso en $</th>
+                <th>Monto en riesgo en M$</th>
                 <th>Cant. de Casos</th>
                 <th>Riesgos</th>
                 <th>Recomendación</th>
@@ -96,20 +87,12 @@
             </thead>
             <tbody>
               <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
+                <td>Nota de Crédito mayor a documento de venta</td>
+                <td>75.000</td>
+                <td>45</td>
+                <td>Pérdidas financieras en el proceso de post venta</td>
+                <td>Revisar posibles problemas en los sistemas, configuración adecuada de perfiles de usuarios para intervenir los sistemas</td>
               </tr>
-              <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
-              </tr>
-       
             </tbody>
           </table>
         </div>
@@ -118,7 +101,7 @@
         <div class="mail-card__header flex flex-between">
           <div class="flex">
             <span class="mail-card__icon"></span>
-            <h3>Proceso de venta</h3>
+            <h3><strong>Proceso: Operacional  >   Sub Proceso:   Existencias/Inventario</strong></h3>
           </div>
           <span class="mail-card__tag">
             Urgencia
@@ -129,7 +112,7 @@
             <thead>
               <tr>
                 <th>Indicador</th>
-                <th>Monto de Ingreso en $</th>
+                <th>Monto en riesgo en M$</th>
                 <th>Cant. de Casos</th>
                 <th>Riesgos</th>
                 <th>Recomendación</th>
@@ -137,20 +120,12 @@
             </thead>
             <tbody>
               <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
+                <td>Perdidas de Inventarios</td>
+                <td>2.656.857</td>
+                <td>362.565 </td>
+                <td>Pérdidas de inventario, procedimientos de control insuficientes</td>
+                <td>Programar inventarios de control cíclicos y mejorar controles operacionales</td>
               </tr>
-              <tr>
-                <td>Venta con Descuento Alto</td>
-                <td>3,000,000</td>
-                <td>20</td>
-                <td>Financiero</td>
-                <td>Restringir aplicación de descuento</td>
-              </tr>
-       
             </tbody>
           </table>
         </div>

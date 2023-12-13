@@ -75,9 +75,15 @@ export const zones_indicator_1 = {
     ],
     children: 'almacenes',
     params: 'zone_id', 
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/1/zonas',
+        }
+    ],
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/zonas.xlsx',
-        name: 'zonas.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/venta-con-margen-negativo-zonas.xlsx',
+        name: 'venta-con-margen-negativo-zonas.xlsx'
     },
     chart: {
         type: 'bar',

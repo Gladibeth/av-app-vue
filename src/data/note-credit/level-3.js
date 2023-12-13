@@ -17,6 +17,25 @@ export const orders_indicator_3 = {
     },
     value: [
       {
+        "id": "37",
+        "indicator_id": "3",
+        "store_id": "1",
+        "FechaNCR": "6/27/2020",
+        "CorrelativoNCR": "45937320",
+        "TotalNCR": "539.970",
+        "FechaOriginal": "11/5/2019",
+        "SucOriginal": "960",
+        "boletaOriginal": "101459641",
+        "TotalOriginal": "263.364",
+        "IndDoc": "F",
+        "PerdidaFinanciera": "-276.606",
+        "TipoNcr": "M",
+        "hora_ncr": "11:37",
+        "cod_cajero_ncr": "167",
+        "nombre_cajero_ncr": "NATALY NATAL",
+        "cargo_cajero_ncr": "COTIZADOR POST VENTA"
+      },
+      {
         "id": "1",
         "indicator_id": "3",
         "store_id": "1",
@@ -701,25 +720,6 @@ export const orders_indicator_3 = {
         "cargo_cajero_ncr": "COTIZADOR POST VENTA"
       },
       {
-        "id": "37",
-        "indicator_id": "3",
-        "store_id": "1",
-        "FechaNCR": "6/27/2020",
-        "CorrelativoNCR": "45937320",
-        "TotalNCR": "539.970",
-        "FechaOriginal": "11/5/2019",
-        "SucOriginal": "960",
-        "boletaOriginal": "101459641",
-        "TotalOriginal": "263.364",
-        "IndDoc": "F",
-        "PerdidaFinanciera": "-276.606",
-        "TipoNcr": "M",
-        "hora_ncr": "11:37",
-        "cod_cajero_ncr": "167",
-        "nombre_cajero_ncr": "NATALY NATAL",
-        "cargo_cajero_ncr": "COTIZADOR POST VENTA"
-      },
-      {
         "id": "38",
         "indicator_id": "3",
         "store_id": "1",
@@ -930,10 +930,24 @@ export const orders_indicator_3 = {
       }
     ],
     children: 'factura',
+    breadcrumb: [
+      {
+          label: 'Zonas',
+          to: '/indicador/3/zonas',
+      },
+      {
+          label: 'Zona Metropolitana',
+          to: '/indicador/3/zonas/3/almacenes',
+      },
+      {
+        label: 'Lo Barnechea',
+        to: '/indicador/3/zonas/3/almacenes/1/ordenes',
+      },
+  ],
     params: 'order_id',
     document: {
-        url:  'https://demo.auditorvirtual.cl/export/los-almendros.xlsx',
-        name: 'los-almendros.xlsx'
+        url:  'https://demo.auditorvirtual.cl/export/nota-de-credito-mayor-al-documento-de-venta-lo-barnechea.xlsx',
+        name: 'nota-de-credito-mayor-al-documento-de-venta-lo-barnechea.xlsx'
     },
     chart: {
         type: 'bar',

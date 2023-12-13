@@ -14,22 +14,6 @@ export const orders_indicator_1 = {
     },
     value: [
             {
-              "id": "1",
-              "indicator_id": "1",
-              "store_id": "1",
-              "dateCreated": "23/10/2023",
-              "docNum": "10101536",
-              "docType": "Boleta",
-              "docTime": "21:25:00",
-              "numTerminal": "175",
-              "cashier": "10.520.106-9 Lorena Campos",
-              "qtyProduct": "1",
-              "cost": "26.820",
-              "amountPaid": "1.990",
-              "amount": "-24.830",
-              "margin": "-93%"
-            },
-            {
               "id": "2",
               "indicator_id": "1",
               "store_id": "1",
@@ -44,6 +28,22 @@ export const orders_indicator_1 = {
               "amountPaid": "19.990",
               "amount": "-151.010",
               "margin": "-88%"
+            },
+            {
+              "id": "1",
+              "indicator_id": "1",
+              "store_id": "1",
+              "dateCreated": "23/10/2023",
+              "docNum": "10101536",
+              "docType": "Boleta",
+              "docTime": "21:25:00",
+              "numTerminal": "175",
+              "cashier": "10.520.106-9 Lorena Campos",
+              "qtyProduct": "1",
+              "cost": "26.820",
+              "amountPaid": "1.990",
+              "amount": "-24.830",
+              "margin": "-93%"
             },
             {
               "id": "3",
@@ -2911,10 +2911,24 @@ export const orders_indicator_1 = {
             }
     ],
     children: 'factura',
+    breadcrumb: [
+      {
+          label: 'Zonas',
+          to: '/indicador/1/zonas',
+      },
+      {
+          label: 'Zona Norte',
+          to: '/indicador/1/zonas/1/almacenes',
+      },
+      {
+        label: 'Los Almendros',
+        to: '/indicador/1/zonas/1/almacenes/1/ordenes',
+      }
+  ],
     params: 'order_id',
     document: {
-        url:  'https://demo.auditorvirtual.cl/export/los-almendros.xlsx',
-        name: 'los-almendros.xlsx'
+        url:  'https://demo.auditorvirtual.cl/export/venta-con-margen-negativo-los-almendros.xlsx',
+        name: 'venta-con-margen-negativo-los-almendros.xlsx'
     },
     chart: {
         type: 'bar',

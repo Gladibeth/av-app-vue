@@ -8,6 +8,18 @@ export const zones_indicator_3 = {
     },
     value: [
         {
+            id: 3,
+            indicator_id: 3,
+            name: 'Zona Metropolitana',
+            qtyStores: '9',
+            valueSales: '27.838.412',
+            valueCredit: '45.944.885',
+            lossFinancial: '-18.106.472',
+            status: 'active',
+            dateCreated: '2021-01-01',
+            dateModified: '2021-01-01',
+        },
+        {
             id: 1,
             indicator_id: 3,
             name: 'Zona Norte',
@@ -27,18 +39,6 @@ export const zones_indicator_3 = {
             valueSales: '22.270.730',
             valueCredit: '36.755.908',
             lossFinancial: '-14.485.178',
-            status: 'active',
-            dateCreated: '2021-01-01',
-            dateModified: '2021-01-01',
-        },
-        {
-            id: 3,
-            indicator_id: 3,
-            name: 'Zona Metropolitana',
-            qtyStores: '9',
-            valueSales: '27.838.412',
-            valueCredit: '45.944.885',
-            lossFinancial: '-18.106.472',
             status: 'active',
             dateCreated: '2021-01-01',
             dateModified: '2021-01-01',
@@ -81,18 +81,24 @@ export const zones_indicator_3 = {
         }, 
     ],
     children: 'almacenes',
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/3/zonas',
+        }
+    ],
     params: 'zone_id', 
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/zonas.xlsx',
-        name: 'zonas.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/nota-de-credito-mayor-al-documento-de-venta-zonas.xlsx',
+        name: 'nota-de-credito-mayor-al-documento-de-venta-zonas.xlsx'
     },
     chart: {
         type: 'bar',
-        labels: ['Zona Norte', 'Zona Central', 'Zona Metropolitana', 'Zona Sur', 'Zona Austral'],
+        labels: [  "Zona Metropolitana", "Zona Norte", "Zona Central", "Zona Sur", "Zona Austral"],
         datasets: [
             {
                 label: 'Pérdida Financiera',
-                data: [-11588142, -14485178, -18106472, -16295825, -4666242],
+                data: [ -18106472, -11588142, -14485178, -16295825, -14666242 ],
                 fill: true,
                 borderColor: '#022597',
                 tension: 0.4,

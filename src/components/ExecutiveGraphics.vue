@@ -2,7 +2,7 @@
   <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
     <div class="grid grid-cols-2 mb-3">
       <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-        Evolution por documento
+        Evolutivo por documento
       </span>
       <div class="flex justify-end">
         <Button class="mr-4"  >
@@ -70,7 +70,7 @@
   <div class="bg-white px-8 py-8 shadow-3xl rounded-md flex flex-col justify-around">
     <div class="grid grid-cols-2 mb-3">
       <span class="text-gray-900 font-semibold font-inter text-sm uppercase flex items-center">
-        Evolution por documento
+        Evolutivo por documento
       </span>
       <div class="flex justify-end">
         <Button class="mr-4"  >
@@ -212,12 +212,20 @@ export default{
         const documentStyle = getComputedStyle(document.body);
 
         return {
-            labels: ['A', 'B', 'C'],
+            labels: ['Zona Norte', 'Zona Sur', 'Zona Centro'],
             datasets: [
                 {
                     data: [540, 325, 702],
-                    backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--cyan-200')],
-                    hoverBackgroundColor: [documentStyle.getPropertyValue('--blue-800'), documentStyle.getPropertyValue('--yellow-600'), documentStyle.getPropertyValue('--cyan-400')]
+                    backgroundColor: [
+                      documentStyle.getPropertyValue('--blue-700'), 
+                      documentStyle.getPropertyValue('--yellow-400'), 
+                      documentStyle.getPropertyValue('--cyan-200')
+                    ],
+                    hoverBackgroundColor: [
+                      documentStyle.getPropertyValue('--blue-800'), 
+                      documentStyle.getPropertyValue('--yellow-600'), 
+                      documentStyle.getPropertyValue('--cyan-400')
+                    ]
                 }
             ]
         };
@@ -245,12 +253,20 @@ export default{
         const documentStyle = getComputedStyle(document.body);
 
         return {
-            labels: ['A', 'B', 'C'],
+            labels: ['Boleta', 'Factura', 'Nota de Crédito'],
             datasets: [
                 {
                     data: [540, 325, 702],
-                    backgroundColor: [documentStyle.getPropertyValue('--blue-700'), documentStyle.getPropertyValue('--yellow-400'), documentStyle.getPropertyValue('--cyan-200')],
-                    hoverBackgroundColor: [documentStyle.getPropertyValue('--green-600'), documentStyle.getPropertyValue('--yellow-600'), documentStyle.getPropertyValue('--cyan-400')]
+                    backgroundColor: [
+                      documentStyle.getPropertyValue('--blue-700'), 
+                      documentStyle.getPropertyValue('--yellow-400'), 
+                      documentStyle.getPropertyValue('--cyan-200')
+                    ],
+                    hoverBackgroundColor: [
+                      documentStyle.getPropertyValue('--green-600'), 
+                      documentStyle.getPropertyValue('--yellow-600'), 
+                      documentStyle.getPropertyValue('--cyan-400')
+                    ]
                 }
             ]
         };
@@ -282,13 +298,13 @@ export default{
             labels: ['ENE', 'FEB', 'MAR', 'ABR', ],
             datasets: [
                 {
-                    label: 'My First dataset',
+                    label: 'Boleta',
                     backgroundColor: documentStyle.getPropertyValue('--blue-700'),
                     borderColor: documentStyle.getPropertyValue('--blue-700'),
                     data: [65, 59, 80, 81, 56, 55, 40]
                 },
                 {
-                    label: 'My Second dataset',
+                    label: 'Factura',
                     backgroundColor: documentStyle.getPropertyValue('--cyan-200'),
                     borderColor: documentStyle.getPropertyValue('--blue-100'),
                     data: [28, 48, 40, 19, 86, 27, 90]
@@ -340,7 +356,6 @@ export default{
                     }
                 }
             },
-            // categoryPercentage: 1
         };
     }
 

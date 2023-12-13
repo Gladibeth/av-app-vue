@@ -33022,10 +33022,24 @@ export const orders_indicator_2 = {
       }
     ],
     children: null,
+    breadcrumb: [
+      {
+          label: 'Zonas',
+          to: '/indicador/2/zonas',
+      },
+      {
+          label: 'Zona Sur',
+          to: '/indicador/2/zonas/4/almacenes',
+      },
+      {
+        label: 'El Volcán',
+        to: '/indicador/2/zonas/4/almacenes',
+    },
+  ],
     params: 'order_id',
     document: {
-        url:  'https://demo.auditorvirtual.cl/export/los-almendros.xlsx',
-        name: 'los-almendros.xlsx'
+        url:  'https://demo.auditorvirtual.cl/export/perdida-de-inventario-el-volcan.xlsx',
+        name: 'perdida-de-inventario-el-volcan.xlsx'
     },
     chart: {
         type: 'pie',

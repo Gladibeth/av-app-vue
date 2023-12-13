@@ -112,7 +112,7 @@
             <thead>
               <tr>
                 <th>Indicador</th>
-                <th>Monto en riesgo en M$</th>
+                <th>Monto en riesgo en MM$</th>
                 <th>Cant. de Casos</th>
                 <th>Riesgos</th>
                 <th>Recomendación</th>
@@ -134,7 +134,7 @@
 
     <p class="flex-center">
       <strong class="width-300 text-center">
-        Agradecemos su confienza, Equipo de Auditor Virtual
+        Agradecemos su confianza, Equipo de Auditor Virtual
       </strong>
     </p>
     

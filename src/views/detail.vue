@@ -175,7 +175,7 @@ export default{
         const getRouterLink = (data) => {
             const paramName = params.value;
             const paramValue = data.id;
-            console.log(paramName);
+
             return {
                 name: children.value,
                 params: {
@@ -206,7 +206,6 @@ export default{
         }
 
         const getLabel = (segment) =>{
-            console.log(segment);
             switch (segment) {
                 case 'almacenes':
                     console.log(route.params)
@@ -286,11 +285,8 @@ export default{
 
             //refactorizar  para que sea dinamico
             const test = router.getRoutes().find((route) => route.name == 'indicator');
-            test.children.forEach((route) => {
-                items.value.push({
-                    label: route.name,
-                    to: route.path
-                });
+            object.breadcrumb.forEach((route) => {
+                items.value.push(route);
             });
         }
 

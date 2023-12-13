@@ -30,9 +30,27 @@ export const bills_indicator_1 = {
         },
     ],
     children: null,
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/1/zonas',
+        },
+        {
+            label: 'Zona Norte',
+            to: '/indicador/1/zonas/1/almacenes',
+        },
+        {
+          label: 'Los Almendros',
+          to: '/indicador/1/zonas/1/almacenes/1/ordenes',
+        },
+        {
+            label: 'Factura - 8081229',
+            to: '/indicador/1/zonas/1/almacenes/1/ordenes/2/factura',
+        }
+    ],
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/boleta-10101536.xlsx',
-        name: 'boleta-10101536.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/venta-con-margen-negativo-factura-8081229.xlsx',
+        name: 'venta-con-margen-negativo-factura-8081229.xlsx'
     },
     chart: {
         type: 'bar',

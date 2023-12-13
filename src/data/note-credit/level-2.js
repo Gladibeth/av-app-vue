@@ -128,18 +128,29 @@ export const stores_indicator_3 = {
         },
     ],
     children: 'ordenes',
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/3/zonas',
+        },
+        {
+            label: 'Zona Metropolitana',
+            to: '/indicador/3/zonas/3/almacenes',
+        }
+    ],
     params: 'store_id',
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/zona-norte.xlsx',
-        name: 'zona-norte.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/nota-de-credito-mayor-al-documento-de-venta-zona-metropolitana.xlsx',
+        name: 'nota-de-credito-mayor-al-documento-de-venta-zona-metropolitana.xlsx'
     },
     chart: {
         type: 'bar',
-        labels: ['Lo Barnechea', 'Las Condes', 'La Reina', 'Núñoa', 'Colina', 'Melipilla', 'Buin', 'Linderos', 'Paine'],
+        labels: ["Lo Barnechea","Las Condes","La Reina","Ñuñoa","Colina","Melipilla","Buin","Linderos","Paine"
+        ],
         datasets: [
             {
                 label: 'Pérdida Financiera',
-                data: [	-2955775, -2660198, -2394178, -2154760, -1939284, -1745356, -1570820, -1413738, -1272364],
+                data: [	-2955775, -2660198, -2394178, -2154760, -1939284, -1745356, -1570820, -1413738, -1272364 ],
                 fill: true,
                 borderColor: '#022597',
                 tension: 0.4,

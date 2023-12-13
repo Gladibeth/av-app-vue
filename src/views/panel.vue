@@ -4,59 +4,59 @@
     <div class="max-w-medium w-1920 m-0-auto py-5">
 
       <!-- Title -->
-      <div class="flex justify-end mb-4">
-        <div class="flex items-center">
-          <Button icon="pi pi-ellipsis-v" :style="{border: '2px solid #8d8e93'}" class="border-2 text-gray-800 rounded-full py-1 px-2 text-md mr-6" label="Info" @click="visibleRight = true"  />
-          <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
-            <g clip-path="url(#clip0_57_268)">
-            <path d="M16.9999 2.83334C24.8242 2.83334 31.1666 9.17576 31.1666 17C31.1666 24.8243 24.8242 31.1667 16.9999 31.1667C9.17567 31.1667 2.83325 24.8243 2.83325 17C2.83325 9.17576 9.17567 2.83334 16.9999 2.83334ZM16.9999 22.6667C16.6242 22.6667 16.2639 22.8159 15.9982 23.0816C15.7325 23.3473 15.5833 23.7076 15.5833 24.0833C15.5833 24.4591 15.7325 24.8194 15.9982 25.0851C16.2639 25.3508 16.6242 25.5 16.9999 25.5C17.3756 25.5 17.736 25.3508 18.0017 25.0851C18.2673 24.8194 18.4166 24.4591 18.4166 24.0833C18.4166 23.7076 18.2673 23.3473 18.0017 23.0816C17.736 22.8159 17.3756 22.6667 16.9999 22.6667ZM16.9999 9.20834C15.6379 9.20834 14.3317 9.7494 13.3686 10.7125C12.4056 11.6756 11.8645 12.9818 11.8645 14.3438C11.8645 14.7195 12.0138 15.0798 12.2794 15.3455C12.5451 15.6112 12.9054 15.7604 13.2812 15.7604C13.6569 15.7604 14.0172 15.6112 14.2829 15.3455C14.5486 15.0798 14.6978 14.7195 14.6978 14.3438C14.6983 13.9259 14.8125 13.516 15.0282 13.1581C15.2439 12.8002 15.5529 12.5078 15.9221 12.3121C16.2914 12.1165 16.7069 12.0251 17.1241 12.0476C17.5414 12.0702 17.9447 12.2059 18.2907 12.4401C18.6367 12.6744 18.9124 12.9985 19.0882 13.3776C19.2641 13.7566 19.3334 14.1764 19.2889 14.5919C19.2443 15.0074 19.0875 15.4029 18.8352 15.736C18.583 16.0692 18.2448 16.3274 17.857 16.4829C16.8993 16.8654 15.5833 17.8458 15.5833 19.4792V19.8333C15.5833 20.2091 15.7325 20.5694 15.9982 20.8351C16.2639 21.1008 16.6242 21.25 16.9999 21.25C17.3756 21.25 17.736 21.1008 18.0017 20.8351C18.2673 20.5694 18.4166 20.2091 18.4166 19.8333C18.4166 19.4877 18.4874 19.3148 18.7863 19.1675L18.9096 19.1108C20.0157 18.6659 20.9326 17.8499 21.5031 16.803C22.0736 15.756 22.2621 14.5432 22.0363 13.3725C21.8106 12.2017 21.1846 11.146 20.2657 10.3863C19.3468 9.62651 18.1922 9.21008 16.9999 9.20834Z" fill="#A0A0A0"/>
-            </g>
-            <defs>
-            <clipPath id="clip0_57_268">
-            <rect width="34" height="34" fill="white"/>
-            </clipPath>
-            </defs>
-            </svg>
-        </div>
-      </div>
       <!-- Filter component -->
       <div class="bg-white grid grid-cols-custom-filter shadow-3xl gap-5 p-4 mb-6 ">
         <div class="flex items-center">
           <span>Filtar por:</span>
         </div>
         <div>
-          <div class="flex mb-3">
+          <div class="flex mt-3">
             <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M17 14C17.2652 14 17.5196 13.8946 17.7071 13.7071C17.8946 13.5196 18 13.2652 18 13C18 12.7348 17.8946 12.4804 17.7071 12.2929C17.5196 12.1054 17.2652 12 17 12C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14ZM17 18C17.2652 18 17.5196 17.8946 17.7071 17.7071C17.8946 17.5196 18 17.2652 18 17C18 16.7348 17.8946 16.4804 17.7071 16.2929C17.5196 16.1054 17.2652 16 17 16C16.7348 16 16.4804 16.1054 16.2929 16.2929C16.1054 16.4804 16 16.7348 16 17C16 17.2652 16.1054 17.5196 16.2929 17.7071C16.4804 17.8946 16.7348 18 17 18ZM13 13C13 13.2652 12.8946 13.5196 12.7071 13.7071C12.5196 13.8946 12.2652 14 12 14C11.7348 14 11.4804 13.8946 11.2929 13.7071C11.1054 13.5196 11 13.2652 11 13C11 12.7348 11.1054 12.4804 11.2929 12.2929C11.4804 12.1054 11.7348 12 12 12C12.2652 12 12.5196 12.1054 12.7071 12.2929C12.8946 12.4804 13 12.7348 13 13ZM13 17C13 17.2652 12.8946 17.5196 12.7071 17.7071C12.5196 17.8946 12.2652 18 12 18C11.7348 18 11.4804 17.8946 11.2929 17.7071C11.1054 17.5196 11 17.2652 11 17C11 16.7348 11.1054 16.4804 11.2929 16.2929C11.4804 16.1054 11.7348 16 12 16C12.2652 16 12.5196 16.1054 12.7071 16.2929C12.8946 16.4804 13 16.7348 13 17ZM7 14C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12C6.73478 12 6.48043 12.1054 6.29289 12.2929C6.10536 12.4804 6 12.7348 6 13C6 13.2652 6.10536 13.5196 6.29289 13.7071C6.48043 13.8946 6.73478 14 7 14ZM7 18C7.26522 18 7.51957 17.8946 7.70711 17.7071C7.89464 17.5196 8 17.2652 8 17C8 16.7348 7.89464 16.4804 7.70711 16.2929C7.51957 16.1054 7.26522 16 7 16C6.73478 16 6.48043 16.1054 6.29289 16.2929C6.10536 16.4804 6 16.7348 6 17C6 17.2652 6.10536 17.5196 6.29289 17.7071C6.48043 17.8946 6.73478 18 7 18Z" fill="#535353"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.75C7.19891 1.75 7.38968 1.82902 7.53033 1.96967C7.67098 2.11032 7.75 2.30109 7.75 2.5V3.263C8.412 3.25 9.141 3.25 9.943 3.25H14.056C14.859 3.25 15.588 3.25 16.25 3.263V2.5C16.25 2.30109 16.329 2.11032 16.4697 1.96967C16.6103 1.82902 16.8011 1.75 17 1.75C17.1989 1.75 17.3897 1.82902 17.5303 1.96967C17.671 2.11032 17.75 2.30109 17.75 2.5V3.327C18.01 3.347 18.256 3.372 18.489 3.403C19.661 3.561 20.61 3.893 21.359 4.641C22.107 5.39 22.439 6.339 22.597 7.511C22.75 8.651 22.75 10.106 22.75 11.944V14.056C22.75 15.894 22.75 17.35 22.597 18.489C22.439 19.661 22.107 20.61 21.359 21.359C20.61 22.107 19.661 22.439 18.489 22.597C17.349 22.75 15.894 22.75 14.056 22.75H9.944C8.106 22.75 6.65 22.75 5.511 22.597C4.339 22.439 3.39 22.107 2.641 21.359C1.893 20.61 1.561 19.661 1.403 18.489C1.25 17.349 1.25 15.894 1.25 14.056V11.944C1.25 10.106 1.25 8.65 1.403 7.511C1.561 6.339 1.893 5.39 2.641 4.641C3.39 3.893 4.339 3.561 5.511 3.403C5.744 3.372 5.991 3.347 6.25 3.327V2.5C6.25 2.30109 6.32902 2.11032 6.46967 1.96967C6.61032 1.82902 6.80109 1.75 7 1.75ZM5.71 4.89C4.705 5.025 4.125 5.279 3.702 5.702C3.279 6.125 3.025 6.705 2.89 7.711C2.867 7.881 2.848 8.061 2.832 8.25H21.168C21.152 8.06 21.133 7.881 21.11 7.71C20.975 6.705 20.721 6.125 20.298 5.702C19.875 5.279 19.295 5.025 18.289 4.89C17.262 4.752 15.907 4.75 14 4.75H10C8.093 4.75 6.739 4.752 5.71 4.89ZM2.75 12C2.75 11.146 2.75 10.403 2.763 9.75H21.237C21.25 10.403 21.25 11.146 21.25 12V14C21.25 15.907 21.248 17.262 21.11 18.29C20.975 19.295 20.721 19.875 20.298 20.298C19.875 20.721 19.295 20.975 18.289 21.11C17.262 21.248 15.907 21.25 14 21.25H10C8.093 21.25 6.739 21.248 5.71 21.11C4.705 20.975 4.125 20.721 3.702 20.298C3.279 19.875 3.025 19.295 2.89 18.289C2.752 17.262 2.75 15.907 2.75 14V12Z" fill="#535353"/>
             </svg>
-            <label>Fecha desde:</label>
+            <label class="mb-4">Fecha desde:</label>
           </div>
           <Calendar class="bg-gray-400  rounded p-3 outline-none w-full" v-model="dateTo" dateFormat="dd/mm/yy" showButtonBar />
         </div>
         <div>
-          <div class="flex mb-3">
+          <div class="flex mt-3">
             <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M17 14C17.2652 14 17.5196 13.8946 17.7071 13.7071C17.8946 13.5196 18 13.2652 18 13C18 12.7348 17.8946 12.4804 17.7071 12.2929C17.5196 12.1054 17.2652 12 17 12C16.7348 12 16.4804 12.1054 16.2929 12.2929C16.1054 12.4804 16 12.7348 16 13C16 13.2652 16.1054 13.5196 16.2929 13.7071C16.4804 13.8946 16.7348 14 17 14ZM17 18C17.2652 18 17.5196 17.8946 17.7071 17.7071C17.8946 17.5196 18 17.2652 18 17C18 16.7348 17.8946 16.4804 17.7071 16.2929C17.5196 16.1054 17.2652 16 17 16C16.7348 16 16.4804 16.1054 16.2929 16.2929C16.1054 16.4804 16 16.7348 16 17C16 17.2652 16.1054 17.5196 16.2929 17.7071C16.4804 17.8946 16.7348 18 17 18ZM13 13C13 13.2652 12.8946 13.5196 12.7071 13.7071C12.5196 13.8946 12.2652 14 12 14C11.7348 14 11.4804 13.8946 11.2929 13.7071C11.1054 13.5196 11 13.2652 11 13C11 12.7348 11.1054 12.4804 11.2929 12.2929C11.4804 12.1054 11.7348 12 12 12C12.2652 12 12.5196 12.1054 12.7071 12.2929C12.8946 12.4804 13 12.7348 13 13ZM13 17C13 17.2652 12.8946 17.5196 12.7071 17.7071C12.5196 17.8946 12.2652 18 12 18C11.7348 18 11.4804 17.8946 11.2929 17.7071C11.1054 17.5196 11 17.2652 11 17C11 16.7348 11.1054 16.4804 11.2929 16.2929C11.4804 16.1054 11.7348 16 12 16C12.2652 16 12.5196 16.1054 12.7071 16.2929C12.8946 16.4804 13 16.7348 13 17ZM7 14C7.26522 14 7.51957 13.8946 7.70711 13.7071C7.89464 13.5196 8 13.2652 8 13C8 12.7348 7.89464 12.4804 7.70711 12.2929C7.51957 12.1054 7.26522 12 7 12C6.73478 12 6.48043 12.1054 6.29289 12.2929C6.10536 12.4804 6 12.7348 6 13C6 13.2652 6.10536 13.5196 6.29289 13.7071C6.48043 13.8946 6.73478 14 7 14ZM7 18C7.26522 18 7.51957 17.8946 7.70711 17.7071C7.89464 17.5196 8 17.2652 8 17C8 16.7348 7.89464 16.4804 7.70711 16.2929C7.51957 16.1054 7.26522 16 7 16C6.73478 16 6.48043 16.1054 6.29289 16.2929C6.10536 16.4804 6 16.7348 6 17C6 17.2652 6.10536 17.5196 6.29289 17.7071C6.48043 17.8946 6.73478 18 7 18Z" fill="#535353"/>
               <path fill-rule="evenodd" clip-rule="evenodd" d="M7 1.75C7.19891 1.75 7.38968 1.82902 7.53033 1.96967C7.67098 2.11032 7.75 2.30109 7.75 2.5V3.263C8.412 3.25 9.141 3.25 9.943 3.25H14.056C14.859 3.25 15.588 3.25 16.25 3.263V2.5C16.25 2.30109 16.329 2.11032 16.4697 1.96967C16.6103 1.82902 16.8011 1.75 17 1.75C17.1989 1.75 17.3897 1.82902 17.5303 1.96967C17.671 2.11032 17.75 2.30109 17.75 2.5V3.327C18.01 3.347 18.256 3.372 18.489 3.403C19.661 3.561 20.61 3.893 21.359 4.641C22.107 5.39 22.439 6.339 22.597 7.511C22.75 8.651 22.75 10.106 22.75 11.944V14.056C22.75 15.894 22.75 17.35 22.597 18.489C22.439 19.661 22.107 20.61 21.359 21.359C20.61 22.107 19.661 22.439 18.489 22.597C17.349 22.75 15.894 22.75 14.056 22.75H9.944C8.106 22.75 6.65 22.75 5.511 22.597C4.339 22.439 3.39 22.107 2.641 21.359C1.893 20.61 1.561 19.661 1.403 18.489C1.25 17.349 1.25 15.894 1.25 14.056V11.944C1.25 10.106 1.25 8.65 1.403 7.511C1.561 6.339 1.893 5.39 2.641 4.641C3.39 3.893 4.339 3.561 5.511 3.403C5.744 3.372 5.991 3.347 6.25 3.327V2.5C6.25 2.30109 6.32902 2.11032 6.46967 1.96967C6.61032 1.82902 6.80109 1.75 7 1.75ZM5.71 4.89C4.705 5.025 4.125 5.279 3.702 5.702C3.279 6.125 3.025 6.705 2.89 7.711C2.867 7.881 2.848 8.061 2.832 8.25H21.168C21.152 8.06 21.133 7.881 21.11 7.71C20.975 6.705 20.721 6.125 20.298 5.702C19.875 5.279 19.295 5.025 18.289 4.89C17.262 4.752 15.907 4.75 14 4.75H10C8.093 4.75 6.739 4.752 5.71 4.89ZM2.75 12C2.75 11.146 2.75 10.403 2.763 9.75H21.237C21.25 10.403 21.25 11.146 21.25 12V14C21.25 15.907 21.248 17.262 21.11 18.29C20.975 19.295 20.721 19.875 20.298 20.298C19.875 20.721 19.295 20.975 18.289 21.11C17.262 21.248 15.907 21.25 14 21.25H10C8.093 21.25 6.739 21.248 5.71 21.11C4.705 20.975 4.125 20.721 3.702 20.298C3.279 19.875 3.025 19.295 2.89 18.289C2.752 17.262 2.75 15.907 2.75 14V12Z" fill="#535353"/>
             </svg>
-            <label>Fecha hasta:</label>
+            <label class="mb-4">Fecha hasta:</label>
           </div>
           <Calendar class="bg-gray-400  rounded p-3 outline-none w-full"  v-model="dateFrom" dateFormat="dd/mm/yy" showButtonBar />
         </div>
         <div class="card flex flex-col justify-content-center">
-          <div class="flex mb-3">
+          <div class="flex mt-3">
             <svg class="mr-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
               <path d="M3.5 11V14C3.5 17.771 3.5 19.657 4.672 20.828C5.843 22 7.729 22 11.5 22H12.5C16.271 22 18.157 22 19.328 20.828C20.5 19.657 20.5 17.771 20.5 14V11" stroke="#535353" stroke-width="1.5"/>
               <path d="M9.50001 2H14.5L15.152 8.517C15.195 8.95677 15.1454 9.40065 15.0066 9.82013C14.8677 10.2396 14.6426 10.6254 14.3457 10.9526C14.0489 11.2799 13.6868 11.5415 13.2828 11.7204C12.8788 11.8994 12.4419 11.9919 12 11.9919C11.5582 11.9919 11.1212 11.8994 10.7172 11.7204C10.3132 11.5415 9.95114 11.2799 9.65428 10.9526C9.35741 10.6254 9.13231 10.2396 8.99346 9.82013C8.8546 9.40065 8.80505 8.95677 8.84801 8.517L9.50001 2Z" stroke="#535353" stroke-width="1.5"/>
               <path d="M3.33002 5.351C3.50802 4.461 3.59702 4.016 3.77802 3.655C3.96662 3.27904 4.23217 2.94694 4.55743 2.68025C4.88269 2.41356 5.26039 2.21826 5.66602 2.107C6.05602 2 6.51002 2 7.41802 2H9.50002L8.77502 9.245C8.73676 9.65963 8.61428 10.0621 8.41508 10.4277C8.21588 10.7934 7.94414 11.1145 7.61651 11.3715C7.28888 11.6285 6.91225 11.8159 6.50968 11.9223C6.1071 12.0287 5.68706 12.0518 5.27525 11.9901C4.86344 11.9285 4.46853 11.7835 4.11471 11.564C3.76089 11.3445 3.45559 11.0551 3.21751 10.7135C2.97943 10.3718 2.81357 9.98523 2.73009 9.5773C2.64662 9.16936 2.64727 8.74867 2.73202 8.341L3.33002 5.351ZM20.67 5.351C20.492 4.461 20.403 4.016 20.222 3.655C20.0334 3.27904 19.7679 2.94694 19.4426 2.68025C19.1174 2.41356 18.7397 2.21826 18.334 2.107C17.944 2 17.49 2 16.582 2H14.5L15.225 9.245C15.2633 9.65963 15.3858 10.0621 15.585 10.4277C15.7842 10.7934 16.0559 11.1145 16.3835 11.3715C16.7112 11.6285 17.0878 11.8159 17.4904 11.9223C17.8929 12.0287 18.313 12.0518 18.7248 11.9901C19.1366 11.9285 19.5315 11.7835 19.8853 11.564C20.2392 11.3445 20.5445 11.0551 20.7825 10.7135C21.0206 10.3718 21.1865 9.98523 21.27 9.5773C21.3534 9.16936 21.3528 8.74867 21.268 8.341L20.67 5.351Z" stroke="#535353" stroke-width="1.5"/>
               <path d="M9.5 21.5V18.5C9.5 17.565 9.5 17.098 9.701 16.75C9.83265 16.522 10.022 16.3326 10.25 16.201C10.598 16 11.065 16 12 16C12.935 16 13.402 16 13.75 16.201C13.978 16.3326 14.1674 16.522 14.299 16.75C14.5 17.098 14.5 17.565 14.5 18.5V21.5" stroke="#535353" stroke-width="1.5" stroke-linecap="round"/>
             </svg>
-            <label>Surcusal</label>
+            <label class="mb-4">Surcusal</label>
           </div>
           <Dropdown v-model="selectedCity" :options="cities" optionLabel="name" placeholder="Todas las sucursales" class="w-full bg-gray-400 rounded " />
         </div>
-        <div class="flex items-end justify-center text-center">
+        <div class="flex items-end justify-center text-center flex-col">
+          <div class="flex justify-end mb-3">
+            <div class="flex items-center">
+              <Button icon="pi pi-ellipsis-v" :style="{border: '2px solid #8d8e93'}" class="border-2 text-gray-800 rounded-full py-1 px-2 text-md mr-6" label="Info" @click="visibleRight = true"  />
+              <svg xmlns="http://www.w3.org/2000/svg" width="34" height="34" viewBox="0 0 34 34" fill="none">
+                <g clip-path="url(#clip0_57_268)">
+                <path d="M16.9999 2.83334C24.8242 2.83334 31.1666 9.17576 31.1666 17C31.1666 24.8243 24.8242 31.1667 16.9999 31.1667C9.17567 31.1667 2.83325 24.8243 2.83325 17C2.83325 9.17576 9.17567 2.83334 16.9999 2.83334ZM16.9999 22.6667C16.6242 22.6667 16.2639 22.8159 15.9982 23.0816C15.7325 23.3473 15.5833 23.7076 15.5833 24.0833C15.5833 24.4591 15.7325 24.8194 15.9982 25.0851C16.2639 25.3508 16.6242 25.5 16.9999 25.5C17.3756 25.5 17.736 25.3508 18.0017 25.0851C18.2673 24.8194 18.4166 24.4591 18.4166 24.0833C18.4166 23.7076 18.2673 23.3473 18.0017 23.0816C17.736 22.8159 17.3756 22.6667 16.9999 22.6667ZM16.9999 9.20834C15.6379 9.20834 14.3317 9.7494 13.3686 10.7125C12.4056 11.6756 11.8645 12.9818 11.8645 14.3438C11.8645 14.7195 12.0138 15.0798 12.2794 15.3455C12.5451 15.6112 12.9054 15.7604 13.2812 15.7604C13.6569 15.7604 14.0172 15.6112 14.2829 15.3455C14.5486 15.0798 14.6978 14.7195 14.6978 14.3438C14.6983 13.9259 14.8125 13.516 15.0282 13.1581C15.2439 12.8002 15.5529 12.5078 15.9221 12.3121C16.2914 12.1165 16.7069 12.0251 17.1241 12.0476C17.5414 12.0702 17.9447 12.2059 18.2907 12.4401C18.6367 12.6744 18.9124 12.9985 19.0882 13.3776C19.2641 13.7566 19.3334 14.1764 19.2889 14.5919C19.2443 15.0074 19.0875 15.4029 18.8352 15.736C18.583 16.0692 18.2448 16.3274 17.857 16.4829C16.8993 16.8654 15.5833 17.8458 15.5833 19.4792V19.8333C15.5833 20.2091 15.7325 20.5694 15.9982 20.8351C16.2639 21.1008 16.6242 21.25 16.9999 21.25C17.3756 21.25 17.736 21.1008 18.0017 20.8351C18.2673 20.5694 18.4166 20.2091 18.4166 19.8333C18.4166 19.4877 18.4874 19.3148 18.7863 19.1675L18.9096 19.1108C20.0157 18.6659 20.9326 17.8499 21.5031 16.803C22.0736 15.756 22.2621 14.5432 22.0363 13.3725C21.8106 12.2017 21.1846 11.146 20.2657 10.3863C19.3468 9.62651 18.1922 9.21008 16.9999 9.20834Z" fill="#A0A0A0"/>
+                </g>
+                <defs>
+                <clipPath id="clip0_57_268">
+                <rect width="34" height="34" fill="white"/>
+                </clipPath>
+                </defs>
+                </svg>
+            </div>
+          </div>
           <Button :disabled="disableButtom" @click="filter" icon="pi pi-search" class="bg-orange-900 w-full rounded-none py-3 px-5 text-md  text-white" label="Buscar" />
 
         </div>
@@ -65,44 +65,40 @@
       <!-- Columns -->
       <div class="grid grid-cols-custom052 gap-4">
         <div class="bg-primary-400 p-4 h-65vh overflow-y-scroll main-scrollbar column-red">
-          <div class="flex justify-between items-center mb-4">
-            <Button 
-              @click="filterTab('operacionales')" 
-              rounded 
-              style="font-size: 12px;" 
-              label="Operacionales" 
-              :outlined="active !== 'operacionales'" 
-              class="bg-primary-500 font-medium text-primary-900  rounded-full p-2"
-              />
-              <Button 
-              @click="filterTab('logisticos')" 
-              rounded 
-              style="font-size: 12px;" 
-              label="Logisticos" 
-              :outlined="active !== 'logisticos'" 
-              class="bg-primary-500 font-medium text-primary-900  rounded-full p-2"
-              />
-              <Button 
-              @click="filterTab('crediticios')" 
-              rounded 
-              style="font-size: 12px;" 
-              label="Crediticios" 
-              :outlined="active !== 'crediticios'" 
-              class="bg-primary-500 font-medium text-primary-900  rounded-full p-2"
-              />
-              <Button 
-              @click="filterTab('contables')" 
-              rounded 
-              style="font-size: 12px;" 
-              label="contables" 
-              :outlined="active !== 'contables'" 
-              class="bg-primary-500 font-medium text-primary-900  rounded-full p-2"
-              />
+          <div class="flex justify-between items-center mb-4 content-process">
+            <ToggleButton 
+              v-model="operational"
+              style="font-size: 12px; width: 25%;" 
+              onLabel="Operacional" 
+              offLabel="Operacional" 
+              class="font-medium text-primary-900 p-2 w-25"
+            />
+            <ToggleButton 
+              v-model="logistic"
+              style="font-size: 12px; width: 25%;" 
+              onLabel="Logístico" 
+              offLabel="Logístico" 
+              class="font-medium text-primary-900 p-2 w-25"
+            />
+            <ToggleButton 
+              v-model="credit"
+              style="font-size: 12px; width: 25%;" 
+              onLabel="Credito" 
+              offLabel="Credito" 
+              class="font-medium text-primary-900 p-2 w-25"
+            />
+            <ToggleButton 
+              v-model="accounting"
+              style="font-size: 12px; width: 25%;" 
+              onLabel="Contable" 
+              offLabel="Contable" 
+              class="font-medium text-primary-900 p-2 w-25"
+            />
           </div>
 
               <div class="bg-white p-4 mb-4 rounded-lg h-20vh overflow-y-scroll main-scrollbar ">
                   <div v-for="group of uniqueGroups" :key="group" class="flex items-center">
-                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" />
+                      <Checkbox class="mr-2 mb-4 custom-checkbox" v-model="selectedGroup" :inputId="group.key" name="group" :value="group.name" :checked="true" />
                       <label class="pb-3 text-sm" :for="group.key">{{ group.name }}</label>
                   </div>
               </div>
@@ -271,6 +267,7 @@
 <script>
 import {defineAsyncComponent,onBeforeMount,ref, watch  } from 'vue'
 import Button from 'primevue/button'
+import ToggleButton from 'primevue/togglebutton';
 import Calendar from 'primevue/calendar'
 import Dropdown from 'primevue/dropdown'
 import Tag from 'primevue/tag'
@@ -285,7 +282,7 @@ import { zones_indicator_1 } from '../data/margin-negative/level-1.js'
 import { guide } from '../data/guide-informative.js'
 import { indicators } from '../data/indicators.js'
 import { isWithinInterval, parse, format } from 'date-fns';
-import { es } from 'date-fns/locale';
+import { es, is } from 'date-fns/locale';
 
 export default{
   components: {
@@ -300,7 +297,8 @@ export default{
       Checkbox,
       Slider,
       TabView,
-      TabPanel
+      TabPanel,
+      ToggleButton
   },
   setup(){
     const selectedCity = ref();
@@ -310,21 +308,32 @@ export default{
     const visibleRight = ref(false);
     const progressValue = ref(50);
     const allData = ref(indicators.value)
-    const allDataFilterByDate = ref([])
     const data = ref(indicators.value)
     const dataEmergency = ref( data.value.filter(item => item.groupBy === 'emergency'))
     const dataWarning = ref( data.value.filter(item => item.groupBy === 'warning'))
     const dataInfo = ref( data.value.filter(item => item.groupBy === 'info'))
     const active = ref(0);
     const guideInform = ref(guide.value)
-
+    const operational = ref(false)
+    const logistic = ref(false)
+    const credit = ref(false)
+    const accounting = ref(false)
+    const selectedGroup = ref([]);
+    const selectedIndicator = ref([]);
+    const activeButtons = ref([]);
+    const dataFilterDate = ref([])
+    const dataFiltersProcess = ref([]);
+    const dataFiltersSubProcess = ref([]);
+    const isFiltered = ref(false);
+    const value = ref([20, 80]);
+    const disableButtom = ref(false);
     const loadGroup = () => {
       return data.value.reduce((acc, indicator) => {
         const sanitizedGroupName = indicator.type.charAt(0).toUpperCase() + indicator.type.slice(1);
         const sanitizedGroupKey = sanitizedGroupName.replace(/\s+/g, '-');
         const existingGroup = acc.find(item => item.key === sanitizedGroupKey);
         if (!existingGroup) {
-            acc.push({ name: sanitizedGroupName, key: sanitizedGroupKey });
+            acc.push({ name: sanitizedGroupName, key: sanitizedGroupKey, checked: true });
         }
 
         return acc;
@@ -345,10 +354,6 @@ export default{
     }
     const uniqueGroups = ref(loadGroup());
     const uniqueIndicators = ref(loadIndicator());
-    const selectedGroup = ref([]);
-    const selectedIndicator = ref([]);
-    const value = ref([20, 80]);
-    const disableButtom = ref(false);
 
     const formatAndSetLocalStorage = (date, key) => {
       const formattedDate = formatDateFilter(date.value);
@@ -357,20 +362,27 @@ export default{
     };
 
     onBeforeMount(() => {
-      
-      console.log(localStorage.getItem('dateTo'), dateTo.value)
-
       dateTo.value = localStorage.getItem('dateTo') ?? dateTo.value;
       dateFrom.value = localStorage.getItem('dateFrom') ?? dateFrom.value;
-
-
 
       dateTo.value = formatAndSetLocalStorage(dateTo, 'dateTo');
       dateFrom.value = formatAndSetLocalStorage(dateFrom, 'dateFrom');
 
       filterOrders(dateTo.value, dateFrom.value);
+      selectedOptions()
     });
 
+    const selectedOptions = () => {
+      uniqueGroups.value.forEach(item => {
+        selectedGroup.value.push(item.name);
+      });
+
+      uniqueIndicators.value.forEach(item => {
+        selectedIndicator.value.push(item.name);
+      });
+    };
+
+    //start filter date
     const formatDateFilter = (fechaString) => {
       return parse(fechaString, 'dd/MM/yyyy', new Date());
     };
@@ -381,23 +393,17 @@ export default{
     };
 
     const formatLongDate = (dateString) => {
-      // Intentar parsear la fecha
+
       const date = parse(dateString, 'dd/MM/yyyy', new Date());
 
-      console.log(date)
-
-      // Verificar si la date ya está en formato largo
       const isLongDate = date.toString() !== 'Invalid Date';
 
-      // Si es date larga, devolver la date original
       if (!isLongDate) {
         return dateString;
       }
 
-      // Si no es date larga, formatearla en formato largo
       return date;
     };
-
 
     const filter = () => {
       const formattedDateTo = formatLongDate(dateTo.value);
@@ -410,6 +416,7 @@ export default{
     };
    
     function filterOrders(dateTo, dateFrom) {
+      isFiltered.value = true
       let result = filterOrdersByDateRange([dateTo, dateFrom], allData.value)
       
       if(result.length > 0){
@@ -417,7 +424,8 @@ export default{
       }else{
         data.value = allData.value
       }
-      allDataFilterByDate.value = data.value
+      dataFiltersProcess.value = data.value
+      dataFilterDate.value = data.value
       uniqueIndicators.value = loadIndicator();
     }
 
@@ -434,15 +442,16 @@ export default{
         return isWithinInterval(orderDate, { start, end });
       });
     }
+    //end filter date
 
-    const filterTab = (value) => {
-      active.value = value
-   
-      data.value = allDataFilterByDate.value.filter(item =>  item.tab === value)
-
-      uniqueIndicators.value = loadIndicator();
-      uniqueGroups.value = loadGroup();
-    }
+    watch(
+      () => data.value,
+      (value) => {
+        dataEmergency.value = value.filter(item => item.groupBy === 'emergency')
+        dataWarning.value = value.filter(item => item.groupBy === 'warning')
+        dataInfo.value = value.filter(item => item.groupBy === 'info')
+      }
+    )
 
     watch(
       () => [dateTo.value, dateFrom.value],
@@ -452,28 +461,47 @@ export default{
       }
     )
 
-    watch(
-      () => data.value,
-      (value) => {
-        dataEmergency.value = value.filter(item => item.groupBy === 'emergency')
-        dataWarning.value = value.filter(item => item.groupBy === 'warning')
-        dataInfo.value = value.filter(item => item.groupBy === 'info')
-        // uniqueIndicators.value = loadIndicator();
+    watch([operational, logistic, credit, accounting], (newValues, oldValues) => {
+
+      activeButtons.value = [];
+
+      if (operational.value) activeButtons.value.push('operacionales');
+      if (logistic.value) activeButtons.value.push('logisticos');
+      if (credit.value) activeButtons.value.push('crediticios');
+      if (accounting.value) activeButtons.value.push('contables');
+
+      data.value =  dataFilterDate.value.filter(function(item) {
+        let type = item.type.charAt(0).toUpperCase() + item.type.slice(1)
+        return activeButtons.value.includes(item.tab) && selectedGroup.value.includes(type)
+      });
+      
+      
+      if(activeButtons.value.length == 0){
+        data.value = dataFilterDate.value
+        
       }
-    )
+      uniqueIndicators.value = loadIndicator();
+      uniqueGroups.value = loadGroup();
+      dataFiltersProcess.value = data.value
+      selectedOptions()
+    });
 
     watch(
       () => selectedGroup.value,
       (value) => {
     
         if(value.length > 0){
-          data.value = allDataFilterByDate.value.filter(item => {
+          data.value = dataFiltersProcess.value.filter(item => {
             let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
             return Object.values(value).includes(name)
           })
         }else{
-          data.value = allDataFilterByDate.value
+          data.value = dataFiltersProcess.value
+          // selectedOptionsGroups()
+          // selectedOptionsIndicators()
         }
+
+        dataFiltersSubProcess.value = data.value
         uniqueIndicators.value = loadIndicator();
       }
     )
@@ -483,19 +511,12 @@ export default{
       (value) => {
 
         if(value.length > 0){
-          data.value = allDataFilterByDate.value.filter(item => {
+          data.value = dataFiltersSubProcess.value.filter(item => {
             let name = item.name.charAt(0).toUpperCase() + item.name.slice(1).toLowerCase();
             return Object.values(value).includes(name)
           })
         }else{
-          if(Object.values(selectedGroup.value).length == 0){
-            data.value = allDataFilterByDate.value
-          }else{
-            data.value = allDataFilterByDate.value.filter(item => {
-            let name = item.type.charAt(0).toUpperCase() + item.type.slice(1)
-            return Object.values(selectedGroup.value).includes(name)
-          })
-          }
+          data.value = dataFiltersSubProcess.value
         }
       }
     )
@@ -519,7 +540,10 @@ export default{
       filter,
       active,
       guideInform,
-      filterTab
+      operational,
+      logistic,
+      credit,
+      accounting,
     }
   }
 }
@@ -531,5 +555,19 @@ export default{
   .p-tabview-panels{
     @apply !bg-primary-400;
     @apply !p-0;
+  }
+
+  .content-process .p-togglebutton{
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .content-process .p-togglebutton:focus{
+    box-shadow: none !important;
+  }
+  
+  .content-process .p-highlight{
+    @apply !bg-primary-500;
+    box-shadow: none !important;
   }
 </style>

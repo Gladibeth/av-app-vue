@@ -53,9 +53,27 @@ export const bills_indicator_3 = {
         },
     ],
     children: null,
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/3/zonas',
+        },
+        {
+            label: 'Zona Metropolitana',
+            to: '/indicador/3/zonas/3/almacenes',
+        },
+        {
+          label: 'Lo Barnechea',
+          to: '/indicador/3/zonas/3/almacenes/1/ordenes',
+        },
+        {
+            label: 'Correlativo - 45937320',
+            to: '/indicador/3/zonas/3/almacenes/1/ordenes/37/factura',
+        }
+    ],
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/boleta-10101536.xlsx',
-        name: 'boleta-10101536.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/nota-de-credito-mayor-al-documento-de-venta-lo-barnechea.xlsx',
+        name: 'nota-de-credito-mayor-al-documento-de-venta-lo-barnechea.xlsx'
     },
     chart: {
         type: 'bar',

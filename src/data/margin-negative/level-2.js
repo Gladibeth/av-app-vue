@@ -118,10 +118,20 @@ export const stores_indicator_1 = {
         },
     ],
     children: 'ordenes',
+    breadcrumb: [
+        {
+            label: 'Zonas',
+            to: '/indicador/1/zonas',
+        },
+        {
+            label: 'Zona Norte',
+            to: '/indicador/1/zonas/1/almacenes',
+        }
+    ],
     params: 'store_id',
     document: {
-        url: 'https://demo.auditorvirtual.cl/export/zona-norte.xlsx',
-        name: 'zona-norte.xlsx'
+        url: 'https://demo.auditorvirtual.cl/export/venta-con-margen-negativo-zona-norte.xlsx',
+        name: 'venta-con-margen-negativo-zona-norte.xlsx'
     },
     chart: {
         type: 'bar',
@@ -137,7 +147,7 @@ export const stores_indicator_1 = {
             },
             {
                 label: 'Monto',
-                data: [-7495228, -44653546, -40188191, -32552435, -29297191, -25941857, -22923840, -19895724, -16876707],
+                data: [-7495228, -6524351, -5871916, -5284724, -4756252, -4280627, -3852564, -3467308, -3120577],
                 fill: true,
                 borderColor: '#fdb954',
                 tension: 0.4,
